@@ -1,0 +1,34 @@
+{
+    "name": "MarionettistInputs",
+    "maps": [
+        {
+            "name": "Marionettist",
+            "id": "8384ab5d-a4d2-4970-aee1-bc8236b35ab3",
+            "actions": [
+                {
+                    "name": "ToggleSticks",
+                    "type": "Button",
+                    "id": "f03c0bbd-2256-4948-b85e-887f3c66387b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cbe89d26-dd2d-4ea4-8c18-f99cb089b15a",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleSticks",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
