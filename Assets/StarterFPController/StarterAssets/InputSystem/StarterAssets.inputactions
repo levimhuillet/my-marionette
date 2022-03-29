@@ -49,6 +49,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RotateLStickLeft",
+                    "type": "Value",
+                    "id": "9ed4eec5-aebc-4dbc-befe-2dad350f6c87",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RotateLStickRight",
+                    "type": "Value",
+                    "id": "425d4ec9-757e-4711-a66c-5d0dc80936b6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RotateRStickLeft",
+                    "type": "Value",
+                    "id": "04fb1b07-98a4-415a-a500-96788733c069",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RotateRStickRight",
+                    "type": "Value",
+                    "id": "50d58c0a-e3f7-49f1-bcea-a50dac64d970",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -238,32 +274,48 @@
                     "action": "ToggleSticks",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Marionettist",
-            "id": "59be82c5-9d39-4817-9f1e-e7feb711b2b1",
-            "actions": [
-                {
-                    "name": "ToggleSticks",
-                    "type": "Button",
-                    "id": "3e4d238b-2284-4d34-bd21-6e5d19d30a08",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "19872a75-0a4c-4e62-ba47-3d57b6f0abc7",
-                    "path": "<Keyboard>/enter",
+                    "id": "1a8229ba-3001-43e7-ad89-47c7c20eb54c",
+                    "path": "<Keyboard>/#(F)",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "ToggleSticks",
+                    "groups": "KeyboardMouse",
+                    "action": "RotateLStickLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41b80323-fcee-4fdc-b112-980a34251e93",
+                    "path": "<Keyboard>/#(G)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "RotateLStickRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab01d791-abbd-4281-b795-5ee4c861f8dc",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "RotateRStickRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bff04a48-582e-41cb-a8ce-fb5b35e91e63",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "RotateRStickLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

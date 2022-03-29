@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sticks: {fileID: 1706443804}
+  m_rotationSpeed: 50
   m_puppetPrefab: {fileID: 5947357931762555242, guid: 4691f7a37c017494e9ad7de056bbb41e, type: 3}
   m_stage: {fileID: 862149784}
 --- !u!1 &327047622
@@ -1541,11 +1542,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae92dd9b86c7aae4e93173e1c3bbb9ee, type: 3}
---- !u!1 &1706443804 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6008276145186520050, guid: ae92dd9b86c7aae4e93173e1c3bbb9ee, type: 3}
+--- !u!114 &1706443804 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8670816407757964992, guid: ae92dd9b86c7aae4e93173e1c3bbb9ee, type: 3}
   m_PrefabInstance: {fileID: 1706443803}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4267b0fe96bf934898b5c18a16641a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1723321155
 GameObject:
   m_ObjectHideFlags: 0

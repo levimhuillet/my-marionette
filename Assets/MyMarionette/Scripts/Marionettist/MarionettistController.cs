@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace MyMarionette {
     public class MarionettistController : MonoBehaviour {
@@ -8,9 +9,9 @@ namespace MyMarionette {
         #region Editor
 
         [SerializeField]
-        private GameObject m_sticks; // Marionette sticks
-
-        private GameObject m_currPuppet;
+        private MarionetteSticks m_sticks; // Marionette sticks
+        [SerializeField]
+        private float m_rotationSpeed;
 
         // RTemporary for mockup
         [SerializeField]
@@ -18,14 +19,32 @@ namespace MyMarionette {
         [SerializeField]
         private GameObject m_stage;
 
-        #endregion
+        #endregion // Editor
 
-        #region Unity Callbacks
+        #region Member Variables
 
-        private void Awake() {
-            
+        private GameObject m_currPuppet;
+
+        #endregion // Member Variables
+
+        #region Rotate Input
+
+        struct StickRotation
+        {
+            public bool RotateLeft;
+            public bool RotateRight;
+        }
+        struct SticksRotateInput
+        {
+            public StickRotation Left;
+            public StickRotation Right;
         }
 
+        private SticksRotateInput m_sticksRotateInput;
+
+        #endregion // Rotate Input
+
+        #region Unity Callbacks
         private void Start() {
             // sticks start hidden
             m_sticks.gameObject.SetActive(false);
@@ -35,6 +54,9 @@ namespace MyMarionette {
 
         private void OnDestroy() {
             StashPuppet();
+        }
+        private void Update() {
+            ApplyInputs();
         }
 
         #endregion
@@ -72,6 +94,28 @@ namespace MyMarionette {
             // put away sticks
             m_sticks.gameObject.SetActive(false);
         }
+        void ApplyInputs() {
+            if (m_sticksRotateInput.Left.RotateLeft) {
+                RotateStick(m_sticks.Left, "left");
+            }
+            if (m_sticksRotateInput.Left.RotateRight) {
+                RotateStick(m_sticks.Left, "right");
+            }
+            if (m_sticksRotateInput.Right.RotateLeft) {
+                RotateStick(m_sticks.Right, "left");
+            }
+            if (m_sticksRotateInput.Right.RotateRight) {
+                RotateStick(m_sticks.Right, "right");
+            }
+        }
+        void RotateStick(GameObject stick, string dir) {
+            float rotateVal = m_rotationSpeed * Time.deltaTime;
+            if (dir == "right") {
+                rotateVal *= -1;
+            }
+
+            stick.transform.RotateAround(stick.transform.position, stick.transform.forward, rotateVal);
+        }
 
         #endregion
 
@@ -79,6 +123,22 @@ namespace MyMarionette {
 
         public void OnToggleSticks() {
             HandleToggleSticks();
+        }
+
+        public void OnRotateLStickLeft(InputValue val) {
+            HandleRotateLStickLeft(val);
+        }
+
+        public void OnRotateLStickRight(InputValue val) {
+            HandleRotateLStickRight(val);
+        }
+
+        public void OnRotateRStickLeft(InputValue val) {
+            HandleRotateRStickLeft(val);
+        }
+
+        public void OnRotateRStickRight(InputValue val) {
+            HandleRotateRStickRight(val);
         }
 
         #endregion
@@ -92,6 +152,18 @@ namespace MyMarionette {
             else {
                 StashPuppet();
             }
+        }
+        private void HandleRotateLStickLeft(InputValue val) {
+            m_sticksRotateInput.Left.RotateLeft = val.isPressed;
+        }
+        private void HandleRotateLStickRight(InputValue val) {
+            m_sticksRotateInput.Left.RotateRight = val.isPressed;
+        }
+        private void HandleRotateRStickLeft(InputValue val) {
+            m_sticksRotateInput.Right.RotateLeft = val.isPressed;
+        }
+        private void HandleRotateRStickRight(InputValue val) {
+            m_sticksRotateInput.Right.RotateRight = val.isPressed;
         }
 
         #endregion
