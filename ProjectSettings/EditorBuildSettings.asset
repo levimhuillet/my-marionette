@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MyMarionette/Scenes/MyMarionetteMockup.unity
     guid: 47b546a4bf202eb4db3391190d880b6c
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c0ae9c7925261b24b8b38a64f7d52ed4, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 395cb58a016cd1e48ac726a63ab450a1, type: 2}
