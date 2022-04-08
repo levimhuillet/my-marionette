@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2288,6 +2288,114 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 134621810, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.08679619
+      objectReference: {fileID: 0}
+    - target: {fileID: 134621810, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.03749483
+      objectReference: {fileID: 0}
+    - target: {fileID: 134621810, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.0014929931
+      objectReference: {fileID: 0}
+    - target: {fileID: 463177717, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.1575107
+      objectReference: {fileID: 0}
+    - target: {fileID: 463177717, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.2678329
+      objectReference: {fileID: 0}
+    - target: {fileID: 463177717, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.0057561845
+      objectReference: {fileID: 0}
+    - target: {fileID: 658438948, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.002107896
+      objectReference: {fileID: 0}
+    - target: {fileID: 658438948, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.017798364
+      objectReference: {fileID: 0}
+    - target: {fileID: 780743095, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.014218841
+      objectReference: {fileID: 0}
+    - target: {fileID: 780743095, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.2052622
+      objectReference: {fileID: 0}
+    - target: {fileID: 780743095, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.009758646
+      objectReference: {fileID: 0}
+    - target: {fileID: 822397167, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.014218785
+      objectReference: {fileID: 0}
+    - target: {fileID: 822397167, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.20526257
+      objectReference: {fileID: 0}
+    - target: {fileID: 822397167, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.009758546
+      objectReference: {fileID: 0}
+    - target: {fileID: 908753941, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.002107921
+      objectReference: {fileID: 0}
+    - target: {fileID: 908753941, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.017798357
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289765813, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.07889723
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289765813, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.03594983
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289765813, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.0018432669
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433837818, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.015979359
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433837818, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.019237304
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050545778, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.027645681
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050545778, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.32746613
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050545778, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.07652665
+      objectReference: {fileID: 0}
+    - target: {fileID: 2081632306, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.12215268
+      objectReference: {fileID: 0}
+    - target: {fileID: 2081632306, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.26060748
+      objectReference: {fileID: 0}
+    - target: {fileID: 2081632306, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.08877814
+      objectReference: {fileID: 0}
     - target: {fileID: 306221865792298138, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2354,11 +2462,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7819764139002694603, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 4.14
       objectReference: {fileID: 0}
     - target: {fileID: 7819764139002694603, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20
+      value: 16.22
       objectReference: {fileID: 0}
     - target: {fileID: 7819764139002694603, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_LocalRotation.w
