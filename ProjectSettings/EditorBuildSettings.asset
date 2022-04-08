@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/MyMarionette/Scenes/MainScene.unity
+    guid: 203df4071d50af745812ccc3030365ec
+  - enabled: 0
     path: Assets/MyMarionette/Scenes/MyMarionetteMockup.unity
     guid: 47b546a4bf202eb4db3391190d880b6c
   m_configObjects:
