@@ -561,6 +561,7 @@ MonoBehaviour:
   actManager: {fileID: 290653833}
   narrationManager: {fileID: 445003148}
   audienceManager: {fileID: 377536962}
+  gameplayManager: {fileID: 0}
 --- !u!4 &221173698
 Transform:
   m_ObjectHideFlags: 0
@@ -645,6 +646,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sequenceManager: {fileID: 1842961971}
+  actData: []
+  OnActCompleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &290653834
 Transform:
   m_ObjectHideFlags: 0
@@ -865,6 +870,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd4ab9dfe82dda48bed0d69c31fdf24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cheerClip: {fileID: 0}
+  sinisterLaughClip: {fileID: 0}
+  audienceMemberPrefab: {fileID: 0}
 --- !u!4 &377536963
 Transform:
   m_ObjectHideFlags: 0
@@ -3174,7 +3182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea29ac9a84989049967ca2c0856b5a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_audioData: []
+  audioData: []
 --- !u!82 &966377960
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4646,6 +4654,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c28872ac6712d418d1b09b8324a5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceData: []
+  OnSequenceCompleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1842961972
 Transform:
   m_ObjectHideFlags: 0
