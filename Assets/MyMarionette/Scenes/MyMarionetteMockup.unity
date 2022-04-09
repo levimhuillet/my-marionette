@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2302,15 +2302,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 463177717, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.1575107
+      value: -0.15751068
       objectReference: {fileID: 0}
     - target: {fileID: 463177717, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.2678329
+      value: 0.2678328
       objectReference: {fileID: 0}
     - target: {fileID: 463177717, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 0.0057561845
+      value: 0.005756162
       objectReference: {fileID: 0}
     - target: {fileID: 658438948, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -2322,15 +2322,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 780743095, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.014218841
+      value: 0.014218725
       objectReference: {fileID: 0}
     - target: {fileID: 780743095, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.2052622
+      value: 0.20526223
       objectReference: {fileID: 0}
     - target: {fileID: 780743095, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -0.009758646
+      value: -0.009758638
       objectReference: {fileID: 0}
     - target: {fileID: 822397167, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -2369,8 +2369,12 @@ PrefabInstance:
       value: -0.015979359
       objectReference: {fileID: 0}
     - target: {fileID: 1433837818, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.13547115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433837818, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 0.019237304
+      value: 0.019237306
       objectReference: {fileID: 0}
     - target: {fileID: 2050545778, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -2503,11 +2507,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7480112436442845553, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
   m_PrefabInstance: {fileID: 1325759103}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1325759105 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7775103442465782348, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
-  m_PrefabInstance: {fileID: 1325759103}
-  m_PrefabAsset: {fileID: 0}
 --- !u!137 &1325759106
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -2560,39 +2559,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_DirtyAABB: 0
---- !u!114 &1325759107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325759105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
 --- !u!1001 &1503069131
 PrefabInstance:
   m_ObjectHideFlags: 0
