@@ -17,15 +17,17 @@ public class CutsceneManager : MonoBehaviour
     private void HandleTheaterStateAdvanced(TheaterManager.State state) {
         switch (state) {
             case TheaterManager.State.PrePlay:
+                if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Cutscene Manager] Beginning the " + state + " Cutscene"); }
                 break;
             case TheaterManager.State.Intermission:
+                if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Cutscene Manager] Beginning the " + state + " Cutscene"); }
                 break;
             case TheaterManager.State.PostPlay:
+                if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Cutscene Manager] Beginning the " + state + " Cutscene"); }
                 break;
             default:
                 break;
         }
-        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("State advanced to " + state); }
     }
     
     #endregion // Event Handlers

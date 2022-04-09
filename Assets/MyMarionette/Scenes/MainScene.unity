@@ -557,11 +557,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264bcf5aa4fb0f649bb1fd6335ebcfdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DEBUGGING: 1
   chestManager: {fileID: 1936366935}
   actManager: {fileID: 290653833}
   narrationManager: {fileID: 445003148}
   audienceManager: {fileID: 377536962}
   gameplayManager: {fileID: 0}
+  OnStateAdvanced:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &221173698
 Transform:
   m_ObjectHideFlags: 0

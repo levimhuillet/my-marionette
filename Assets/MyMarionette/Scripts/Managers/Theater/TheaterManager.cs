@@ -100,8 +100,8 @@ public class TheaterManager : MonoBehaviour
 
         if (currStateIndex < states.Length) {
             currState = states[currStateIndex];
+            if (DEBUGGING) { PrintCurrState(); }
             OnStateAdvanced.Invoke(currState);
-            //if (DEBUGGING) { PrintCurrState(); }
         }
         else {
             // Error: tried to advance a state beyond what is defined
