@@ -10,12 +10,12 @@ public class Puppet : MonoBehaviour
     public GameObject Body;
     public GameObject RopeConnection;
 
-    void start() {
-        float Horizontal = Input.GetAxis("Horizontal");
-        float Vertical = Input.GetAxis("Vertical");
+    // void start() {
+    //     float Horizontal = Input.GetAxis("Horizontal");
+    //     float Vertical = Input.GetAxis("Vertical");
 
-        RopeConnection.GetComponent<Rigidbody>().AddForce(transform.right * Horizontal, ForceMode.Acceleration);
+    //     RopeConnection.GetComponent<Rigidbody>().AddForce(transform.right * Horizontal, ForceMode.Acceleration);
 
-        RopeConnection.GetComponent<Rigidbody>().AddForce(transform.forward * Vertical, ForceMode.Acceleration);
-    }
+    //     RopeConnection.GetComponent<Rigidbody>().AddForce(transform.forward * Vertical, ForceMode.Acceleration);
+    // }
 }
