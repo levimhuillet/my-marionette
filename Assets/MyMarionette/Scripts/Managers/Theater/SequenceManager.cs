@@ -52,6 +52,10 @@ public class SequenceManager : MonoBehaviour
 
     private string EvaluateNextSequence(Puppet puppetKey) {
 
+        if (puppetKey == null) {
+            return null;
+        }
+
         // Iterate through branches to find one triggered by given puppet
         foreach (Branch b in currSequenceData.Branches) {
             if (b.PuppetKey == puppetKey || b.PuppetKey == null) {
@@ -71,7 +75,20 @@ public class SequenceManager : MonoBehaviour
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Beginning Sequence " + currSequenceData.ID); }
 
         // TEMP HACK: print first narration subtitles in sequence
-        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Theater Manager] Subtitles: " + NarrationManager.Instance.GetNarrationData(currSequenceData.NarrationDataIDs[0]).Subtitle); }
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence (will be Narration) Manager] Subtitles: " + NarrationManager.Instance.GetNarrationData(currSequenceData.NarrationDataIDs[0]).Subtitle); }
+
+        // Hand off next clip to to Narration Manager
+        //{
+            // TODO: pass in puppet choice
+        string nextSequenceID = EvaluateNextSequence(null);
+
+        // If next sequence is null, return control to Act Manager to trigger next sequence
+        if (nextSequenceID == null) {
+            OnSequenceCompleted.Invoke();
+        }
+        //}
+
+        // When Narration Manager has finished the clip, come back for next clip
     }
 
     #endregion // Member Functions

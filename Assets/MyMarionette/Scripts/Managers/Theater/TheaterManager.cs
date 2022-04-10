@@ -77,7 +77,9 @@ public class TheaterManager : MonoBehaviour
     #region Event Handlers
 
     private void HandleActCompleted() {
-        // TODO: this
+        if (Instance.DEBUGGING) { Debug.Log("[Theater Manager] Received ActManager end of act. Loading next act..."); }
+
+        // TODO: Load next act
     }
 
     #endregion // Event Handlers

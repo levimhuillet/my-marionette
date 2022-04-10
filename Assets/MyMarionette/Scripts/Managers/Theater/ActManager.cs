@@ -9,7 +9,7 @@ public class ActManager : MonoBehaviour
 
     // Sub-Managers
     [SerializeField] private SequenceManager sequenceManager;
-    
+
     // Data
     [SerializeField] private ActData[] actData; // all act data
 
@@ -22,6 +22,9 @@ public class ActManager : MonoBehaviour
 
     // Data
     private ActData currActData;
+
+    // Sequence tracking
+    private int currSequenceIndex;
 
     #endregion // Member Variables
 
@@ -48,6 +51,7 @@ public class ActManager : MonoBehaviour
 
     private void LoadAct(ActData act) {
         currActData = act;
+        currSequenceIndex = -1;
     }
 
     private void BeginAct() {
@@ -60,8 +64,20 @@ public class ActManager : MonoBehaviour
         }
 
         // load first sequence
-        sequenceManager.LoadSequence(currActData.Sequences[0]);
-        sequenceManager.BeginSequence();
+        LoadNextSequence();
+    }
+
+    private void LoadNextSequence() {
+        currSequenceIndex++;
+
+        if (currSequenceIndex < currActData.Sequences.Length) {
+            sequenceManager.LoadSequence(currActData.Sequences[currSequenceIndex]);
+            sequenceManager.BeginSequence();
+        }
+        else {
+            // Pass control back to Theater Manager
+            OnActCompleted.Invoke();
+        }
     }
 
     #endregion // Member Functions
@@ -91,7 +107,10 @@ public class ActManager : MonoBehaviour
     #region Event Handlers 
 
     private void HandleSequenceCompleted() {
-        // TODO: this
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Act Manager] Received SequenceManager end of sequence. Loading next sequence..."); }
+        
+        // Load next sequence
+        LoadNextSequence();
     }
 
     private void HandleTheaterStateAdvanced(TheaterManager.State state) {
