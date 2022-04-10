@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class TheaterManager : MonoBehaviour
 {
@@ -60,7 +61,8 @@ public class TheaterManager : MonoBehaviour
 
     private void Start() {
         actManager.OnActCompleted.AddListener(HandleActCompleted);
-        CutsceneManager.Instance.OnCutsceneCompleted.AddListener(HandleActCompleted);
+        CutsceneManager.Instance.OnCutsceneCompleted.AddListener(HandleCutsceneCompleted);
+        chestManager.OnChoiceCompleted.AddListener(HandleChoiceCompleted);
 
         // define the game phases (states)
         InitializeStateProgression();
@@ -86,6 +88,13 @@ public class TheaterManager : MonoBehaviour
 
     private void HandleCutsceneCompleted() {
         if (Instance.DEBUGGING) { Debug.Log("[Theater Manager] Received CutsceneManager end of cutscene. Loading next state..."); }
+
+        // Load next phase
+        AdvanceState();
+    }
+
+    private void HandleChoiceCompleted() {
+        if (Instance.DEBUGGING) { Debug.Log("[Theater Manager] Received ChestManager end of choice. Loading next state..."); }
 
         // Load next phase
         AdvanceState();
@@ -118,8 +127,8 @@ public class TheaterManager : MonoBehaviour
             OnStateAdvanced.Invoke(currState);
         }
         else {
-            // Error: tried to advance a state beyond what is defined
-            Debug.Log("[Theater Manager] ERROR: tried to advance to an undefined state!");
+            // Roll Credits
+            SceneManager.LoadScene("Credits");
         }
     }
 

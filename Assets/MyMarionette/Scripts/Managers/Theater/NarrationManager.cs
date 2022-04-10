@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class NarrationManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class NarrationManager : MonoBehaviour
 
     // Data
     [SerializeField] private NarrationAudioData[] narrationData; // all narration data
+
+    // Subtitles
+    [SerializeField] private Text subtitleText;
 
     #endregion // Editor
 
@@ -46,6 +50,8 @@ public class NarrationManager : MonoBehaviour
         // check when audio has finished playing
         if (startedPlaying && !AudioManager.Instance.IsPlayingAudio()) {
             startedPlaying = false;
+            subtitleText.gameObject.SetActive(false);
+            subtitleText.text = "[Subtitles]";
             OnNarrationClipCompleted.Invoke();
         }
     }
@@ -63,6 +69,8 @@ public class NarrationManager : MonoBehaviour
         AudioManager.Instance.PlayAudioDirect(data, true);
         startedPlaying = true;
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Narration Manager] Subtitles: " + data.Subtitle); }
+        subtitleText.text = data.Subtitle;
+        subtitleText.gameObject.SetActive(true);
     }
 
     #endregion // Narration

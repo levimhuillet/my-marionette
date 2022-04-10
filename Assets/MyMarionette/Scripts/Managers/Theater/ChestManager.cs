@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class ChestManager : MonoBehaviour
 {
@@ -11,9 +12,22 @@ public class ChestManager : MonoBehaviour
 
     #endregion // Editor
 
+    #region Placeholder
+
+    // Placeholder
+    [SerializeField] private GameObject choiceUI;
+    [SerializeField] private Button choiceButton;
+
+    private void StartPlaceholder() {
+        choiceUI.SetActive(true);
+        choiceButton.onClick.AddListener(HandleChoice);
+    }
+
+    #endregion // Placeholder
+
     #region Events
 
-    public UnityEvent OnChoiceMade;
+    public UnityEvent OnChoiceCompleted;
 
     #endregion // Events
 
@@ -26,7 +40,11 @@ public class ChestManager : MonoBehaviour
     #region Unity Callbacks
 
     private void OnEnable() {
-        OnChoiceMade = new UnityEvent();
+        OnChoiceCompleted = new UnityEvent();
+    }
+
+    private void Start() {
+        TheaterManager.Instance.OnStateAdvanced.AddListener(HandleTheaterStateAdvanced);
     }
 
     #endregion // Unity Callbacks
@@ -38,4 +56,30 @@ public class ChestManager : MonoBehaviour
     }
 
     #endregion
+
+    #region Event Handlers
+
+    private void HandleTheaterStateAdvanced(TheaterManager.State state) {
+        switch (state) {
+            case TheaterManager.State.AdLib:
+                if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Chest Manager] Beginning " + state); }
+                StartPlaceholder();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void HandleChoice() {
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Chest Manager] Choice was made."); }
+
+        // hide UI
+        choiceUI.SetActive(false);
+        choiceButton.onClick.RemoveAllListeners();
+
+        // return control to Theater Manager
+        OnChoiceCompleted.Invoke();
+    }
+
+    #endregion // Event Handlers
 }
