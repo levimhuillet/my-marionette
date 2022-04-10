@@ -68,13 +68,6 @@ public class TheaterManager : MonoBehaviour
         InitializeStateProgression();
     }
 
-    private void Update() {
-        // TEMP HACK TO VERIFY FLOW OF CONTROL
-        if (currStateIndex < 2 /*5*/) {
-            // AdvanceState();
-        }
-    }
-
     #endregion // Unity Callbacks
 
     #region Event Handlers
