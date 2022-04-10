@@ -30,6 +30,7 @@ public class CutsceneManager : MonoBehaviour
 
     #region Events
 
+    [HideInInspector]
     public UnityEvent OnCutsceneCompleted;
 
     #endregion // Events

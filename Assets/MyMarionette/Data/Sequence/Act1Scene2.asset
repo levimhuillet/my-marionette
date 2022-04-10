@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
   m_Name: Act1Scene2
   m_EditorClassIdentifier: 
-  id: act1-scene2
+  id: a1s2
   narrationDataIDs:
   - a1s2c1
   - a1s2c2

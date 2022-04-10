@@ -42,6 +42,7 @@ public class TheaterManager : MonoBehaviour
 
     #region Events
 
+    [HideInInspector]
     public UnityEvent<State> OnStateAdvanced;
 
     #endregion // Events

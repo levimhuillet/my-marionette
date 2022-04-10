@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
   m_Name: Act1Scene1
   m_EditorClassIdentifier: 
-  id: act1-scene1
+  id: a1s1
   narrationDataIDs:
   - a1s1c1
   - a1s1c2
-  branches: []
+  branches:
+  - PuppetKey: {fileID: 0}
+    SequenceValueID: a1s2

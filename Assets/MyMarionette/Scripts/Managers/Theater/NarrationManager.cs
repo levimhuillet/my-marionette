@@ -31,6 +31,7 @@ public class NarrationManager : MonoBehaviour
 
     #region Events
 
+    [HideInInspector]
     public static UnityEvent OnNarrationClipCompleted;
 
     #endregion // Events
@@ -61,6 +62,8 @@ public class NarrationManager : MonoBehaviour
     #region Narration
 
     public void StartNarration(string narrationDataID) {
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Narration Manager] Starting narration."); }
+
         currNarrationData = GetNarrationData(narrationDataID);
         PlayNarration(currNarrationData);
     }
@@ -68,7 +71,6 @@ public class NarrationManager : MonoBehaviour
     private void PlayNarration(NarrationAudioData data) {
         AudioManager.Instance.PlayAudioDirect(data, true);
         startedPlaying = true;
-        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Narration Manager] Subtitles: " + data.Subtitle); }
         subtitleText.text = data.Subtitle;
         subtitleText.gameObject.SetActive(true);
     }

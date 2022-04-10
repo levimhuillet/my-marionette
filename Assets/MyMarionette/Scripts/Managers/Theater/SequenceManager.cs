@@ -29,18 +29,22 @@ public class SequenceManager : MonoBehaviour
     private SequenceData currSequenceData;
     private string[] currNarrationIDs;
 
+    // Narration
+    private int currNarrationIndex;
+
     #endregion // Member Variables
 
     #region Events
 
-    public UnityEvent OnSequenceCompleted;
+    [HideInInspector]
+    public UnityEvent OnAllSequencesCompleted;
 
     #endregion // Events
 
     #region Unity Callbacks
 
     private void OnEnable() {
-        OnSequenceCompleted = new UnityEvent();
+        OnAllSequencesCompleted = new UnityEvent();
     }
 
     private void Start() {
@@ -52,11 +56,6 @@ public class SequenceManager : MonoBehaviour
     #region Member Functions
 
     private string EvaluateNextSequence(Puppet puppetKey) {
-
-        if (puppetKey == null) {
-            return null;
-        }
-
         // Iterate through branches to find one triggered by given puppet
         foreach (Branch b in currSequenceData.Branches) {
             if (b.PuppetKey == puppetKey || b.PuppetKey == null) {
@@ -64,19 +63,24 @@ public class SequenceManager : MonoBehaviour
             }
         }
 
-        // No matching sequence
+        // No matching sequence (end of sequence chain, and thus end of act)
         return null;
     }
 
-    public void LoadSequence(SequenceData sequence) {
+    public void LoadSequence(string sequenceID) {
         // set current sequence
-        currSequenceData = sequence;
+        currSequenceData = GetSequenceData(sequenceID);
 
         // load current sequence's narration data IDs
         currNarrationIDs = currSequenceData.NarrationDataIDs;
+
+        // set the narration index to initial val
+        currNarrationIndex = 0;
+
+        BeginSequence();
     }
 
-    public void BeginSequence() {
+    private void BeginSequence() {
         if (currNarrationIDs.Length == 0) {
             Debug.Log("[Sequence Manager] WARNING: no narrations in sequence!");
 
@@ -88,7 +92,7 @@ public class SequenceManager : MonoBehaviour
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Beginning Sequence " + currSequenceData.ID); }
 
         // Hand off first clip to to Narration Manager
-        NarrationManager.Instance.StartNarration(currNarrationIDs[0]);
+        NarrationManager.Instance.StartNarration(currNarrationIDs[currNarrationIndex]);
     }
 
     #endregion // Member Functions
@@ -118,13 +122,35 @@ public class SequenceManager : MonoBehaviour
     #region Event Handlers
 
     private void HandleNarrationClipCompleted() {
-        // When Narration Manager has finished the clip, come back for next clip
-        // TODO: pass in puppet choice
-        string nextSequenceID = EvaluateNextSequence(null);
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Received NarrationManager end of clip."); }
 
-        // If next sequence is null, return control to Act Manager to trigger next sequence
-        if (nextSequenceID == null) {
-            OnSequenceCompleted.Invoke();
+        // When Narration Manager has finished the clip, come back for next clip
+        currNarrationIndex++;
+        if (currNarrationIndex < currNarrationIDs.Length) {
+            if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Loading next clip."); }
+
+            // next clip
+            NarrationManager.Instance.StartNarration(currNarrationIDs[currNarrationIndex]);
+        }
+        else {
+            if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] No more clips. Evaluating next sequence."); }
+
+            // reset narration index to initial val
+            currNarrationIndex = 0;
+
+            // When all clips are run through, evaluate next sequence
+            // TODO: pass in puppet choice
+            string nextSequenceID = EvaluateNextSequence(null);
+
+            if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Next sequence is " + nextSequenceID); }
+
+            // If next sequence is null, return control to Act Manager to trigger next sequence
+            if (nextSequenceID == null) {
+                OnAllSequencesCompleted.Invoke();
+                return;
+            }
+
+            LoadSequence(nextSequenceID);
         }
     }
 

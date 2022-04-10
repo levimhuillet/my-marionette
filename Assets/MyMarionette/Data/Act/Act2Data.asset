@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: Act2Data
   m_EditorClassIdentifier: 
   num: 2
-  sequences:
-  - {fileID: 11400000, guid: cf3271543dee0ef44aab65833b8f0f39, type: 2}
-  - {fileID: 11400000, guid: 0c268339df322534b89ef96ce30a7dc0, type: 2}
+  firstSequenceID: a2s1

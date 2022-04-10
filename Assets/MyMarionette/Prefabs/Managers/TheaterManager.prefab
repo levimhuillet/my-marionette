@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 156455baac8facc4c8085e9d3e04079f, type: 2}
   - {fileID: 11400000, guid: bb27fd58fcfdee042827bed011760e3c, type: 2}
   - {fileID: 11400000, guid: d17ab24d82a677843b5f04bbed8bbf10, type: 2}
+  subtitleText: {fileID: 0}
 --- !u!1 &1048955284428956533
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +348,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allPuppets: []
-  OnChoiceMade:
+  choiceUI: {fileID: 0}
+  choiceButton: {fileID: 0}
+  OnChoiceCompleted:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1048955286195387526
@@ -393,7 +396,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c28872ac6712d418d1b09b8324a5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequenceData: []
+  sequenceData:
+  - {fileID: 11400000, guid: 977edf01018478a44afe36b297e9d1fb, type: 2}
+  - {fileID: 11400000, guid: 51cbf35c31d565242beb1200137efe17, type: 2}
+  - {fileID: 11400000, guid: cf3271543dee0ef44aab65833b8f0f39, type: 2}
+  - {fileID: 11400000, guid: 0c268339df322534b89ef96ce30a7dc0, type: 2}
   OnSequenceCompleted:
     m_PersistentCalls:
       m_Calls: []

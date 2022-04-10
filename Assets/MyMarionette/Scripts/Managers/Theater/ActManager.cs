@@ -23,13 +23,11 @@ public class ActManager : MonoBehaviour
     // Data
     private ActData currActData;
 
-    // Sequence tracking
-    private int currSequenceIndex;
-
     #endregion // Member Variables
 
     #region Events
 
+    [HideInInspector]
     public UnityEvent OnActCompleted;
 
     #endregion // Events
@@ -41,7 +39,7 @@ public class ActManager : MonoBehaviour
     }
 
     private void Start() {
-        sequenceManager.OnSequenceCompleted.AddListener(HandleSequenceCompleted);
+        sequenceManager.OnAllSequencesCompleted.AddListener(HandleAllSequencesCompleted);
         TheaterManager.Instance.OnStateAdvanced.AddListener(HandleTheaterStateAdvanced);
     }
 
@@ -51,13 +49,12 @@ public class ActManager : MonoBehaviour
 
     private void LoadAct(ActData act) {
         currActData = act;
-        currSequenceIndex = -1;
     }
 
     private void BeginAct() {
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Act Manager] Beginning Act " + currActData.Num); }
 
-        if (currActData.Sequences.Length == 0) {
+        if (currActData.FirstSequenceID == null) {
             Debug.Log("[Act Manager] WARNING: no sequences in act.");
 
             // TODO: Handle no sequences
@@ -66,20 +63,7 @@ public class ActManager : MonoBehaviour
         }
 
         // load first sequence
-        LoadNextSequence();
-    }
-
-    private void LoadNextSequence() {
-        currSequenceIndex++;
-
-        if (currSequenceIndex < currActData.Sequences.Length) {
-            sequenceManager.LoadSequence(currActData.Sequences[currSequenceIndex]);
-            sequenceManager.BeginSequence();
-        }
-        else {
-            // Pass control back to Theater Manager
-            OnActCompleted.Invoke();
-        }
+        sequenceManager.LoadSequence(currActData.FirstSequenceID);
     }
 
     #endregion // Member Functions
@@ -108,11 +92,11 @@ public class ActManager : MonoBehaviour
 
     #region Event Handlers 
 
-    private void HandleSequenceCompleted() {
-        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Act Manager] Received SequenceManager end of sequence. Loading next sequence..."); }
-        
-        // Load next sequence
-        LoadNextSequence();
+    private void HandleAllSequencesCompleted() {
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Act Manager] Received SequenceManager end of all sequences. Loading next sequence..."); }
+
+        // Pass control back to Theater Manager
+        OnActCompleted.Invoke();
     }
 
     private void HandleTheaterStateAdvanced(TheaterManager.State state) {

@@ -8,10 +8,10 @@ public class ActData : ScriptableObject
     public int Num {
         get { return num; }
     }
-    public SequenceData[] Sequences {
-        get { return sequences; }
+    public string FirstSequenceID {
+        get { return firstSequenceID; }
     }
 
     [SerializeField] private int num;
-    [SerializeField] private SequenceData[] sequences;
+    [SerializeField] private string firstSequenceID;
 }

@@ -27,6 +27,7 @@ public class ChestManager : MonoBehaviour
 
     #region Events
 
+    [HideInInspector]
     public UnityEvent OnChoiceCompleted;
 
     #endregion // Events
