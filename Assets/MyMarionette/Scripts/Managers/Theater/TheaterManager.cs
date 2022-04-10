@@ -67,7 +67,7 @@ public class TheaterManager : MonoBehaviour
 
     private void Update() {
         // TEMP HACK TO VERIFY FLOW OF CONTROL
-        if (currStateIndex < 5) {
+        if (currStateIndex < 2 /*5*/) {
             AdvanceState();
         }
     }

@@ -89,18 +89,6 @@ public class SequenceManager : MonoBehaviour
 
         // Hand off first clip to to Narration Manager
         NarrationManager.Instance.StartNarration(currNarrationIDs[0]);
-
-        //{
-        // TODO: pass in puppet choice
-        string nextSequenceID = EvaluateNextSequence(null);
-
-        // If next sequence is null, return control to Act Manager to trigger next sequence
-        if (nextSequenceID == null) {
-            OnSequenceCompleted.Invoke();
-        }
-        //}
-
-        // When Narration Manager has finished the clip, come back for next clip
     }
 
     #endregion // Member Functions
@@ -130,7 +118,14 @@ public class SequenceManager : MonoBehaviour
     #region Event Handlers
 
     private void HandleNarrationClipCompleted() {
-        // TODO: this
+        // When Narration Manager has finished the clip, come back for next clip
+        // TODO: pass in puppet choice
+        string nextSequenceID = EvaluateNextSequence(null);
+
+        // If next sequence is null, return control to Act Manager to trigger next sequence
+        if (nextSequenceID == null) {
+            OnSequenceCompleted.Invoke();
+        }
     }
 
     #endregion

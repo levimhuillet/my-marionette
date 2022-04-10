@@ -21,6 +21,7 @@ public class NarrationManager : MonoBehaviour
 
     // Narration
     private NarrationAudioData currNarrationData;
+    private bool startedPlaying;
 
     #endregion // Member Variables
 
@@ -38,6 +39,15 @@ public class NarrationManager : MonoBehaviour
         }
 
         OnNarrationClipCompleted = new UnityEvent();
+        startedPlaying = false;
+    }
+
+    private void Update() {
+        // check when audio has finished playing
+        if (startedPlaying && !AudioManager.Instance.IsPlayingAudio()) {
+            startedPlaying = false;
+            OnNarrationClipCompleted.Invoke();
+        }
     }
 
     #endregion // Unity Callbacks
@@ -51,6 +61,7 @@ public class NarrationManager : MonoBehaviour
 
     private void PlayNarration(NarrationAudioData data) {
         AudioManager.Instance.PlayAudioDirect(data, true);
+        startedPlaying = true;
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Narration Manager] Subtitles: " + data.Subtitle); }
     }
 
