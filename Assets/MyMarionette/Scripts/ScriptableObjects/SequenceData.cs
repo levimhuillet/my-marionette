@@ -9,14 +9,14 @@ public class SequenceData : ScriptableObject
     public string ID {
         get { return id; }
     }
-    public string[] NarrationClipIDs {
-        get { return narrationClipIDs; }
+    public string[] NarrationDataIDs {
+        get { return narrationDataIDs; }
     }
     public List<Branch> Branches {
         get { return branches; }
     }
 
     [SerializeField] private string id;
-    [SerializeField] private string[] narrationClipIDs;
+    [SerializeField] private string[] narrationDataIDs;
     [SerializeField] private List<Branch> branches;
 }

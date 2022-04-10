@@ -16,6 +16,7 @@ public class TheaterManager : MonoBehaviour
     public enum State
     {
         PrePlay,
+        AdLib,
         Act1,
         Intermission,
         Act2,
@@ -65,7 +66,8 @@ public class TheaterManager : MonoBehaviour
     }
 
     private void Update() {
-        if (currStateIndex < 6) {
+        // TEMP HACK TO VERIFY FLOW OF CONTROL
+        if (currStateIndex < 5) {
             AdvanceState();
         }
     }
@@ -85,6 +87,7 @@ public class TheaterManager : MonoBehaviour
     private void InitializeStateProgression() {
         states = new State[] {
             State.PrePlay,
+            State.AdLib,
             State.Act1,
             State.Intermission,
             State.Act2,
@@ -105,7 +108,7 @@ public class TheaterManager : MonoBehaviour
         }
         else {
             // Error: tried to advance a state beyond what is defined
-            Debug.Log("ERROR: tried to advance to an undefined state!");
+            Debug.Log("[Theater Manager] ERROR: tried to advance to an undefined state!");
         }
     }
 
@@ -113,6 +116,9 @@ public class TheaterManager : MonoBehaviour
         switch (currState) {
             case State.PrePlay:
                 if (DEBUGGING) { Debug.Log("[Theater Manager] The play has not started yet."); }
+                break;
+            case State.AdLib:
+                if (DEBUGGING) { Debug.Log("[Theater Manager] The player is selecting puppets."); }
                 break;
             case State.Act1:
                 if (DEBUGGING) { Debug.Log("[Theater Manager] The play is in Act 1."); }

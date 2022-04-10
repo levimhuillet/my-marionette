@@ -11,7 +11,7 @@ public class ActManager : MonoBehaviour
     [SerializeField] private SequenceManager sequenceManager;
     
     // Data
-    [SerializeField] private ActData[] actData;
+    [SerializeField] private ActData[] actData; // all act data
 
     #endregion // Editor
 
@@ -39,6 +39,7 @@ public class ActManager : MonoBehaviour
 
     private void Start() {
         sequenceManager.OnSequenceCompleted.AddListener(HandleSequenceCompleted);
+        TheaterManager.Instance.OnStateAdvanced.AddListener(HandleTheaterStateAdvanced);
     }
 
     #endregion // Unity Callbacks
@@ -50,7 +51,17 @@ public class ActManager : MonoBehaviour
     }
 
     private void BeginAct() {
-        // TODO: this
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Act Manager] Beginning Act " + currActData.Num); }
+
+        if (currActData.Sequences.Length == 0) {
+            Debug.Log("[Act Manager] WARNING: no sequences in act.");
+            // TODO: End Act
+            return;
+        }
+
+        // load first sequence
+        sequenceManager.LoadSequence(currActData.Sequences[0]);
+        sequenceManager.BeginSequence();
     }
 
     #endregion // Member Functions
@@ -81,6 +92,23 @@ public class ActManager : MonoBehaviour
 
     private void HandleSequenceCompleted() {
         // TODO: this
+    }
+
+    private void HandleTheaterStateAdvanced(TheaterManager.State state) {
+        switch (state) {
+            case TheaterManager.State.Act1:
+                if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Act Manager] Loading " + state); }
+                LoadAct(GetActData(1));
+                BeginAct();
+                break;
+            case TheaterManager.State.Act2:
+                if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Act Manager] Loading " + state); }
+                LoadAct(GetActData(2));
+                BeginAct();
+                break;
+            default:
+                break;
+        }
     }
 
     #endregion // Event Handlers

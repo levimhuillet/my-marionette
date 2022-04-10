@@ -16,7 +16,7 @@ public class SequenceManager : MonoBehaviour
     #region Editor
 
     // Data
-    [SerializeField] private SequenceData[] sequenceData;
+    [SerializeField] private SequenceData[] sequenceData; // all sequence data
 
     #endregion // Editor
 
@@ -63,12 +63,15 @@ public class SequenceManager : MonoBehaviour
         return null;
     }
 
-    private void LoadSequence(SequenceData sequence) {
+    public void LoadSequence(SequenceData sequence) {
         currSequenceData = sequence;
     }
 
-    private void BeginSequence() {
-        // TODO: this
+    public void BeginSequence() {
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Beginning Sequence " + currSequenceData.ID); }
+
+        // TEMP HACK: print first narration subtitles in sequence
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Theater Manager] Subtitles: " + NarrationManager.Instance.GetNarrationData(currSequenceData.NarrationDataIDs[0]).Subtitle); }
     }
 
     #endregion // Member Functions

@@ -43,6 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1656683a869aacb4298646c676fe617d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  narrationData:
+  - {fileID: 11400000, guid: 4f6844ee874a88e46bd51a9b573eea7f, type: 2}
+  - {fileID: 11400000, guid: 35d8a47a6c53d054e870c869b2a35dc6, type: 2}
+  - {fileID: 11400000, guid: f6ad68b5d6c20284f9ce09d8b2340e2c, type: 2}
+  - {fileID: 11400000, guid: b8659bb5bb4e997478cdd92b6b9d4300, type: 2}
+  - {fileID: 11400000, guid: a6b231b8c6c53bc4f8c95e9fc9358ca4, type: 2}
+  - {fileID: 11400000, guid: 156455baac8facc4c8085e9d3e04079f, type: 2}
+  - {fileID: 11400000, guid: bb27fd58fcfdee042827bed011760e3c, type: 2}
+  - {fileID: 11400000, guid: d17ab24d82a677843b5f04bbed8bbf10, type: 2}
 --- !u!1 &1048955284428956533
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +240,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sequenceManager: {fileID: 1048955286195387527}
-  actData: []
+  actData:
+  - {fileID: 11400000, guid: da546096875de85418999cb82ae10404, type: 2}
+  - {fileID: 11400000, guid: af8d28dbb124033428b435591674c516, type: 2}
   OnActCompleted:
     m_PersistentCalls:
       m_Calls: []
@@ -283,11 +294,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264bcf5aa4fb0f649bb1fd6335ebcfdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DEBUGGING: 1
   chestManager: {fileID: 1048955286083239907}
   actManager: {fileID: 1048955284509942845}
   narrationManager: {fileID: 1048955284362286904}
   audienceManager: {fileID: 1048955284428956534}
   gameplayManager: {fileID: 3010876364293792298}
+  OnStateAdvanced:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1048955286083239906
 GameObject:
   m_ObjectHideFlags: 0
