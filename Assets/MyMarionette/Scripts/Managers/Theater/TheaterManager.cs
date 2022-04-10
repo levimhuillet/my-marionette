@@ -60,6 +60,7 @@ public class TheaterManager : MonoBehaviour
 
     private void Start() {
         actManager.OnActCompleted.AddListener(HandleActCompleted);
+        CutsceneManager.Instance.OnCutsceneCompleted.AddListener(HandleActCompleted);
 
         // define the game phases (states)
         InitializeStateProgression();
@@ -68,7 +69,7 @@ public class TheaterManager : MonoBehaviour
     private void Update() {
         // TEMP HACK TO VERIFY FLOW OF CONTROL
         if (currStateIndex < 2 /*5*/) {
-            AdvanceState();
+            // AdvanceState();
         }
     }
 
@@ -77,10 +78,17 @@ public class TheaterManager : MonoBehaviour
     #region Event Handlers
 
     private void HandleActCompleted() {
-        if (Instance.DEBUGGING) { Debug.Log("[Theater Manager] Received ActManager end of act. Loading next act..."); }
+        if (Instance.DEBUGGING) { Debug.Log("[Theater Manager] Received ActManager end of act. Loading next state..."); }
 
-        // TODO: Load next phase
-        // AdvanceState();
+        // Load next phase
+        AdvanceState();
+    }
+
+    private void HandleCutsceneCompleted() {
+        if (Instance.DEBUGGING) { Debug.Log("[Theater Manager] Received CutsceneManager end of cutscene. Loading next state..."); }
+
+        // Load next phase
+        AdvanceState();
     }
 
     #endregion // Event Handlers
