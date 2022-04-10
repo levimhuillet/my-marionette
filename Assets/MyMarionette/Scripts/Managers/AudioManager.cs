@@ -75,8 +75,15 @@ public class AudioManager : MonoBehaviour
 
     #region Audio Methods
 
-    public void PlayAudio(string clipID, bool isNarration, bool loop = false) {
+    public void PlayAudio(string clipID, bool loop = false) {
         AudioData newData = GetAudioData(clipID);
+        currData = newData;
+        LoadAudio(audioSrc, newData);
+        audioSrc.loop = loop;
+        audioSrc.Play();
+    }
+
+    public void PlayAudioDirect(AudioData newData, bool isNarration, bool loop = false) {
         currData = newData;
         LoadAudio(audioSrc, newData);
         audioSrc.loop = loop;

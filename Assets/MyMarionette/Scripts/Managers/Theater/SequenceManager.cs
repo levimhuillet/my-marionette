@@ -27,6 +27,7 @@ public class SequenceManager : MonoBehaviour
 
     // Data
     private SequenceData currSequenceData;
+    private string[] currNarrationIDs;
 
     #endregion // Member Variables
 
@@ -68,18 +69,29 @@ public class SequenceManager : MonoBehaviour
     }
 
     public void LoadSequence(SequenceData sequence) {
+        // set current sequence
         currSequenceData = sequence;
+
+        // load current sequence's narration data IDs
+        currNarrationIDs = currSequenceData.NarrationDataIDs;
     }
 
     public void BeginSequence() {
+        if (currNarrationIDs.Length == 0) {
+            Debug.Log("[Sequence Manager] WARNING: no narrations in sequence!");
+
+            // TODO: Handle no narrations
+
+            return;
+        }
+
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Beginning Sequence " + currSequenceData.ID); }
 
-        // TEMP HACK: print first narration subtitles in sequence
-        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence (will be Narration) Manager] Subtitles: " + NarrationManager.Instance.GetNarrationData(currSequenceData.NarrationDataIDs[0]).Subtitle); }
+        // Hand off first clip to to Narration Manager
+        NarrationManager.Instance.StartNarration(currNarrationIDs[0]);
 
-        // Hand off next clip to to Narration Manager
         //{
-            // TODO: pass in puppet choice
+        // TODO: pass in puppet choice
         string nextSequenceID = EvaluateNextSequence(null);
 
         // If next sequence is null, return control to Act Manager to trigger next sequence

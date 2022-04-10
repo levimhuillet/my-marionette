@@ -19,6 +19,9 @@ public class NarrationManager : MonoBehaviour
     // Maps
     private Dictionary<string, NarrationAudioData> narrationMap;
 
+    // Narration
+    private NarrationAudioData currNarrationData;
+
     #endregion // Member Variables
 
     #region Events
@@ -41,8 +44,14 @@ public class NarrationManager : MonoBehaviour
 
     #region Narration
 
-    public void PlayNarration(string narrationID) {
-        AudioManager.Instance.PlayAudio(narrationID, true);
+    public void StartNarration(string narrationDataID) {
+        currNarrationData = GetNarrationData(narrationDataID);
+        PlayNarration(currNarrationData);
+    }
+
+    private void PlayNarration(NarrationAudioData data) {
+        AudioManager.Instance.PlayAudioDirect(data, true);
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Narration Manager] Subtitles: " + data.Subtitle); }
     }
 
     #endregion // Narration

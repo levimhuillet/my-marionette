@@ -59,7 +59,9 @@ public class ActManager : MonoBehaviour
 
         if (currActData.Sequences.Length == 0) {
             Debug.Log("[Act Manager] WARNING: no sequences in act.");
-            // TODO: End Act
+
+            // TODO: Handle no sequences
+
             return;
         }
 
