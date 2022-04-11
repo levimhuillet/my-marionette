@@ -16,6 +16,7 @@ public class TheaterManager : MonoBehaviour
 
     public enum State
     {
+        Init,
         PrePlay,
         AdLib,
         Act1,
@@ -49,15 +50,16 @@ public class TheaterManager : MonoBehaviour
 
     #region Unity Callbacks
 
-    private void Awake() {
-        OnStateAdvanced = new UnityEvent<State>();
-
+    private void OnEnable() {
         if (Instance == null) {
             Instance = this;
         }
         else if (this != Instance) {
             Destroy(this.gameObject);
+            return;
         }
+
+        OnStateAdvanced = new UnityEvent<State>();
     }
 
     private void Start() {
@@ -67,6 +69,12 @@ public class TheaterManager : MonoBehaviour
 
         // define the game phases (states)
         InitializeStateProgression();
+    }
+
+    private void Update() {
+        if (currState == State.Init) {
+            AdvanceState();
+        }
     }
 
     #endregion // Unity Callbacks
@@ -100,6 +108,7 @@ public class TheaterManager : MonoBehaviour
 
     private void InitializeStateProgression() {
         states = new State[] {
+            State.Init,
             State.PrePlay,
             State.AdLib,
             State.Act1,

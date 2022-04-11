@@ -38,23 +38,22 @@ public class CutsceneManager : MonoBehaviour
     #region Unity Callbacks
 
     private void OnEnable() {
-        OnCutsceneCompleted = new UnityEvent();
-    }
-
-    private void Awake() {
         if (Instance == null) {
             Instance = this;
         }
         else if (this != Instance) {
             Destroy(this.gameObject);
+            return;
         }
+
+        OnCutsceneCompleted = new UnityEvent();
+
+        // Placeholder
+        isDisplaying = false;
     }
 
     private void Start() {
         TheaterManager.Instance.OnStateAdvanced.AddListener(HandleTheaterStateAdvanced);
-
-        // Placeholder
-        isDisplaying = false;
     }
 
     private void Update() {

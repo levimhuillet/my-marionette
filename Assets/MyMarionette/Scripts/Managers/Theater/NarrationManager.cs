@@ -42,6 +42,10 @@ public class NarrationManager : MonoBehaviour
         if (Instance == null) {
             Instance = this;
         }
+        else if (Instance != this) {
+            Destroy(this.gameObject);
+            return;
+        }
 
         OnNarrationClipCompleted = new UnityEvent();
         startedPlaying = false;
