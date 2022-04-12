@@ -11309,41 +11309,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1048955286083239907, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
-      propertyPath: allChoices.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1048955286083239907, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
-      propertyPath: allPuppets.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1048955286083239907, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
-      propertyPath: allPuppets.Array.data[0]
+      propertyPath: puppetPicker
       value: 
-      objectReference: {fileID: 5052405827120209831, guid: 4691f7a37c017494e9ad7de056bbb41e, type: 3}
-    - target: {fileID: 1048955286083239907, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
-      propertyPath: allPuppets.Array.data[1]
-      value: 
-      objectReference: {fileID: 355094156944535060, guid: dbcb6b7b37b9fe8409daaf59e8f6a7df, type: 3}
-    - target: {fileID: 1048955286083239907, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
-      propertyPath: allPuppets.Array.data[2]
-      value: 
-      objectReference: {fileID: 6098611189124543771, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
-    - target: {fileID: 1048955286083239907, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
-      propertyPath: allChoices.Array.data[0].SequenceID
-      value: a1s1c1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1048955286083239907, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
-      propertyPath: allChoices.Array.data[1].SequenceID
-      value: a1s2c1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1048955286083239907, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
-      propertyPath: allChoices.Array.data[0].ChoiceTitle
-      value: Protagonist
-      objectReference: {fileID: 0}
-    - target: {fileID: 1048955286083239907, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
-      propertyPath: allChoices.Array.data[1].ChoiceTitle
-      value: Antagonist
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 611248904}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
 --- !u!1 &449436349
@@ -13894,7 +13862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &611248903
 RectTransform:
   m_ObjectHideFlags: 0
