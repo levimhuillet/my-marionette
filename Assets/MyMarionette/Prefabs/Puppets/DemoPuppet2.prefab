@@ -143,6 +143,8 @@ MonoBehaviour:
   LeftStick: {fileID: 5521796134419793936, guid: 0bb6cb5cd4858b94fa6fc1491468ad99, type: 3}
   RightStick: {fileID: 5521796134419793936, guid: 0bb6cb5cd4858b94fa6fc1491468ad99, type: 3}
   Body: {fileID: 7469149819468537687}
+  RopeConnection: {fileID: 0}
+  Name: Demo Puppet 2
 --- !u!1 &2188313984986421228
 GameObject:
   m_ObjectHideFlags: 0

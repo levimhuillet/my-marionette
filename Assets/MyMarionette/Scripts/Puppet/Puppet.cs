@@ -10,6 +10,8 @@ public class Puppet : MonoBehaviour
     public GameObject Body;
     public GameObject RopeConnection;
 
+    public string Name;
+
     // void start() {
     //     float Horizontal = Input.GetAxis("Horizontal");
     //     float Vertical = Input.GetAxis("Vertical");
