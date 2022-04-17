@@ -13220,7 +13220,7 @@ GameObject:
   - component: {fileID: 1282552659}
   - component: {fileID: 1282552658}
   m_Layer: 0
-  m_Name: CM vcam1
+  m_Name: BossCloseupCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13268,14 +13268,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282552657}
-  m_LocalRotation: {x: -0.2801713, y: -0.052494913, z: 0.015330231, w: -0.958391}
-  m_LocalPosition: {x: 2.265654, y: -0.2665434, z: -0.094810486}
+  m_LocalRotation: {x: -0.11061023, y: -0.04906256, z: 0.024157701, w: -0.99235815}
+  m_LocalPosition: {x: -0.09, y: -8.53, z: 5.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 572138283}
   m_Father: {fileID: 688523397}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 32.591, y: 6.271, z: 0.002}
+  m_LocalEulerAnglesHint: {x: 12.821, y: 5.416, z: -2.18}
 --- !u!1 &1292780969
 GameObject:
   m_ObjectHideFlags: 0
@@ -17340,8 +17340,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847004613}
-  m_LocalRotation: {x: -0.2801713, y: -0.052494913, z: 0.015330231, w: -0.958391}
-  m_LocalPosition: {x: -0.03244114, y: -5.115815, z: -20.25391}
+  m_LocalRotation: {x: -0.11061023, y: -0.04906256, z: 0.024157701, w: -0.99235815}
+  m_LocalPosition: {x: -2.3880951, y: -13.3792715, z: -14.3591}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123730188}
