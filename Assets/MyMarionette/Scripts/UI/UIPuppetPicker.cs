@@ -70,7 +70,7 @@ public class UIPuppetPicker : MenuBase
 
                 // set spacing
                 float horizSpacing = colIndex * m_colSpacing;
-                newButton.gameObject.transform.position += new Vector3(horizSpacing, vertSpacing, 0);
+                newButton.gameObject.transform.position += new Vector3(horizSpacing, vertSpacing, -.01f);
 
                 // move to next column
                 colIndex++;
