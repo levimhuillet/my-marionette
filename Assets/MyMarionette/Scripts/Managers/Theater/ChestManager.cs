@@ -25,6 +25,7 @@ public class ChestManager : MonoBehaviour
     [SerializeField] private Puppet[] allPuppets;
     [SerializeField] private PuppetChoice[] allChoices;
     [SerializeField] private UIPuppetPicker puppetPicker;
+    [SerializeField] private GameObject PuppetChest;
 
     #endregion // Editor
 
@@ -38,8 +39,24 @@ public class ChestManager : MonoBehaviour
     #region Puppet Picker
 
     private void StartPuppetPicker() {
+        OpenChest();
         puppetPicker.OnChoiceConfirmed.AddListener(HandleChoiceConfirmed);
         puppetPicker.Open();
+    }
+
+    private void OpenChest() {
+        Animation[] anims;
+        anims = PuppetChest.GetComponents<Animation>();
+        anims[0].Play(); // first animation is OpenChest
+        // OpenAnim = anims[0];
+        // OpenAnim.Play();
+    }
+    private void CloseChest() {
+        Animation[] anims;
+        anims = PuppetChest.GetComponents<Animation>();
+        anims[1].Play(); // second animation is CloseChest
+        // OpenAnim = anims[1];
+        // OpenAnim.Play();
     }
 
     #endregion // Puppet Picker
