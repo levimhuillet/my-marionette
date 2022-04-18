@@ -47,16 +47,26 @@ public class UIPuppetPicker : MenuBase
             Puppet[] availablePuppets = ChestManager.Instance.GetPuppetOptions(choice);
             int numChoices = availablePuppets.Length;
 
+            // create a new title for the choice category
             GameObject newTitle = Instantiate(choiceTitlePrefab, m_buttonHolder.transform);
             newTitle.GetComponent<Text>().text = choice.ChoiceTitle;
 
+            // recaulculate row spacing
             float vertSpacing = rowIndex * -m_rowSpacing;
             newTitle.transform.position += new Vector3(0, vertSpacing, 0);
 
+            // generate a new choice button for each puppet you can choose from
             foreach (Puppet puppet in availablePuppets) {
-                GameObject newButton = Instantiate(puppetPickerButtonPrefab, m_buttonHolder.transform);
-                newButton.GetComponent<PuppetPickerButton>().SetPuppet(puppet);
-                generatedButtons.Add(newButton);
+                // set up puppet button
+                GameObject newButtonObj = Instantiate(puppetPickerButtonPrefab, m_buttonHolder.transform);
+                generatedButtons.Add(newButtonObj);
+
+                PuppetPickerButton newButton = newButtonObj.GetComponent<PuppetPickerButton>();
+                newButton.SetPuppet(puppet);
+
+                // Set button actions
+                // newButton.onClick.AddListener(delegate { UpdateSelectColor(newButton); }); // incomplete
+                newButton.onClick.AddListener(delegate { ChoosePuppet(choice, puppet); });
 
                 // set spacing
                 float horizSpacing = colIndex * m_colSpacing;
@@ -86,9 +96,41 @@ public class UIPuppetPicker : MenuBase
 
     #region Member Functions
 
+    private void ChoosePuppet(ChestManager.PuppetChoice choice, Puppet chosenPuppet) {
+        ChestManager.Instance.SetPuppetChoice(choice, chosenPuppet);
+    }
+
+    void UpdateSelectColor(Button b) {
+        Image bImage = b.GetComponent<Image>();
+
+        // TODO: specify and load these colors externally
+        if (bImage.color == Color.green) {
+            bImage.color = Color.white;
+        }
+        else {
+            bImage.color = Color.green;
+        }
+    }
+
     private void ConfirmChoice() {
-        // return control to the chest manager
-        OnChoiceConfirmed.Invoke();
+        bool choosingComplete = true;
+
+        ChestManager.PuppetChoice[] allChoices = ChestManager.Instance.GetAllPuppetChoices();
+
+        // check if any roles still need to be chosen
+        foreach (ChestManager.PuppetChoice choice in allChoices) {
+            if (choice.SelectedPuppet == null) {
+                choosingComplete = false;
+            }
+        }
+
+        if (choosingComplete) {
+            // return control to the chest manager
+            OnChoiceConfirmed.Invoke();
+        }
+        else {
+            if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[UI Puppet Picker] Not all roles have been chosen!"); }
+        }
     }
 
     #endregion // Member Functions
