@@ -139,8 +139,8 @@ public class SequenceManager : MonoBehaviour
             currNarrationIndex = 0;
 
             // When all clips are run through, evaluate next sequence
-            // TODO: pass in puppet choice
-            string nextSequenceID = EvaluateNextSequence(null);
+            ChestManager.PuppetChoice currChoice = ChestManager.Instance.GetPuppetChoice(currSequenceData.ID);
+            string nextSequenceID = EvaluateNextSequence(currChoice.SelectedPuppet);
 
             if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Next sequence is " + nextSequenceID); }
 

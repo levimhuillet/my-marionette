@@ -347,9 +347,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf0b2f2a8056c14197dfc69f88b358a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allPuppets: []
-  choiceUI: {fileID: 0}
-  choiceButton: {fileID: 0}
+  allPuppets:
+  - {fileID: 5052405827120209831, guid: 4691f7a37c017494e9ad7de056bbb41e, type: 3}
+  - {fileID: 355094156944535060, guid: dbcb6b7b37b9fe8409daaf59e8f6a7df, type: 3}
+  - {fileID: 6098611189124543771, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+  allChoices:
+  - SequenceID: a1s1
+    ChoiceTitle: Protagonist
+    SelectedPuppet: {fileID: 0}
+  - SequenceID: a1s2
+    ChoiceTitle: Antagonist
+    SelectedPuppet: {fileID: 0}
+  puppetPicker: {fileID: 0}
+  PuppetChest: {fileID: 0}
   OnChoiceCompleted:
     m_PersistentCalls:
       m_Calls: []
@@ -401,7 +411,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 51cbf35c31d565242beb1200137efe17, type: 2}
   - {fileID: 11400000, guid: cf3271543dee0ef44aab65833b8f0f39, type: 2}
   - {fileID: 11400000, guid: 0c268339df322534b89ef96ce30a7dc0, type: 2}
-  OnSequenceCompleted:
+  OnAllSequencesCompleted:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8160623427353146271

@@ -83,6 +83,12 @@ public class AudioManager : MonoBehaviour
         audioSrc.Play();
     }
 
+    public void PlayAudio(AudioClip clip, bool loop = false) {
+        audioSrc.clip = clip;
+        audioSrc.loop = loop;
+        audioSrc.Play();
+    }
+
     public void PlayAudioDirect(AudioData newData, bool isNarration, bool loop = false) {
         currData = newData;
         LoadAudio(audioSrc, newData);
