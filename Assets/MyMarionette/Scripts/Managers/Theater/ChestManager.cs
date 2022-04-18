@@ -38,9 +38,14 @@ public class ChestManager : MonoBehaviour
 
     #region Puppet Picker
 
+    // Chest Animations
+    [SerializeField] private AnimationClip Open;
+    [SerializeField] private AnimationClip Close;
+
     private void OpenChest() {
         Animation[] anims;
         anims = PuppetChest.GetComponents<Animation>();
+        PuppetChest.GetComponent<Animation>().clip = Open;
         anims[0].Play(); // first animation is OpenChest
         // OpenAnim = anims[0];
         // OpenAnim.Play();
@@ -48,7 +53,8 @@ public class ChestManager : MonoBehaviour
     private void CloseChest() {
         Animation[] anims;
         anims = PuppetChest.GetComponents<Animation>();
-        anims[1].Play(); // second animation is CloseChest
+        PuppetChest.GetComponent<Animation>().clip = Close;
+        anims[0].Play(); // second animation is CloseChest
         // OpenAnim = anims[1];
         // OpenAnim.Play();
     }
