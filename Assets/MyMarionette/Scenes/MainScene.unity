@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18077321, g: 0.22629716, b: 0.3071772, a: 1}
+  m_IndirectSpecularColor: {r: 0.18077356, g: 0.2262977, b: 0.30717808, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14634,6 +14634,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 913755993875531846, guid: 8afb0ae4a3a79d44e9844c053caa5c50, type: 3}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: 05241fb1570c95e429464aedd4b2f3eb, type: 2}
     - target: {fileID: 913755993875531847, guid: 8afb0ae4a3a79d44e9844c053caa5c50, type: 3}
       propertyPath: m_Name
       value: Puppet Chest

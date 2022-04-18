@@ -38,12 +38,6 @@ public class ChestManager : MonoBehaviour
 
     #region Puppet Picker
 
-    private void StartPuppetPicker() {
-        OpenChest();
-        puppetPicker.OnChoiceConfirmed.AddListener(HandleChoiceConfirmed);
-        puppetPicker.Open();
-    }
-
     private void OpenChest() {
         Animation[] anims;
         anims = PuppetChest.GetComponents<Animation>();
@@ -57,6 +51,11 @@ public class ChestManager : MonoBehaviour
         anims[1].Play(); // second animation is CloseChest
         // OpenAnim = anims[1];
         // OpenAnim.Play();
+    }
+    private void StartPuppetPicker() {
+        OpenChest();
+        puppetPicker.OnChoiceConfirmed.AddListener(HandleChoiceConfirmed);
+        puppetPicker.Open();
     }
 
     #endregion // Puppet Picker
@@ -176,6 +175,7 @@ public class ChestManager : MonoBehaviour
         // close the puppet picker UI
         puppetPicker.Close();
         puppetPicker.OnChoiceConfirmed.RemoveAllListeners();
+        CloseChest();
 
         // return control to Theater Manager
         OnChoiceCompleted.Invoke();
