@@ -30,6 +30,8 @@ public class AudienceManager : MonoBehaviour
 
     public void AssembleAudience() {
         Debug.Log("Assembling Audience");
+
+        // AudioManager.Instance.PlayAudio(cheerClip)
     }
 
     #endregion // Member Functions

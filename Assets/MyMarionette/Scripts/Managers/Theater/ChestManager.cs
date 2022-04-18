@@ -16,9 +16,27 @@ public class ChestManager : MonoBehaviour
 
     // Placeholder
     [SerializeField] private GameObject choiceUI;
+    [SerializeField] private GameObject PuppetChest;
     [SerializeField] private Button choiceButton;
+    // [SerializeField] private Animation OpenAnim;
 
-    private void StartPlaceholder() {
+    private void OpenChest() {
+        Animation[] anims;
+        anims = PuppetChest.GetComponents<Animation>();
+        anims[0].Play(); // first animation is OpenChest
+        // OpenAnim = anims[0];
+        // OpenAnim.Play();
+    }
+    private void CloseChest() {
+        Animation[] anims;
+        anims = PuppetChest.GetComponents<Animation>();
+        anims[1].Play(); // second animation is CloseChest
+        // OpenAnim = anims[1];
+        // OpenAnim.Play();
+    }
+    
+    private void StartPuppetPicker() {
+        OpenChest();
         choiceUI.SetActive(true);
         choiceButton.onClick.AddListener(HandleChoice);
     }
@@ -64,7 +82,7 @@ public class ChestManager : MonoBehaviour
         switch (state) {
             case TheaterManager.State.AdLib:
                 if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Chest Manager] Beginning " + state); }
-                StartPlaceholder();
+                StartPuppetPicker();
                 break;
             default:
                 break;
