@@ -38,6 +38,7 @@ public class ChestManager : MonoBehaviour
     #region Puppet Picker
 
     private void StartPuppetPicker() {
+        puppetPicker.OnChoiceConfirmed.AddListener(HandleChoiceConfirmed);
         puppetPicker.Open();
     }
 
@@ -152,8 +153,12 @@ public class ChestManager : MonoBehaviour
         }
     }
 
-    private void HandleChoice() {
+    private void HandleChoiceConfirmed() {
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Chest Manager] Choice was made."); }
+
+        // close the puppet picker UI
+        puppetPicker.Close();
+        puppetPicker.OnChoiceConfirmed.RemoveAllListeners();
 
         // return control to Theater Manager
         OnChoiceCompleted.Invoke();
