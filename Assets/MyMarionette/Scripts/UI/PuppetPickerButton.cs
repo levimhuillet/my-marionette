@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PuppetPickerButton : Button
 {
     [SerializeField] private Text puppetName;
-    private Puppet puppet;
+    //private Puppet puppet;
 
     #region Unity Callbacks
 
@@ -22,7 +22,7 @@ public class PuppetPickerButton : Button
 
     public void SetPuppet(Puppet puppet) {
         this.puppetName.text = puppet.Name;
-        this.puppet = puppet;
+        //this.puppet = puppet;
     }
 
     #endregion // Member Functions

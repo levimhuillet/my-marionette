@@ -133,6 +133,11 @@ public class ChestManager : MonoBehaviour
         return allPuppets;
     }
 
+    public void SetPuppetChoice(PuppetChoice choice, Puppet chosenPuppet) {
+        int choiceIndex = Array.IndexOf(allChoices, choice);
+        allChoices[choiceIndex].SelectedPuppet = chosenPuppet;
+    }
+
     #endregion
 
     #region Data Retrieval
@@ -149,9 +154,7 @@ public class ChestManager : MonoBehaviour
             return choiceMap[sequenceID];
         }
         else {
-            throw new KeyNotFoundException(string.Format("No Puppet Choice " +
-                "with sequenceID `{0}' is in the database", sequenceID
-            ));
+            return new PuppetChoice();
         }
     }
 
