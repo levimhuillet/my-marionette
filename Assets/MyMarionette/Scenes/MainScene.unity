@@ -7336,10 +7336,10 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 114192265110269832, guid: 8737e54e219fcb24bbc67c1425496690, type: 2}
     value: {fileID: 1847004619}
-  - key: {fileID: -5978909599009968853, guid: 8737e54e219fcb24bbc67c1425496690, type: 2}
-    value: {fileID: 741021529}
   - key: {fileID: -4636968292516319081, guid: 8737e54e219fcb24bbc67c1425496690, type: 2}
     value: {fileID: 1106976605}
+  - key: {fileID: -6131520718480296930, guid: 8737e54e219fcb24bbc67c1425496690, type: 2}
+    value: {fileID: 741021529}
   m_ExposedReferences:
     m_References:
     - 1938598b10542f547af2ad061682fed4: {fileID: 1282552658}
@@ -9416,6 +9416,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.27171236
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: c23b6daa2ac803747ab266ba7959e4ae, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cbec2d30d38904e20b20fbdffb20b5a7, type: 2}
     - target: {fileID: 6297742718447231466, guid: c23b6daa2ac803747ab266ba7959e4ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.09633811
