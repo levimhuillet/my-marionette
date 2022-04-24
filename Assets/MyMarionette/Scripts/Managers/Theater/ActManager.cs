@@ -64,6 +64,9 @@ public class ActManager : MonoBehaviour
 
         // load first sequence
         sequenceManager.LoadSequence(currActData.FirstSequenceID);
+
+        // Turn on lights
+        LightManager.Instance.TurnOnLights(2);
     }
 
     #endregion // Member Functions

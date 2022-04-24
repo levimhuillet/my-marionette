@@ -84,6 +84,9 @@ public class TheaterManager : MonoBehaviour
     private void HandleActCompleted() {
         if (Instance.DEBUGGING) { Debug.Log("[Theater Manager] Received ActManager end of act. Loading next state..."); }
 
+        // Turn off lights
+        LightManager.Instance.TurnOffLights(2);
+
         // Load next phase
         AdvanceState();
     }
