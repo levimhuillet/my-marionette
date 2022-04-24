@@ -78,9 +78,6 @@ public class CutsceneManager : MonoBehaviour
             case TheaterManager.State.PrePlay:
                 if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Cutscene Manager] Beginning the " + state + " Cutscene"); }
                 StartPlaceholder(state);
-
-                // Turn on lights
-                LightManager.Instance.TurnOnLights(2);
                 break;
             case TheaterManager.State.Intermission:
                 if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Cutscene Manager] Beginning the " + state + " Cutscene"); }
