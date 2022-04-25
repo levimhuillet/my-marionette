@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2ba54fb135beb4e938ea7d4b3664cf, type: 3}
+  m_Name: A0S1C03
+  m_EditorClassIdentifier: 
+  m_id: a0s1c03
+  m_clip: {fileID: 8300000, guid: ce7e3aa2e9db8eb499381eaa742afcf3, type: 3}
+  m_volume: 1
+  m_pan: 0
+  subtitle: " I\u2019ll make sure the guys have the scene set up for you at least
+    an hour beforehand. For now, the script\u2019s still a little bit up in the air.
+    Richard told me to dig up one of the shows from \u201868 for tonight, but a third
+    of the pages are tattered or just lost altogether. Since you\u2019re a writer
+    and all though, was hoping you could just read it over and fill in the missing
+    pieces with whatever you think. Full creative discretion, every artist\u2019s
+    dream, right?"
