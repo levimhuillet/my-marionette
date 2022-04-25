@@ -91,8 +91,23 @@ public class SequenceManager : MonoBehaviour
 
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Beginning Sequence " + currSequenceData.ID); }
 
+        // handle sequence StartActions
+        foreach(SequenceData.SequenceAction action in currSequenceData.StartActions) {
+            switch(action.LightActionType) {
+                case SequenceData.LightAction.ChangeColor:
+                    LightManager.Instance.SetLightColor(action.LightColorIndex);
+                    break;
+                    // TODO: add the rest
+                default:
+                    break;
+            }
+        }
+
         // Hand off first clip to to Narration Manager
         NarrationManager.Instance.StartNarration(currNarrationIDs[currNarrationIndex]);
+
+        // Turn on lights
+        LightManager.Instance.TurnOnLights(2);
     }
 
     #endregion // Member Functions
@@ -134,6 +149,14 @@ public class SequenceManager : MonoBehaviour
         }
         else {
             if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] No more clips. Evaluating next sequence."); }
+
+            // Turn off lights
+            LightManager.Instance.TurnOffLights(2);
+
+            // Reset light color
+            LightManager.Instance.SetLightColor(0);
+
+            // TODO: wait for transitions to be complete before continuing
 
             // reset narration index to initial val
             currNarrationIndex = 0;

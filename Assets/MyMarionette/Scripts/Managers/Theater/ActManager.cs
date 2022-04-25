@@ -65,8 +65,8 @@ public class ActManager : MonoBehaviour
         // load first sequence
         sequenceManager.LoadSequence(currActData.FirstSequenceID);
 
-        // Turn on lights
-        LightManager.Instance.TurnOnLights(2);
+        // Turn off ambient lights
+        LightManager.Instance.TurnOffAmbiance(2);
     }
 
     #endregion // Member Functions
@@ -97,6 +97,9 @@ public class ActManager : MonoBehaviour
 
     private void HandleAllSequencesCompleted() {
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Act Manager] Received SequenceManager end of all sequences. Loading next sequence..."); }
+
+        // Turn on ambient lights
+        LightManager.Instance.TurnOnAmbiance(2);
 
         // Pass control back to Theater Manager
         OnActCompleted.Invoke();

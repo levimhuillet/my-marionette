@@ -8,7 +8,8 @@ public class LightManager : MonoBehaviour
 
     [SerializeField] Light[] spotlights, pointLights;
     [SerializeField] float spotlightMaxIntensity, pointLightMaxIntensity;
-    [SerializeField] Color[] colorPresets;
+    [SerializeField] Color[] stageLightColorPresets;
+    [SerializeField] Color[] ambientLightColorPresets;
 
     private void OnEnable() {
         if (Instance == null) {
@@ -36,12 +37,21 @@ public class LightManager : MonoBehaviour
         StartCoroutine(TurnOffRoutine(time));
     }
 
+    public void TurnOnAmbiance(float time) {
+        StartCoroutine(TurnOnAmbianceRoutine(time));
+    }
+
+    public void TurnOffAmbiance(float time) {
+        StartCoroutine(TurnOffAmbianceRoutine(time));
+    }
+
+
     public void SetLightColor(int colorIndex) {
         foreach (Light light in spotlights) {
-            light.color = colorPresets[colorIndex];
+            light.color = stageLightColorPresets[colorIndex];
         }
         foreach (Light light in pointLights) {
-            light.color = colorPresets[colorIndex];
+            light.color = stageLightColorPresets[colorIndex];
         }
     }
 
@@ -72,6 +82,25 @@ public class LightManager : MonoBehaviour
             foreach (Light light in pointLights) {
                 light.intensity -= Mathf.Max(pointStep * Time.deltaTime, 0);
             }
+
+            yield return null;
+        }
+    }
+
+    private IEnumerator TurnOnAmbianceRoutine(float time) {
+        yield return LerpAmbiance(time, ambientLightColorPresets[0]);
+    }
+
+    private IEnumerator TurnOffAmbianceRoutine(float time) {
+        yield return LerpAmbiance(time, ambientLightColorPresets[1]);
+    }
+
+    private IEnumerator LerpAmbiance(float time, Color targetColor) {
+        Color startColor = RenderSettings.ambientSkyColor;
+
+        for (float t = 0f; t < time; t += Time.deltaTime) {
+            float normalizedTime = t / time;
+            RenderSettings.ambientSkyColor = Color.Lerp(startColor, targetColor, normalizedTime);
 
             yield return null;
         }

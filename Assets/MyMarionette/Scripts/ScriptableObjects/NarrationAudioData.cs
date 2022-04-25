@@ -9,6 +9,10 @@ public class NarrationAudioData : AudioData
         get { return subtitle; }
         set { subtitle = value; }
     }
+    public bool RequiresAction {
+        get { return requiresAction; }
+    }
 
     [SerializeField] private string subtitle;
+    [SerializeField] private bool requiresAction;
 }
