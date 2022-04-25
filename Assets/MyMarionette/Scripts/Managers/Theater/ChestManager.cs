@@ -171,9 +171,7 @@ public class ChestManager : MonoBehaviour
         switch (state) {
             case TheaterManager.State.AdLib:
                 if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Chest Manager] Beginning " + state); }
-                //StartPuppetPicker();
-
-                OnChoiceCompleted.Invoke();
+                StartPuppetPicker();
                 break;
             default:
                 break;
