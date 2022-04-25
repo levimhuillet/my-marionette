@@ -29,6 +29,8 @@ public class ActManager : MonoBehaviour
 
     [HideInInspector]
     public UnityEvent OnActCompleted;
+    private UnityEvent OnStartActionsCompleted;
+    private UnityEvent OnEndActionsCompleted;
 
     #endregion // Events
 
@@ -36,11 +38,15 @@ public class ActManager : MonoBehaviour
 
     private void OnEnable() {
         OnActCompleted = new UnityEvent();
+        OnStartActionsCompleted = new UnityEvent();
+        OnEndActionsCompleted = new UnityEvent();
     }
 
     private void Start() {
         sequenceManager.OnAllSequencesCompleted.AddListener(HandleAllSequencesCompleted);
         TheaterManager.Instance.OnStateAdvanced.AddListener(HandleTheaterStateAdvanced);
+        OnStartActionsCompleted.AddListener(HandleStartActionsCompleted);
+        OnEndActionsCompleted.AddListener(HandleEndActionsCompleted);
     }
 
     #endregion // Unity Callbacks
@@ -62,14 +68,73 @@ public class ActManager : MonoBehaviour
             return;
         }
 
-        // load first sequence
-        sequenceManager.LoadSequence(currActData.FirstSequenceID);
-
-        // Turn off ambient lights
-        LightManager.Instance.TurnOffAmbiance(2);
+        // wait for transitions to be complete before continuing
+        StartCoroutine(StartActionsRoutine());
     }
 
     #endregion // Member Functions
+
+    #region Helper Functions
+
+    private IEnumerator StartActionsRoutine() {
+        // Turn off ambient lights
+        EffectsManager.Instance.TurnOffAmbiance(2);
+
+        // handle act StartActions
+        yield return HandleEffects(currActData.StartActions);
+
+        // open curtains
+        yield return EffectsManager.Instance.OpenCurtains(2);
+
+        OnStartActionsCompleted.Invoke();
+    }
+
+    private IEnumerator EndActionsRoutine() {
+        // Turn on ambient lights
+        EffectsManager.Instance.TurnOnAmbiance(2);
+
+        // close curtains
+        yield return EffectsManager.Instance.CloseCurtains(2);
+
+        // handle act EndActions
+        yield return HandleEffects(currActData.EndActions);
+
+        // wait
+        yield return EffectsManager.Instance.Wait(2);
+
+        OnEndActionsCompleted.Invoke();
+    }
+
+    private IEnumerator HandleEffects(List<EffectsManager.EffectAction> effectActions) {
+        foreach (EffectsManager.EffectAction action in effectActions) {
+            switch (action.EffectType) {
+                case EffectsManager.Effect.Curtains:
+                    if (action.Activating) {
+                        yield return EffectsManager.Instance.OpenCurtains(2);
+                    }
+                    else {
+                        yield return EffectsManager.Instance.CloseCurtains(2);
+                    }
+                    break;
+                case EffectsManager.Effect.Lights:
+                    if (action.Activating) {
+                        yield return EffectsManager.Instance.TurnOnLights(2);
+                    }
+                    else {
+                        yield return EffectsManager.Instance.TurnOffLights(2);
+                    }
+                    break;
+                case EffectsManager.Effect.LightColor:
+                    EffectsManager.Instance.SetLightColor(action.LightColorIndex);
+                    break;
+                default:
+                    yield return null;
+                    break;
+            }
+        }
+    }
+
+    #endregion // Helper Functions
 
     #region Data Retrieval
 
@@ -95,14 +160,21 @@ public class ActManager : MonoBehaviour
 
     #region Event Handlers 
 
+    private void HandleStartActionsCompleted() {
+        // load first sequence
+        sequenceManager.LoadSequence(currActData.FirstSequenceID);
+    }
+
+    private void HandleEndActionsCompleted() {
+        // Pass control back to Theater Manager
+        OnActCompleted.Invoke();
+    }
+
     private void HandleAllSequencesCompleted() {
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Act Manager] Received SequenceManager end of all sequences. Loading next sequence..."); }
 
-        // Turn on ambient lights
-        LightManager.Instance.TurnOnAmbiance(2);
-
-        // Pass control back to Theater Manager
-        OnActCompleted.Invoke();
+        // wait for transitions to be complete before continuing
+        StartCoroutine(EndActionsRoutine());
     }
 
     private void HandleTheaterStateAdvanced(TheaterManager.State state) {

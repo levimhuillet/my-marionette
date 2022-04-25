@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Act2Scene1
   m_EditorClassIdentifier: 
   startActions:
-  - LightActionType: 3
+  - EffectType: 3
+    Activating: 0
     LightColorIndex: 1
   id: a2s1
   narrationDataIDs:

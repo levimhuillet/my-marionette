@@ -39,16 +39,23 @@ public class SequenceManager : MonoBehaviour
     [HideInInspector]
     public UnityEvent OnAllSequencesCompleted;
 
+    private UnityEvent OnStartActionsCompleted;
+    private UnityEvent OnEndActionsCompleted;
+
     #endregion // Events
 
     #region Unity Callbacks
 
     private void OnEnable() {
         OnAllSequencesCompleted = new UnityEvent();
+        OnStartActionsCompleted = new UnityEvent();
+        OnEndActionsCompleted = new UnityEvent();
     }
 
     private void Start() {
         NarrationManager.OnNarrationClipCompleted.AddListener(HandleNarrationClipCompleted);
+        OnStartActionsCompleted.AddListener(HandleStartActionsCompleted);
+        OnEndActionsCompleted.AddListener(HandleEndActionsCompleted);
     }
 
     #endregion // Unity Callbacks
@@ -91,26 +98,69 @@ public class SequenceManager : MonoBehaviour
 
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Beginning Sequence " + currSequenceData.ID); }
 
-        // handle sequence StartActions
-        foreach(SequenceData.SequenceAction action in currSequenceData.StartActions) {
-            switch(action.LightActionType) {
-                case SequenceData.LightAction.ChangeColor:
-                    LightManager.Instance.SetLightColor(action.LightColorIndex);
-                    break;
-                    // TODO: add the rest
-                default:
-                    break;
-            }
-        }
-
-        // Hand off first clip to to Narration Manager
-        NarrationManager.Instance.StartNarration(currNarrationIDs[currNarrationIndex]);
-
-        // Turn on lights
-        LightManager.Instance.TurnOnLights(2);
+        StartCoroutine(StartActionsRoutine());
     }
 
     #endregion // Member Functions
+
+    #region Helper Functions
+
+    private IEnumerator StartActionsRoutine() {
+        // handle sequence StartActions
+        yield return HandleEffects(currSequenceData.StartActions);
+
+        // Turn on lights
+        yield return EffectsManager.Instance.TurnOnLights(2);
+
+        OnStartActionsCompleted.Invoke();
+    }
+
+    private IEnumerator EndActionsRoutine() {
+        // Turn off lights
+        yield return EffectsManager.Instance.TurnOffLights(2);
+
+        // Reset light color
+        EffectsManager.Instance.SetLightColor(0);
+
+        // handle sequence endActions
+        yield return HandleEffects(currSequenceData.EndActions);
+
+        // wait
+        yield return EffectsManager.Instance.Wait(2);
+
+        OnEndActionsCompleted.Invoke();
+    }
+
+    private IEnumerator HandleEffects(List<EffectsManager.EffectAction> effectActions) {
+        foreach (EffectsManager.EffectAction action in effectActions) {
+            switch (action.EffectType) {
+                case EffectsManager.Effect.Curtains:
+                    if (action.Activating) {
+                        yield return EffectsManager.Instance.OpenCurtains(2);
+                    }
+                    else {
+                        yield return EffectsManager.Instance.CloseCurtains(2);
+                    }
+                    break;
+                case EffectsManager.Effect.Lights:
+                    if (action.Activating) {
+                        yield return EffectsManager.Instance.TurnOnLights(2);
+                    }
+                    else {
+                        yield return EffectsManager.Instance.TurnOffLights(2);
+                    }
+                    break;
+                case EffectsManager.Effect.LightColor:
+                    EffectsManager.Instance.SetLightColor(action.LightColorIndex);
+                    break;
+                default:
+                    yield return null;
+                    break;
+            }
+        }
+    }
+
+    #endregion // Helper Functions
 
     #region Data Retrieval
 
@@ -136,6 +186,31 @@ public class SequenceManager : MonoBehaviour
 
     #region Event Handlers
 
+    private void HandleStartActionsCompleted() {
+        // Hand off first clip to to Narration Manager
+        NarrationManager.Instance.StartNarration(currNarrationIDs[currNarrationIndex]);
+    }
+
+    private void HandleEndActionsCompleted() {
+        // reset narration index to initial val
+        currNarrationIndex = 0;
+
+        // When all clips are run through, evaluate next sequence
+        ChestManager.PuppetChoice currChoice = ChestManager.Instance.GetPuppetChoice(currSequenceData.ID);
+        string nextSequenceID = EvaluateNextSequence(currChoice.SelectedPuppet);
+
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Next sequence is " + nextSequenceID); }
+
+        // If next sequence is null, return control to Act Manager to trigger next sequence
+        if (nextSequenceID == null) {
+            OnAllSequencesCompleted.Invoke();
+            return;
+        }
+
+        LoadSequence(nextSequenceID);
+    }
+
+
     private void HandleNarrationClipCompleted() {
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Received NarrationManager end of clip."); }
 
@@ -150,30 +225,7 @@ public class SequenceManager : MonoBehaviour
         else {
             if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] No more clips. Evaluating next sequence."); }
 
-            // Turn off lights
-            LightManager.Instance.TurnOffLights(2);
-
-            // Reset light color
-            LightManager.Instance.SetLightColor(0);
-
-            // TODO: wait for transitions to be complete before continuing
-
-            // reset narration index to initial val
-            currNarrationIndex = 0;
-
-            // When all clips are run through, evaluate next sequence
-            ChestManager.PuppetChoice currChoice = ChestManager.Instance.GetPuppetChoice(currSequenceData.ID);
-            string nextSequenceID = EvaluateNextSequence(currChoice.SelectedPuppet);
-
-            if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Next sequence is " + nextSequenceID); }
-
-            // If next sequence is null, return control to Act Manager to trigger next sequence
-            if (nextSequenceID == null) {
-                OnAllSequencesCompleted.Invoke();
-                return;
-            }
-
-            LoadSequence(nextSequenceID);
+            StartCoroutine(EndActionsRoutine());
         }
     }
 

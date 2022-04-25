@@ -1,15 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightManager : MonoBehaviour
+public class EffectsManager : MonoBehaviour
 {
-    public static LightManager Instance;
+    public static EffectsManager Instance;
 
     [SerializeField] Light[] spotlights, pointLights;
     [SerializeField] float spotlightMaxIntensity, pointLightMaxIntensity;
     [SerializeField] Color[] stageLightColorPresets;
     [SerializeField] Color[] ambientLightColorPresets;
+
+    [SerializeField] private GameObject curtainLeft, curtainRight;
+
+    private static float CURTAIN_DIST = 20f; // how far the curtain travels to open and close
+    private float curtainStart;
+
+    public enum Effect
+    {
+        None,
+        Curtains,
+        Lights,
+        LightColor
+    }
+
+    [Serializable] 
+    public struct EffectAction
+    {
+        public Effect EffectType; // category of effect (curtain, light, etc.)
+        public bool Activating; // whether light turns on/off; whether curtain opens/closes
+        public int LightColorIndex; // if light action is change color, this specifies color
+    }
 
     private void OnEnable() {
         if (Instance == null) {
@@ -20,6 +42,8 @@ public class LightManager : MonoBehaviour
             return;
         }
 
+        curtainStart = curtainLeft.transform.position.x;
+
         foreach (Light light in spotlights) {
             light.intensity = 0;
         }
@@ -28,23 +52,62 @@ public class LightManager : MonoBehaviour
         }
     }
 
+    #region Member Functions
 
-    public void TurnOnLights(float time) {
-        StartCoroutine(TurnOnRoutine(time));
+    public IEnumerator OpenCurtains(float time) {
+        yield return StartCoroutine(OpenCurtainRoutine(time));
     }
 
-    public void TurnOffLights(float time) {
-        StartCoroutine(TurnOffRoutine(time));
+    public IEnumerator CloseCurtains(float time) {
+        yield return StartCoroutine(CloseCurtainRoutine(time));
     }
 
-    public void TurnOnAmbiance(float time) {
-        StartCoroutine(TurnOnAmbianceRoutine(time));
+    public IEnumerator TurnOnLights(float time) {
+        yield return StartCoroutine(TurnOnRoutine(time));
     }
 
-    public void TurnOffAmbiance(float time) {
-        StartCoroutine(TurnOffAmbianceRoutine(time));
+    public IEnumerator TurnOffLights(float time) {
+        yield return StartCoroutine(TurnOffRoutine(time));
     }
 
+    public IEnumerator TurnOnAmbiance(float time) {
+        yield return StartCoroutine(TurnOnAmbianceRoutine(time));
+    }
+
+    public IEnumerator TurnOffAmbiance(float time) {
+        yield return StartCoroutine(TurnOffAmbianceRoutine(time));
+    }
+
+    public IEnumerator Wait(float time) {
+        yield return StartCoroutine(WaitRoutine(time));
+    }
+
+    #endregion // Member Functions
+
+    #region Coroutines
+
+    // TODO: consolidate open and close routines
+    private IEnumerator OpenCurtainRoutine(float time) {
+        float speed = CURTAIN_DIST / time;
+
+        while (curtainLeft.transform.position.x < CURTAIN_DIST) {
+            curtainLeft.transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
+            curtainRight.transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
+
+            yield return null;
+        }
+    }
+
+    private IEnumerator CloseCurtainRoutine(float time) {
+        float speed = CURTAIN_DIST / time;
+
+        while (curtainLeft.transform.position.x > curtainStart) {
+            curtainLeft.transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
+            curtainRight.transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
+
+            yield return null;
+        }
+    }
 
     public void SetLightColor(int colorIndex) {
         foreach (Light light in spotlights) {
@@ -55,6 +118,7 @@ public class LightManager : MonoBehaviour
         }
     }
 
+    // TODO: consolidate on and off routines
     private IEnumerator TurnOnRoutine(float time) {
         float spotStep = spotlightMaxIntensity / time;
         float pointStep = pointLightMaxIntensity / time;
@@ -105,5 +169,14 @@ public class LightManager : MonoBehaviour
             yield return null;
         }
     }
+
+    private IEnumerator WaitRoutine(float time) {
+        while(time > 0) {
+            time -= Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    #endregion // Coroutines
 
 }
