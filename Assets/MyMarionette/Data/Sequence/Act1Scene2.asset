@@ -16,4 +16,20 @@ MonoBehaviour:
   narrationDataIDs:
   - a1s2c01
   - a1s2c02
-  branches: []
+  - a1s2c03
+  - a1s2c04
+  - a1s2c05
+  - a1s2c06
+  - a1s2c07
+  - a1s2c08
+  - a1s2c09
+  - a1s2c10
+  - a1s2c11
+  - a1s2c12
+  - a1s2c13
+  - a1s2c14
+  - a1s2c15
+  - a1s2c16
+  branches:
+  - PuppetKey: {fileID: 0}
+    SequenceValueID: a1s3

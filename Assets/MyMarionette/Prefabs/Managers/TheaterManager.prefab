@@ -44,12 +44,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   narrationData:
+  - {fileID: 11400000, guid: 451d1bb3c8411e849b9adcafbc69fe9e, type: 2}
+  - {fileID: 11400000, guid: 0a904c6ddff687a41a2f522d86e8972c, type: 2}
+  - {fileID: 11400000, guid: 4915eda972fb0de4db1fce8edf1905e0, type: 2}
+  - {fileID: 11400000, guid: 1c4b7860e3d664b4db8ef280f0c29284, type: 2}
   - {fileID: 11400000, guid: 4f6844ee874a88e46bd51a9b573eea7f, type: 2}
   - {fileID: 11400000, guid: 35d8a47a6c53d054e870c869b2a35dc6, type: 2}
+  - {fileID: 11400000, guid: 9fa12ed2a8cef6e41b6fcec8cc8fd7e0, type: 2}
+  - {fileID: 11400000, guid: 153a35addeb28d8498e44c983dc557cd, type: 2}
+  - {fileID: 11400000, guid: 69e46b4128369de44aa3b3ce0b1b95ce, type: 2}
+  - {fileID: 11400000, guid: cf421f31e868db04c9b1ba8de032fc6e, type: 2}
+  - {fileID: 11400000, guid: 87ffd8fd6fec46d47915eab5829b17a3, type: 2}
+  - {fileID: 11400000, guid: dc2c7ff3bb99d6d4ebdd964318fd3ebd, type: 2}
+  - {fileID: 11400000, guid: a975f9f3f7a23234d9b8ce33c1580093, type: 2}
+  - {fileID: 11400000, guid: 5a7cbd139902e1449b48fceae1b2e962, type: 2}
   - {fileID: 11400000, guid: f6ad68b5d6c20284f9ce09d8b2340e2c, type: 2}
   - {fileID: 11400000, guid: b8659bb5bb4e997478cdd92b6b9d4300, type: 2}
+  - {fileID: 11400000, guid: ac84f58819790c146adb8e28cbc2d786, type: 2}
+  - {fileID: 11400000, guid: 220751b58c3c1724aa53d903a6421c5b, type: 2}
+  - {fileID: 11400000, guid: 69a707b004267c94a9e5ec70ad1afdc5, type: 2}
+  - {fileID: 11400000, guid: 793e08548711dc94c8c594b010f9f624, type: 2}
+  - {fileID: 11400000, guid: 973eab7b74c25e946bf2edae0ae198b9, type: 2}
+  - {fileID: 11400000, guid: 048a4bfec0d9ee34eb101b83a9a56123, type: 2}
+  - {fileID: 11400000, guid: b909199417494b043945527811a6ac0a, type: 2}
+  - {fileID: 11400000, guid: a11d1b27d76085445aebee2794fdf168, type: 2}
+  - {fileID: 11400000, guid: a7b350e7e1e5f284f8ea19e1ddf026af, type: 2}
+  - {fileID: 11400000, guid: 90965600910cfe149b8156f908083cfa, type: 2}
+  - {fileID: 11400000, guid: 4131cfde2f199de42b4073f728d27d31, type: 2}
+  - {fileID: 11400000, guid: 74dbedbd263208d46a24e8ae0e087901, type: 2}
+  - {fileID: 11400000, guid: 71ea86790fc9cb241957c779663764c0, type: 2}
+  - {fileID: 11400000, guid: 0028b534cc77e134b8923237d19c4e0c, type: 2}
+  - {fileID: 11400000, guid: 8a1def797fe4ceb49aad9475f6612a97, type: 2}
+  - {fileID: 11400000, guid: 2550bb2411f43fa459ad2919138b7ed8, type: 2}
+  - {fileID: 11400000, guid: 73d819613a938cf44b148e204eb27977, type: 2}
+  - {fileID: 11400000, guid: 5c66412869f85484d8f730291ae51187, type: 2}
+  - {fileID: 11400000, guid: 0ca1a16f79915f744a3488903b8dec58, type: 2}
+  - {fileID: 11400000, guid: 483dd8a769795e0428ba4415e02842ed, type: 2}
+  - {fileID: 11400000, guid: dd890c4c217f74240b763948d84c301e, type: 2}
+  - {fileID: 11400000, guid: 6619718bc61079b4f81cc23a29d5d4e5, type: 2}
+  - {fileID: 11400000, guid: a2288bf49ee38954aa98580ab787b1f3, type: 2}
+  - {fileID: 11400000, guid: 5699dd0b9d170cb42b3590e5a554d526, type: 2}
+  - {fileID: 11400000, guid: d63f55ffed9193942928692ae55ea2f8, type: 2}
   - {fileID: 11400000, guid: a6b231b8c6c53bc4f8c95e9fc9358ca4, type: 2}
   - {fileID: 11400000, guid: 156455baac8facc4c8085e9d3e04079f, type: 2}
+  - {fileID: 11400000, guid: 28f9e234ef02ded4280419212c0ec1e1, type: 2}
+  - {fileID: 11400000, guid: a914df74692c87945b68fec301e4a926, type: 2}
+  - {fileID: 11400000, guid: 3cd3207ee7bc8cf4891ed29241b184e7, type: 2}
+  - {fileID: 11400000, guid: cbeba03cabdf16e40ae3f01ce7e63c5f, type: 2}
+  - {fileID: 11400000, guid: 4434c843ffea2144e9190b138b689c49, type: 2}
+  - {fileID: 11400000, guid: 1859196f99e058a439b8a7055c9c0970, type: 2}
+  - {fileID: 11400000, guid: bd75bdd195df34f4fa49246e455aa5a0, type: 2}
   - {fileID: 11400000, guid: bb27fd58fcfdee042827bed011760e3c, type: 2}
   - {fileID: 11400000, guid: d17ab24d82a677843b5f04bbed8bbf10, type: 2}
   subtitleText: {fileID: 0}
@@ -360,6 +404,8 @@ MonoBehaviour:
     SelectedPuppet: {fileID: 0}
   puppetPicker: {fileID: 0}
   PuppetChest: {fileID: 0}
+  Open: {fileID: 0}
+  Close: {fileID: 0}
   OnChoiceCompleted:
     m_PersistentCalls:
       m_Calls: []
@@ -409,6 +455,7 @@ MonoBehaviour:
   sequenceData:
   - {fileID: 11400000, guid: 977edf01018478a44afe36b297e9d1fb, type: 2}
   - {fileID: 11400000, guid: 51cbf35c31d565242beb1200137efe17, type: 2}
+  - {fileID: 11400000, guid: 2c76b42af6967144bbf6eabd8e0412a5, type: 2}
   - {fileID: 11400000, guid: cf3271543dee0ef44aab65833b8f0f39, type: 2}
   - {fileID: 11400000, guid: 0c268339df322534b89ef96ce30a7dc0, type: 2}
   OnAllSequencesCompleted:
