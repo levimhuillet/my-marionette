@@ -7,6 +7,7 @@ public class NarrationAudioData : AudioData
 {
     public string Subtitle {
         get { return subtitle; }
+        set { subtitle = value; }
     }
 
     [SerializeField] private string subtitle;

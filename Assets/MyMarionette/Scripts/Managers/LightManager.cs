@@ -8,6 +8,7 @@ public class LightManager : MonoBehaviour
 
     [SerializeField] Light[] spotlights, pointLights;
     [SerializeField] float spotlightMaxIntensity, pointLightMaxIntensity;
+    [SerializeField] Color[] colorPresets;
 
     private void OnEnable() {
         if (Instance == null) {
@@ -33,6 +34,15 @@ public class LightManager : MonoBehaviour
 
     public void TurnOffLights(float time) {
         StartCoroutine(TurnOffRoutine(time));
+    }
+
+    public void SetLightColor(int colorIndex) {
+        foreach (Light light in spotlights) {
+            light.color = colorPresets[colorIndex];
+        }
+        foreach (Light light in pointLights) {
+            light.color = colorPresets[colorIndex];
+        }
     }
 
     private IEnumerator TurnOnRoutine(float time) {

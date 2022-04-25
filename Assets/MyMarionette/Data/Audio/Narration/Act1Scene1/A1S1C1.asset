@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2ba54fb135beb4e938ea7d4b3664cf, type: 3}
   m_Name: A1S1C1
   m_EditorClassIdentifier: 
-  m_id: a1s1c1
+  m_id: a1s1c01
   m_clip: {fileID: 8300000, guid: a5217db5d27f0bd42a126f2cdbfd9be7, type: 3}
   m_volume: 1
   m_pan: 0
-  subtitle: These are the subtitles for narration clip 1 (of act1-scene1)
+  subtitle: Testing

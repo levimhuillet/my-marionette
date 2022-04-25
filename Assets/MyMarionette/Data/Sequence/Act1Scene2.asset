@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: a1s2
   narrationDataIDs:
-  - a1s2c1
-  - a1s2c2
+  - a1s2c01
+  - a1s2c02
   branches: []

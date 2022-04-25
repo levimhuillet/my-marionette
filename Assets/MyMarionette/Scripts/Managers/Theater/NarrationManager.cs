@@ -47,6 +47,11 @@ public class NarrationManager : MonoBehaviour
             return;
         }
 
+        narrationMap = new Dictionary<string, NarrationAudioData>();
+        foreach (NarrationAudioData data in narrationData) {
+            narrationMap.Add(data.ID, data);
+        }
+
         OnNarrationClipCompleted = new UnityEvent();
         startedPlaying = false;
     }
@@ -102,4 +107,16 @@ public class NarrationManager : MonoBehaviour
     }
 
     #endregion // Data Retrieval
+
+    #region Get & Set
+
+    public Dictionary<string, NarrationAudioData> GetNarrationMap() {
+        return narrationMap;
+    }
+
+    public void SetNarrationMap(Dictionary<string, NarrationAudioData> newMap) {
+        narrationMap = newMap;
+    }
+
+    #endregion // Get & Set
 }
