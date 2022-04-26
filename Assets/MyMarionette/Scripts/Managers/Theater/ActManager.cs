@@ -78,7 +78,7 @@ public class ActManager : MonoBehaviour
 
     private IEnumerator StartActionsRoutine() {
         // Turn off ambient lights
-        EffectsManager.Instance.TurnOffAmbiance(2);
+        yield return StartCoroutine(EffectsManager.Instance.TurnOffAmbiance(2));
 
         // handle act StartActions
         yield return HandleEffects(currActData.StartActions);
@@ -91,7 +91,7 @@ public class ActManager : MonoBehaviour
 
     private IEnumerator EndActionsRoutine() {
         // Turn on ambient lights
-        EffectsManager.Instance.TurnOnAmbiance(2);
+        StartCoroutine(EffectsManager.Instance.TurnOnAmbiance(2));
 
         // close curtains
         yield return EffectsManager.Instance.CloseCurtains(2);

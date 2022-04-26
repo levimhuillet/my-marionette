@@ -75,7 +75,9 @@ public class EffectsManager : MonoBehaviour
     }
 
     public IEnumerator TurnOffAmbiance(float time) {
+        Debug.Log("2a");
         yield return StartCoroutine(TurnOffAmbianceRoutine(time));
+        Debug.Log("2b");
     }
 
     public IEnumerator Wait(float time) {
@@ -156,7 +158,9 @@ public class EffectsManager : MonoBehaviour
     }
 
     private IEnumerator TurnOffAmbianceRoutine(float time) {
+        Debug.Log("3a");
         yield return LerpAmbiance(time, ambientLightColorPresets[1]);
+        Debug.Log("3b");
     }
 
     private IEnumerator LerpAmbiance(float time, Color targetColor) {
