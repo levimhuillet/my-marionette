@@ -14,7 +14,7 @@ public class ChestManager : MonoBehaviour
     {
         public string SequenceID;
         public string ChoiceTitle; // Protagonist, Antagonist, etc.
-        // public Puppet[] AvailablePuppets // uncomment if we move away from pool implementation
+        public Puppet[] AvailablePuppets; // uncomment if we move away from pool implementation
         [HideInInspector]
         public Puppet SelectedPuppet;
     }
@@ -22,7 +22,7 @@ public class ChestManager : MonoBehaviour
     #region Editor
 
     // Puppet Choices
-    [SerializeField] private Puppet[] allPuppets;
+    //[SerializeField] private Puppet[] allPuppets;
     [SerializeField] private PuppetChoice[] allChoices;
     [SerializeField] private UIPuppetPicker puppetPicker;
     [SerializeField] private GameObject PuppetChest;
@@ -132,11 +132,13 @@ public class ChestManager : MonoBehaviour
         return allChoices;
     }
 
+    /*
     public Puppet[] GetPuppetOptions(PuppetChoice choice) {
         // TODO: return a subset of puppets based on choice
 
         return allPuppets;
     }
+    */
 
     public void SetPuppetChoice(PuppetChoice choice, Puppet chosenPuppet) {
         int choiceIndex = Array.IndexOf(allChoices, choice);

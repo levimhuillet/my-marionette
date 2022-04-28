@@ -44,7 +44,7 @@ public class UIPuppetPicker : MenuBase
         int colIndex = 0;
         int rowIndex = 0;
         foreach (ChestManager.PuppetChoice choice in allChoices) {
-            Puppet[] availablePuppets = ChestManager.Instance.GetPuppetOptions(choice);
+            Puppet[] availablePuppets = choice.AvailablePuppets; //ChestManager.Instance.GetPuppetOptions(choice);
             int numChoices = availablePuppets.Length;
 
             // create a new title for the choice category
