@@ -3621,7 +3621,7 @@ GameObject:
   - component: {fileID: 7819764139002694603}
   - component: {fileID: 6098611189124543771}
   m_Layer: 0
-  m_Name: Ragdoll Eva
+  m_Name: Ragdoll Eva v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3658,7 +3658,6 @@ MonoBehaviour:
   Sticks: {fileID: 3714610019952034119, guid: 280b15c6f04841749b61384c6ac1cbcb, type: 3}
   Body: {fileID: 0}
   RopeConnection: {fileID: 0}
-  AnchorPoints: []
   Name: Aardvark
 --- !u!1 &7700589556333977143
 GameObject:

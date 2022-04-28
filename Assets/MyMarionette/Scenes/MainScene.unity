@@ -1250,6 +1250,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpeningCutscene
       objectReference: {fileID: 0}
+    - target: {fileID: 831473602792165845, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6549194281092188744, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
       propertyPath: m_WarningMessage
       value: 
@@ -2435,7 +2439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8559743776490513305, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.6
+      value: -25.07
       objectReference: {fileID: 0}
     - target: {fileID: 8559743776490513305, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3987,6 +3991,10 @@ PrefabInstance:
     - target: {fileID: 7480112436442845553, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_Name
       value: Ragdoll Eva
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480112436442845553, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7819764139002694603, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
       propertyPath: m_RootOrder
@@ -16696,7 +16704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847004613}
   m_LocalRotation: {x: 0, y: 0.99979836, z: -0, w: -0.020080296}
-  m_LocalPosition: {x: -2.2378664, y: -8.809136, z: -20.360308}
+  m_LocalPosition: {x: -2.2378664, y: -8.739134, z: -20.570309}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 123730188}
@@ -18326,11 +18334,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1ebae789238ca4e8728bc6a55f4551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPuppet1: {fileID: 5052405827120209831, guid: 4691f7a37c017494e9ad7de056bbb41e, type: 3}
+  startPuppet1: {fileID: 5768449259072076084, guid: 3ddc950c955f3784091084dfb5287f53, type: 3}
   startPuppet2: {fileID: 355094156944535060, guid: dbcb6b7b37b9fe8409daaf59e8f6a7df, type: 3}
   leftController: {fileID: 690069830}
   rightController: {fileID: 1292780970}
   stage: {fileID: 428987303}
+  puppetDistance: 7.75
 --- !u!114 &1983592379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18356,7 +18365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983592377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 15.180002, z: -30.19}
+  m_LocalPosition: {x: 0, y: 15.11, z: -29.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 123730188}

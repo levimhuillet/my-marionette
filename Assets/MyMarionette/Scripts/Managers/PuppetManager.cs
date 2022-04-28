@@ -9,14 +9,18 @@ public class PuppetManager : MonoBehaviour
     [SerializeField] private Puppet startPuppet1, startPuppet2; // TEMPORARY SOLUTION
     [SerializeField] private Transform leftController, rightController; // transforms (positions) of the controller hands
     [SerializeField] private Transform stage;
+    [SerializeField] private float puppetDistance; // distance between puppet and sticks
 
-    private struct AnchorPair {
+    private struct AnchorPair
+    {
         public GameObject StickAnchor;
         public GameObject PuppetAnchor;
+        public float Offset;
 
-        public AnchorPair(GameObject inStickAnchor, GameObject inPuppetAnchor) {
+        public AnchorPair(GameObject inStickAnchor, GameObject inPuppetAnchor, float inOffset) {
             StickAnchor = inStickAnchor;
             PuppetAnchor = inPuppetAnchor;
+            Offset = inOffset;
         }
     }
 
@@ -30,6 +34,22 @@ public class PuppetManager : MonoBehaviour
         anchorPairs = new List<AnchorPair>();
 
         SetCurrPuppet(startPuppet1); // TEMPORARY SOLUTION
+    }
+
+    private void Update() {
+        if (currPuppet != null) {
+            foreach (AnchorPair pair in anchorPairs) {
+                Vector3 currPuppetPos = pair.PuppetAnchor.transform.position;
+                Vector3 currStickPos = pair.StickAnchor.transform.position;
+                Vector3 targetPuppetPos = new Vector3(
+                    currStickPos.x,
+                    currStickPos.y - puppetDistance + pair.Offset,
+                    currStickPos.z
+                    );
+
+                pair.PuppetAnchor.transform.position = targetPuppetPos;
+            }
+        }
     }
 
     public void SetCurrPuppet(Puppet puppet) {
@@ -54,9 +74,6 @@ public class PuppetManager : MonoBehaviour
         body.transform.position = new Vector3(stage.transform.position.x, stage.transform.position.y + 5, stage.transform.position.z);
         puppetParts.Add(body.gameObject);
 
-        // TODO: Strings
-
-
         // Hook the parts together (stick-to-puppet anchors)
         if (body.AnchorPoints.Length != (leftStick.AnchorPoints.Length + rightStick.AnchorPoints.Length)) {
             Debug.Log("Warning! Mismatch between number of anchor points between puppet and sticks. Anchoring aborted.");
@@ -66,23 +83,26 @@ public class PuppetManager : MonoBehaviour
         // left stick
         int overallAnchorIndex = 0;
         for (int a = 0; a < leftStick.AnchorPoints.Length; a++) {
-            AnchorPair newPair = new AnchorPair(leftStick.AnchorPoints[a], body.AnchorPoints[overallAnchorIndex]);
+            AnchorPair newPair = new AnchorPair(leftStick.AnchorPoints[a], body.AnchorPoints[overallAnchorIndex], body.AnchorPoints[overallAnchorIndex].transform.localPosition.y);
             anchorPairs.Add(newPair);
             overallAnchorIndex++;
         }
 
         // right stick
         for (int a = 0; a < rightStick.AnchorPoints.Length; a++) {
-            AnchorPair newPair = new AnchorPair(rightStick.AnchorPoints[a], body.AnchorPoints[overallAnchorIndex]);
+            AnchorPair newPair = new AnchorPair(rightStick.AnchorPoints[a], body.AnchorPoints[overallAnchorIndex], body.AnchorPoints[overallAnchorIndex].transform.localPosition.y);
             anchorPairs.Add(newPair);
             overallAnchorIndex++;
         }
+
+        // TODO: Strings
+
     }
 
     // TODO: implement this
     private void ClearPuppet() {
         // destroy puppet gameObjects (hands, body, strings, etc.)
-        foreach(GameObject part in puppetParts) {
+        foreach (GameObject part in puppetParts) {
             Destroy(part);
         }
         puppetParts.Clear();

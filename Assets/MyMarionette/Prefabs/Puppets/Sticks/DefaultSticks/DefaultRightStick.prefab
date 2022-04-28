@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1039283675590796881}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 2}
   m_Children:
   - {fileID: 1039283677075583167}
   - {fileID: 2601365264204262870}
@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnchorPoints:
-  - {fileID: 3960837615720586646}
   - {fileID: 7134484133905367886}
+  - {fileID: 3960837615720586646}
 --- !u!1 &1039283677075583166
 GameObject:
   m_ObjectHideFlags: 0

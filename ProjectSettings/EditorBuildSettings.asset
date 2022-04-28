@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/MyMarionette/Scenes/MainScene.unity
     guid: 203df4071d50af745812ccc3030365ec
   - enabled: 1
-    path: Assets/MyMarionette/Scenes/TheaterManagerTesting.unity
-    guid: df5595549953ce140bd7a4047cdbcded
+    path: Assets/MyMarionette/Scenes/Intro.unity
+    guid: 4989f91332f2abf4eade4ac3f5b27c19
   - enabled: 1
     path: Assets/MyMarionette/Scenes/Credits.unity
     guid: c437648088313824c9bebaa4c62a4918
+  - enabled: 1
+    path: Assets/MyMarionette/Scenes/TheaterManagerTesting.unity
+    guid: df5595549953ce140bd7a4047cdbcded
   - enabled: 0
     path: Assets/MyMarionette/Scenes/MyMarionetteMockup.unity
     guid: 47b546a4bf202eb4db3391190d880b6c
