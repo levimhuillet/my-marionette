@@ -1,14 +1,14 @@
-Sequence ID|Subtitle Text (English)
-a0s1c01|So you’re here to help out with the 9:30 show, right?
-a0s1c02|Great, the joint needs some new faces around here. Been working here, oh, I don’t know, ten, twenty years. I’d swear the damn dolls are talking to me at this point (sarcastic). Richard’s good company, though. Well, good enough. He had to take care of something, otherwise he’d usually be the one talking with you right now. We’ll probably see him around, eventually. Here, this way.
-a0s1c03|I’ll make sure the guys have the scene set up for you at least an hour beforehand. For now, the script’s still a little bit up in the air. Richard told me to dig up one of the shows from ‘68 for tonight, but a third of the pages are tattered or just lost altogether. Since you’re a writer and all though, was hoping you could just read it over and fill in the missing pieces with whatever you think. Full creative discretion, every artist’s dream, right?
-a0s1c04|Great, last order of business. Characters and props are over there in the chest. Don’t worry ‘bout breaking nothin, some of those things have been kicking since before you were even thought about. Their names are engraved on the feet if you’re looking for them. Lights drop at 9:30 sharp, but take until then to work on that script and get a hang of the puppets. Shout if you need anything!
+ï»¿Sequence ID|Subtitle Text (English)
+a0s1c01|So youâ€™re here to help out with the 9:30 show, right?
+a0s1c02|Great, the joint needs some new faces around here. Been working here, oh, I donâ€™t know, ten, twenty years. Iâ€™d swear the damn dolls are talking to me at this point (sarcastic). Richardâ€™s good company, though. Well, good enough. He had to take care of something, otherwise heâ€™d usually be the one talking with you right now. Weâ€™ll probably see him around, eventually. Here, this way.
+a0s1c03|Iâ€™ll make sure the guys have the scene set up for you at least an hour beforehand. For now, the scriptâ€™s still a little bit up in the air. Richard told me to dig up one of the shows from â€˜68 for tonight, but a third of the pages are tattered or just lost altogether. Since youâ€™re a writer and all though, was hoping you could just read it over and fill in the missing pieces with whatever you think. Full creative discretion, every artistâ€™s dream, right?
+a0s1c04|Great, last order of business. Characters and props are over there in the chest. Donâ€™t worry â€˜bout breaking nothin, some of those things have been kicking since before you were even thought about. Their names are engraved on the feet if youâ€™re looking for them. Lights drop at 9:30 sharp, but take until then to work on that script and get a hang of the puppets. Shout if you need anything!
 |
 a1s1c01|It was a day that began like any other.
 a1s1c02|The sun crested hills into grey skies, and the light filled the rooms of the town of Pinnoke.
 a1s1c03|Sam awoke as sunlight fell across their face.
 a1s1c04|"""What a nice, totally normal day,"" they remarked with a yawn, and they stretched their arms above their head."
-a1s1c05|Properly stretched, Sam walked to their bathroom mirror – for they knew that every good story starts with brushing your teeth.
+a1s1c05|Properly stretched, Sam walked to their bathroom mirror -- for they knew that every good story starts with brushing your teeth.
 a1s1c06|Sam's teeth gleamed back at them.
 a1s1c07|And at that moment Sam remembered something: today was not a normal day at all. It was a special day.
 a1s1c08|It was the day the traveling puppet show came to town.
@@ -22,16 +22,16 @@ a1s2c02|Sam reached for the doors to the play.
 a1s2c03|But they were locked fast.
 a1s2c04|Sam tried again.
 a1s2c05|The doors refused to budge, but their rattling and shaking drew the attention of a troupe member.
-a1s2c06|"[Richard] ""Ho, what's all this ruckus? A late arrival, are you?"""
+a1s2c06|"[Troupe Member] ""Ho, what's all this ruckus? A late arrival, are you?"""
 a1s2c07|"[Sam] ""Please sir, I've waited a year for this show. I ran all the way here, as you can see. Is there any way I could be let in?"""
 a1s2c08|The troupe member eyed Sam thoughtfully for a moment. Then his face broke into a wide smile.
-a1s2c09|"[Richard] “I believe you may be just what we need. I'll let you in on a little secret: our lead puppeteer has yet to show up."""
-a1s2c10|"[Richard] ""And the show starts in less than an hour. Bit of a quandary."""
-a1s2c11|"[Richard] ""How would you like to take their place? You could be a part of the famous traveling puppet show."""
-a1s2c12|"[Richard] ""And you should know, entry is free for volunteers.”"
+a1s2c09|"[Troupe Member] ""I believe you may be just what we need. I'll let you in on a little secret: our lead puppeteer has yet to show up."""
+a1s2c10|"[Troupe Member] ""And the show starts in less than an hour. Bit of a quandary."""
+a1s2c11|"[Troupe Member] ""How would you like to take their place? You could be a part of the famous traveling puppet show."""
+a1s2c12|"[Troupe Member] ""And you should know, entry is free for volunteers."""
 a1s2c13|"""Yes, of course!"" Sam responded immediately. How could they have said anything else?"
 a1s2c14|Sam was so excited, they jumped!
-a1s2c15|"[Richard] “In that case, I believe we were fated to meet. I'm Richard. Come on in, I'll show you the ropes."""
+a1s2c15|"[Troupe Member] ""In that case, I believe we were fated to meet. I'm Richard. Come on in, I'll show you the ropes."""
 a1s2c16|Sam stepped through the doors that now stood wide open.
 |
 |
@@ -40,15 +40,15 @@ a1s3c01|Richard was pleased with how quickly Sam pickued up being a puppeteer. T
 a1s3c02|Seeing he could teach nothing more, Richard excused himself and left Sam to practice alone.
 a1s3c03|Richard walked through the theater's shadowy corridors. Eventually he arrived at the show manager's quarters.
 a1s3c04|He entered without knocking.
-a1s3c05|“How are they doing?” the show manager asked.
+a1s3c05|"""How are they doing?"" the show manager asked."
 a1s3c06|"[Richard] ""Wonderfully. They don't have a clue about any of it."""
 a1s3c07|"[Show Manager] ""Ah, you always were the best at picking them out. You have a collector's eye, you know."""
 a1s3c08|The show manager raised his hand, looking for a high five.
-a1s3c09|"[Richard] ""It works every time. They're so frantic to arrive, they don’t have time to realize what’s happening until it’s too late."""
-a1s3c10|[Richard] “Well, are you ready? I get the feeling it’s going to be another great show.”
+a1s3c09|"[Richard] ""It works every time. They're so frantic to arrive, they donâ€™t have time to realize whatâ€™s happening until itâ€™s too late."""
+a1s3c10|"[Richard] ""Well, are you ready? I get the feeling itâ€™s going to be another great show."""
 a1s3c11|The two men left to take their seats in the audience. 
 |
-|
+|Narrator vibe: mystical, mysterious, ominous
 a2s1c01|Fate. An ancient, unseen power which runs like a web across this world.
 a2s1c02|Strings which define and bind you to your destiny.
 a2s1c03|For a long while, this power was held entirely in the hands of three women. 
@@ -56,7 +56,7 @@ a2s1c04|They had many names. They were called Fates by the Greeks, Norns by the 
 a2s1c05|All the stories agreed that these women would never die. They were eternal. This fact grounded the belief that your fate was inescapable.
 a2s1c06|It was also false. Blatantly so. The Fates, the Norns... they died long ago. But the power that lived in the strings they wove lives on.
 a2s1c07|The fate strands sit in long-dead hands. Unspun. Unwound.
-a2s1c08|Ready to be used for new purposes. As clothing, strands of hair, or puppet strings...
+a2s1c08|Ready to be used for new purposes. As clothing, strands of hair, or even puppet strings...
 a2s1c09|...Anyone could take them.
 |
 |
@@ -71,5 +71,5 @@ a2s2c06|It was not until the end of the last Act that Sam was aware of feeling a
 a2s2c07| They moved their eyes from the puppet to their stick hands and noticed strings hanging off their hands. 
 a2s2c08|Sam watched as the strings got longer, and their hands turned to wood. Then their arms.
 a2s2c09|And everything was getting larger around them, except it was they who were getting smaller.
-a2s2c10|They heard a voice, far above them, that cackled, “You are mine, now! I am the puppet collector!” 
-a2s2c11|The collector laughed, and the audience laughed, while Sam was carried helpless to the puppet collector’s box.
+a2s2c10|"They heard a voice, far above them, that cackled, ""You are mine, now! I am the puppet collector!"" "
+a2s2c11|The collector laughed, and the audience laughed, while Sam was carried helpless to the puppet collectorâ€™s box.

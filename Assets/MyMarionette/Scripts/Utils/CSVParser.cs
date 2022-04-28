@@ -30,7 +30,10 @@ public class CSVParser : MonoBehaviour
             // trim first and last quotation mark
             string subtitle = entries[1];
             if (subtitle[0] == '"') {
-                subtitle = subtitle.Substring(1, entries[1].Length - 2);
+                subtitle = subtitle.Substring(1, subtitle.Length - 1);
+            }
+            if (subtitle[subtitle.Length - 1] == '"') {
+                subtitle = subtitle.Substring(0, subtitle.Length - 1);
             }
 
             // trim intermediate quotation marks

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1048955284362286905}
   - component: {fileID: 1048955284362286904}
+  - component: {fileID: 1749760831126888933}
   m_Layer: 0
   m_Name: NarrationManager
   m_TagString: Untagged
@@ -97,6 +98,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bb27fd58fcfdee042827bed011760e3c, type: 2}
   - {fileID: 11400000, guid: d17ab24d82a677843b5f04bbed8bbf10, type: 2}
   subtitleText: {fileID: 0}
+--- !u!114 &1749760831126888933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048955284362286911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8411007a30b9da439b3b5fcf3b67c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sequenceFile: {fileID: 4900000, guid: a5c5cff61e0cdf14a895ebf7c188c4db, type: 3}
 --- !u!1 &1048955284428956533
 GameObject:
   m_ObjectHideFlags: 0

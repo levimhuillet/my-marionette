@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -14,7 +15,7 @@ public class NarrationManager : MonoBehaviour
     [SerializeField] private NarrationAudioData[] narrationData; // all narration data
 
     // Subtitles
-    [SerializeField] private Text subtitleText;
+    [SerializeField] private TMP_Text subtitleText;
 
     #endregion // Editor
 
