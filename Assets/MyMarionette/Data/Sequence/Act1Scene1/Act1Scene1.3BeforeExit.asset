@@ -10,21 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
-  m_Name: Act1Scene3
+  m_Name: Act1Scene1.3BeforeExit
   m_EditorClassIdentifier: 
   startActions: []
-  id: a1s3
+  id: a1s1.3
   narrationDataIDs:
-  - a1s3c01
-  - a1s3c02
-  - a1s3c03
-  - a1s3c04
-  - a1s3c05
-  - a1s3c06
-  - a1s3c07
-  - a1s3c08
-  - a1s3c09
-  - a1s3c10
-  - a1s3c11
-  branches: []
-  endActions: []
+  - a1s1c06
+  - a1s1c07
+  - a1s1c08
+  - a1s1c09
+  - a1s1c10
+  triggersGameplay: 0
+  puppetSwap: 0
+  branches:
+  - PuppetKey: {fileID: 0}
+    SequenceValueID: a1s2.1
+  endActions:
+  - EffectType: 2
+    Activating: 0
+    LightColorIndex: 0
+  - EffectType: 3
+    Activating: 0
+    LightColorIndex: 0

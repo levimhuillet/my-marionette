@@ -10,10 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
-  m_Name: Act2Scene2
+  m_Name: Act1Scene3
   m_EditorClassIdentifier: 
-  id: a2s2
+  startActions: []
+  id: a1s3.1
   narrationDataIDs:
-  - a2s2c01
-  - a2s2c02
+  - a1s3c01
+  - a1s3c02
+  - a1s3c03
+  - a1s3c04
+  - a1s3c05
+  - a1s3c06
+  - a1s3c07
+  - a1s3c08
+  - a1s3c09
+  - a1s3c10
+  - a1s3c11
+  triggersGameplay: 0
+  puppetSwap: 0
   branches: []
+  endActions:
+  - EffectType: 2
+    Activating: 0
+    LightColorIndex: 0
+  - EffectType: 3
+    Activating: 0
+    LightColorIndex: 0

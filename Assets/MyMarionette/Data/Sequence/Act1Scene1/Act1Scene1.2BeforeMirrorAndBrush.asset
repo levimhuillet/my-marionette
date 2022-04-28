@@ -10,26 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
-  m_Name: Act1Scene2
+  m_Name: Act1Scene1.2BeforeMirrorAndBrush
   m_EditorClassIdentifier: 
-  id: a1s2
+  startActions: []
+  id: a1s1.2
   narrationDataIDs:
-  - a1s2c01
-  - a1s2c02
-  - a1s2c03
-  - a1s2c04
-  - a1s2c05
-  - a1s2c06
-  - a1s2c07
-  - a1s2c08
-  - a1s2c09
-  - a1s2c10
-  - a1s2c11
-  - a1s2c12
-  - a1s2c13
-  - a1s2c14
-  - a1s2c15
-  - a1s2c16
+  - a1s1c05
+  triggersGameplay: 1
+  puppetSwap: 0
   branches:
   - PuppetKey: {fileID: 0}
-    SequenceValueID: a1s3
+    SequenceValueID: a1s1.3
+  endActions: []

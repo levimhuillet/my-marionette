@@ -56,6 +56,9 @@ public class SequenceManager : MonoBehaviour
         NarrationManager.OnNarrationClipCompleted.AddListener(HandleNarrationClipCompleted);
         OnStartActionsCompleted.AddListener(HandleStartActionsCompleted);
         OnEndActionsCompleted.AddListener(HandleEndActionsCompleted);
+
+        ChestManager.OnSwapCompleted.AddListener(HandleSwapCompleted);
+        GameplayManager.OnGameplayCompleted.AddListener(HandleGameplayCompleted);
     }
 
     #endregion // Unity Callbacks
@@ -115,13 +118,21 @@ public class SequenceManager : MonoBehaviour
         OnStartActionsCompleted.Invoke();
     }
 
+    private void ActionsAfterSwap() {
+        // handle gameplay
+        if (currSequenceData.TriggersGameplay) {
+            GameplayManager.Instance.BeginGameplay();
+            return;
+        }
+
+        ActionsAfterGameplay();
+    }
+
+    private void ActionsAfterGameplay() {
+        StartCoroutine(EndActionsRoutine());
+    }
+
     private IEnumerator EndActionsRoutine() {
-        // Turn off lights
-        yield return EffectsManager.Instance.TurnOffLights(2);
-
-        // Reset light color
-        EffectsManager.Instance.SetLightColor(0);
-
         // handle sequence endActions
         yield return HandleEffects(currSequenceData.EndActions);
 
@@ -210,7 +221,6 @@ public class SequenceManager : MonoBehaviour
         LoadSequence(nextSequenceID);
     }
 
-
     private void HandleNarrationClipCompleted() {
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Received NarrationManager end of clip."); }
 
@@ -225,8 +235,32 @@ public class SequenceManager : MonoBehaviour
         else {
             if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] No more clips. Evaluating next sequence."); }
 
+            // handle puppet swap
+            if (currSequenceData.PuppetSwap) {
+                ChestManager.Instance.BeginPuppetSwap();
+                return;
+            }
+
+            // handle gameplay
+            if (currSequenceData.TriggersGameplay) {
+                GameplayManager.Instance.BeginGameplay();
+                return;
+            }
+
             StartCoroutine(EndActionsRoutine());
         }
+    }
+
+    private void HandleSwapCompleted() {
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Received ChestManager end of swap."); }
+
+        ActionsAfterSwap();
+    }
+
+    private void HandleGameplayCompleted() {
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Received GameplayManager end of gameplay."); }
+
+        ActionsAfterGameplay();
     }
 
     #endregion

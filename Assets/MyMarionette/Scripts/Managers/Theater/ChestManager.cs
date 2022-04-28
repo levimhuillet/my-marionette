@@ -14,7 +14,7 @@ public class ChestManager : MonoBehaviour
     {
         public string SequenceID;
         public string ChoiceTitle; // Protagonist, Antagonist, etc.
-        public Puppet[] AvailablePuppets; // uncomment if we move away from pool implementation
+        public Puppet[] AvailablePuppets;
         [HideInInspector]
         public Puppet SelectedPuppet;
     }
@@ -22,7 +22,6 @@ public class ChestManager : MonoBehaviour
     #region Editor
 
     // Puppet Choices
-    //[SerializeField] private Puppet[] allPuppets;
     [SerializeField] private PuppetChoice[] allChoices;
     [SerializeField] private UIPuppetPicker puppetPicker;
     [SerializeField] private GameObject PuppetChest;
@@ -47,21 +46,35 @@ public class ChestManager : MonoBehaviour
         anims = PuppetChest.GetComponents<Animation>();
         PuppetChest.GetComponent<Animation>().clip = Open;
         anims[0].Play(); // first animation is OpenChest
-        // OpenAnim = anims[0];
-        // OpenAnim.Play();
     }
     private void CloseChest() {
         Animation[] anims;
         anims = PuppetChest.GetComponents<Animation>();
         PuppetChest.GetComponent<Animation>().clip = Close;
         anims[0].Play(); // second animation is CloseChest
-        // OpenAnim = anims[1];
-        // OpenAnim.Play();
     }
     private void StartPuppetPicker() {
         OpenChest();
         puppetPicker.OnChoiceConfirmed.AddListener(HandleChoiceConfirmed);
         puppetPicker.Open();
+    }
+
+    public void BeginPuppetSwap() {
+        // halts play until player opens chest, clicks on new puppet
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Chest Manager] Swapping puppets..."); }
+
+        StartCoroutine(PlaceholderRoutine());
+    }
+
+    private IEnumerator PlaceholderRoutine() {
+        float timer = 5f;
+
+        while (timer > 0) {
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+
+        OnSwapCompleted.Invoke();
     }
 
     #endregion // Puppet Picker
@@ -70,6 +83,8 @@ public class ChestManager : MonoBehaviour
 
     [HideInInspector]
     public UnityEvent OnChoiceCompleted;
+    [HideInInspector]
+    public static UnityEvent OnSwapCompleted;
 
     #endregion // Events
 
@@ -91,6 +106,7 @@ public class ChestManager : MonoBehaviour
         }
 
         OnChoiceCompleted = new UnityEvent();
+        OnSwapCompleted = new UnityEvent();
     }
 
     private void Start() {
@@ -131,14 +147,6 @@ public class ChestManager : MonoBehaviour
     public PuppetChoice[] GetAllPuppetChoices() {
         return allChoices;
     }
-
-    /*
-    public Puppet[] GetPuppetOptions(PuppetChoice choice) {
-        // TODO: return a subset of puppets based on choice
-
-        return allPuppets;
-    }
-    */
 
     public void SetPuppetChoice(PuppetChoice choice, Puppet chosenPuppet) {
         int choiceIndex = Array.IndexOf(allChoices, choice);

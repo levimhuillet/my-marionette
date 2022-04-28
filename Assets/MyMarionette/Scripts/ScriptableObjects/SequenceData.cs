@@ -17,6 +17,12 @@ public class SequenceData : ScriptableObject
     public string[] NarrationDataIDs {
         get { return narrationDataIDs; }
     }
+    public bool TriggersGameplay {
+        get { return triggersGameplay; }
+    }
+    public bool PuppetSwap {
+        get { return puppetSwap; }
+    }
     public List<Branch> Branches {
         get { return branches; }
     }
@@ -27,6 +33,8 @@ public class SequenceData : ScriptableObject
     [SerializeField] private List<EffectAction> startActions;
     [SerializeField] private string id;
     [SerializeField] private string[] narrationDataIDs;
+    [SerializeField] private bool triggersGameplay;
+    [SerializeField] private bool puppetSwap;
     [SerializeField] private List<Branch> branches;
     [SerializeField] private List<EffectAction> endActions;
 }

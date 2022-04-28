@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f5393902230d5145825f00e390ba5e2, type: 3}
   m_Name: Act1Data
   m_EditorClassIdentifier: 
+  startActions: []
   num: 1
-  firstSequenceID: a1s1
+  firstSequenceID: a1s1.1
+  endActions: []

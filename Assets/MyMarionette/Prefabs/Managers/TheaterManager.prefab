@@ -456,6 +456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sequenceData:
+  - {fileID: 11400000, guid: 9cfb747daec9d394cb4c31f4c2e0cc51, type: 2}
+  - {fileID: 11400000, guid: b47542dc5e57be94ab04657fd5e53d3b, type: 2}
   - {fileID: 11400000, guid: 977edf01018478a44afe36b297e9d1fb, type: 2}
   - {fileID: 11400000, guid: 51cbf35c31d565242beb1200137efe17, type: 2}
   - {fileID: 11400000, guid: 2c76b42af6967144bbf6eabd8e0412a5, type: 2}
