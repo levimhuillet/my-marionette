@@ -978,10 +978,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caa88859866ff547b7ea607fb3354a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftStick: {fileID: 7369036979102428947, guid: 78d2b08085727754aa6603d6b2c80656, type: 3}
-  RightStick: {fileID: 3247240990649321932, guid: 983b0335af05dc549a282ea8626b6743, type: 3}
+  Sticks: {fileID: 3714610019952034119, guid: 280b15c6f04841749b61384c6ac1cbcb, type: 3}
   Body: {fileID: 0}
   RopeConnection: {fileID: 0}
+  AnchorPoints: []
   Name: Mouse
 --- !u!1 &4918680646796388446
 GameObject:

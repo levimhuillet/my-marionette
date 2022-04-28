@@ -9,11 +9,19 @@ public class PuppetManager : MonoBehaviour
     [SerializeField] private Puppet startPuppet1, startPuppet2; // TEMPORARY SOLUTION
     [SerializeField] private Transform leftController, rightController; // transforms (positions) of the controller hands
 
+    private struct AnchorPair {
+        public GameObject StickAnchor;
+        public GameObject PuppetAnchor;
+    }
+
+    private List<AnchorPair> anchorPairs;
+
     private Puppet currPuppet;
     private List<GameObject> puppetParts; // tracks the puppet components in the scene
 
     private void Start() {
         puppetParts = new List<GameObject>();
+        anchorPairs = new List<AnchorPair>();
 
         SetCurrPuppet(startPuppet1); // TEMPORARY SOLUTION
     }
@@ -29,10 +37,10 @@ public class PuppetManager : MonoBehaviour
         /* Create the puppet parts */
         // Controller sticks
 
-        GameObject leftStick = Instantiate(puppet.LeftStick, leftController);
+        GameObject leftStick = Instantiate(puppet.Sticks.LeftStick, leftController);
         puppetParts.Add(leftStick);
 
-        GameObject rightStick = Instantiate(puppet.RightStick, rightController);
+        GameObject rightStick = Instantiate(puppet.Sticks.RightStick, rightController);
         puppetParts.Add(rightStick);
 
         // Puppet body

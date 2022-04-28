@@ -140,10 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4caa88859866ff547b7ea607fb3354a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftStick: {fileID: 6193028831089176557, guid: afbad44ecc6b027448d7acb730ffdaaf, type: 3}
-  RightStick: {fileID: 6614193307032896367, guid: e9c4af92fb5dad7428cea04ee7b52d5b, type: 3}
+  Sticks: {fileID: 3714610019952034119, guid: 280b15c6f04841749b61384c6ac1cbcb, type: 3}
   Body: {fileID: 7469149819468537687}
   RopeConnection: {fileID: 0}
+  AnchorPoints: []
   Name: Demo Puppet 2
 --- !u!1 &2188313984986421228
 GameObject:
