@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class PuppetSticks : MonoBehaviour
 {
-    public GameObject LeftStick, RightStick;
-    public GameObject[] AnchorPoints; // points on the stick which will anchort to the puppet
+    public SingleStick LeftStick, RightStick;
 }

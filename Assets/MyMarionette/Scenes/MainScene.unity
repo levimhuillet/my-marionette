@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5033,13 +5033,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428987302}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.040133577, y: -0, z: -0, w: 0.9991944}
   m_LocalPosition: {x: -31.027344, y: -24.11, z: 3.4970121}
   m_LocalScale: {x: 40, y: 4, z: 8}
   m_Children: []
   m_Father: {fileID: 254639935}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -4.6, y: 0, z: 0}
 --- !u!65 &428987304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18330,6 +18330,7 @@ MonoBehaviour:
   startPuppet2: {fileID: 355094156944535060, guid: dbcb6b7b37b9fe8409daaf59e8f6a7df, type: 3}
   leftController: {fileID: 690069830}
   rightController: {fileID: 1292780970}
+  stage: {fileID: 428987303}
 --- !u!114 &1983592379
 MonoBehaviour:
   m_ObjectHideFlags: 0

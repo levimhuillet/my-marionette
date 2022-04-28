@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315655295014144285}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.87, z: -14}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2051471417830739105}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8520515344336688552}
   - component: {fileID: 5371701710513884803}
   m_Layer: 0
-  m_Name: Anchor2-Right
+  m_Name: Anchor1-Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,6 +297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5553394360700657848}
+  - component: {fileID: 5664809052818432673}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -312,7 +313,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2690773395728740068}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000000029802322, y: 4.87, z: 13.89}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3586163749114021378}
@@ -320,6 +321,22 @@ Transform:
   m_Father: {fileID: 6674984698938263065}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5664809052818432673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2690773395728740068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff82ba9af6208444694a3572e772ba12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnchorPoints:
+  - {fileID: 1579387553531232880}
+  - {fileID: 592536674898654129}
+  - {fileID: 3183349278038280415}
 --- !u!1 &3183349278038280415
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +352,7 @@ GameObject:
   - component: {fileID: 981991662068555405}
   - component: {fileID: 5822991011086473433}
   m_Layer: 0
-  m_Name: Anchor1-Left
+  m_Name: Anchor2-Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -476,7 +493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5613731751488761815}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.87, z: -14}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 5161885242917407484}
@@ -607,9 +624,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sticks: {fileID: 3714610019952034119, guid: 280b15c6f04841749b61384c6ac1cbcb, type: 3}
-  Body: {fileID: 2690773395728740068}
+  Body: {fileID: 5664809052818432673}
   RopeConnection: {fileID: 0}
-  AnchorPoints: []
   Name: Demo Puppet 1
 --- !u!1 &6678345580294530655
 GameObject:
