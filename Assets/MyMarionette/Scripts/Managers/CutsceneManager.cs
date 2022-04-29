@@ -17,7 +17,7 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private Text placeholderTimeText;
 
     [SerializeField] private PlayableDirector openingSceneDirector;
-    private float displayTime = 5f;
+    private float displayTime = 30f;
     private float displayTimer;
     private bool isDisplaying;
 
@@ -28,8 +28,10 @@ public class CutsceneManager : MonoBehaviour
         placeholderUI.SetActive(true);
         isDisplaying = true;
 
+        Debug.Log("Is director enabled? " + openingSceneDirector.isActiveAndEnabled);
         openingSceneDirector.Play();
         Debug.Log("director is " + openingSceneDirector);
+        openingSceneDirector.played += Play_Director;
     }
 
     #endregion
@@ -42,6 +44,10 @@ public class CutsceneManager : MonoBehaviour
     #endregion // Events
 
     #region Unity Callbacks
+
+    private void Play_Director(PlayableDirector obj) {
+        Debug.Log("Playing director");
+    }
 
     private void OnEnable() {
         if (Instance == null) {
