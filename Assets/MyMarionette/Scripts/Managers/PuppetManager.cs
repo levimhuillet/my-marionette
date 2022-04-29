@@ -12,6 +12,8 @@ public class PuppetManager : MonoBehaviour
     [SerializeField] private float puppetDistance; // distance between puppet and sticks
     [SerializeField] private GameObject stringPrefab;
 
+    private List<LineRenderer> leftStickStrings, rightStickStrings;
+
     private struct AnchorPair
     {
         public GameObject StickAnchor;
@@ -27,12 +29,27 @@ public class PuppetManager : MonoBehaviour
 
     private List<AnchorPair> anchorPairs;
 
+    private struct PuppetParts
+    {
+        public SingleStick LeftStick;
+        public SingleStick RightStick;
+        public PuppetBody Body;
+
+        public PuppetParts(SingleStick inLeft, SingleStick inRight, PuppetBody inBody) {
+            LeftStick = inLeft;
+            RightStick = inRight;
+            Body = inBody;
+        }
+    }
+
     private Puppet currPuppet;
-    private List<GameObject> puppetParts; // tracks the puppet components in the scene
+    private PuppetParts currParts; // tracks the puppet components in the scene for later deletion
 
     private void Start() {
-        puppetParts = new List<GameObject>();
         anchorPairs = new List<AnchorPair>();
+
+        leftStickStrings = new List<LineRenderer>();
+        rightStickStrings = new List<LineRenderer>();
 
         SetCurrPuppet(startPuppet1); // TEMPORARY SOLUTION
     }
@@ -51,6 +68,24 @@ public class PuppetManager : MonoBehaviour
                 pair.PuppetAnchor.transform.position = targetPuppetPos;
                 pair.PuppetAnchor.transform.rotation = pair.StickAnchor.transform.rotation;
             }
+
+            int overallAnchorIndex = 0;
+            for (int s = 0; s < currParts.LeftStick.AnchorPoints.Length; s++) {
+                leftStickStrings[s].SetPositions(
+                new Vector3[] {
+                    currParts.LeftStick.AnchorPoints[s].transform.position,
+                    currParts.Body.AnchorPoints[overallAnchorIndex].transform.position }
+                );
+                overallAnchorIndex++;
+            }
+            for (int s = 0; s < currParts.RightStick.AnchorPoints.Length; s++) {
+                rightStickStrings[s].SetPositions(
+                new Vector3[] {
+                    currParts.RightStick.AnchorPoints[s].transform.position,
+                    currParts.Body.AnchorPoints[overallAnchorIndex].transform.position }
+                );
+                overallAnchorIndex++;
+            }
         }
     }
 
@@ -66,15 +101,14 @@ public class PuppetManager : MonoBehaviour
 
         // Controller sticks
         SingleStick leftStick = Instantiate(puppet.Sticks.LeftStick.gameObject, leftController).GetComponent<SingleStick>();
-        puppetParts.Add(leftStick.gameObject);
 
         SingleStick rightStick = Instantiate(puppet.Sticks.RightStick.gameObject, rightController).GetComponent<SingleStick>();
-        puppetParts.Add(rightStick.gameObject);
 
         // Puppet body
         PuppetBody body = Instantiate(puppet.Body.gameObject).GetComponent<PuppetBody>();
         body.transform.position = new Vector3(stage.transform.position.x, stage.transform.position.y + 5, stage.transform.position.z);
-        puppetParts.Add(body.gameObject);
+
+        currParts = new PuppetParts(leftStick, rightStick, body);
 
         // Hook the parts together (stick-to-puppet anchors)
         if (body.AnchorPoints.Length != (leftStick.AnchorPoints.Length + rightStick.AnchorPoints.Length)) {
@@ -89,7 +123,14 @@ public class PuppetManager : MonoBehaviour
             anchorPairs.Add(newPair);
 
             //strings
-            AttachString(leftStick.AnchorPoints[a], body.AnchorPoints[overallAnchorIndex]);
+            //AttachString(leftStick.AnchorPoints[a], body.AnchorPoints[overallAnchorIndex]);
+            LineRenderer anchorRender = leftStick.AnchorPoints[a].GetComponent<LineRenderer>();
+            anchorRender.SetPositions(
+                new Vector3[] {
+                    leftStick.AnchorPoints[a].transform.position,
+                    body.AnchorPoints[overallAnchorIndex].transform.position }
+                );
+            leftStickStrings.Add(anchorRender);
 
             overallAnchorIndex++;
         }
@@ -100,12 +141,19 @@ public class PuppetManager : MonoBehaviour
             anchorPairs.Add(newPair);
 
             //strings
-            AttachString(rightStick.AnchorPoints[a], body.AnchorPoints[overallAnchorIndex]);
+            LineRenderer anchorRender = rightStick.AnchorPoints[a].GetComponent<LineRenderer>();
+            anchorRender.SetPositions(
+                new Vector3[] {
+                    rightStick.AnchorPoints[a].transform.position,
+                    body.AnchorPoints[overallAnchorIndex].transform.position }
+                );
+            rightStickStrings.Add(anchorRender);
 
             overallAnchorIndex++;
         }
     }
 
+    /* DEPRECATED in favor of LineRender strings
     private void AttachString(GameObject stickAnchor, GameObject puppetAnchor) {
         // create and position string
         GameObject newStringObj = Instantiate(stringPrefab);
@@ -119,7 +167,7 @@ public class PuppetManager : MonoBehaviour
         // attach the bottom segment to the puppet
         StartCoroutine(AttachBottom(newString, puppetAnchor));
 
-        puppetParts.Add(newStringObj);
+        //puppetParts.Add(newStringObj);
     }
 
     private IEnumerator AttachBottom(PuppetString newString, GameObject puppetAnchor) {
@@ -130,14 +178,19 @@ public class PuppetManager : MonoBehaviour
         FixedJoint newJoint = newString.BottomSegment.AddComponent<FixedJoint>();
         newJoint.connectedBody = puppetAnchor.GetComponent<Rigidbody>();
     }
+    */
 
     private void ClearPuppet() {
         // destroy puppet gameObjects (hands, body, strings, etc.)
-        foreach (GameObject part in puppetParts) {
-            Destroy(part);
-        }
-        puppetParts.Clear();
+        Destroy(currParts.LeftStick.gameObject);
+        Destroy(currParts.RightStick.gameObject);
+        Destroy(currParts.Body.gameObject);
+
+        currParts = new PuppetParts(null, null, null);
         anchorPairs.Clear();
+
+        leftStickStrings.Clear();
+        rightStickStrings.Clear();
 
         // remove reference
         currPuppet = null;
