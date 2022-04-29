@@ -48,6 +48,7 @@ public class PuppetManager : MonoBehaviour
                     );
 
                 pair.PuppetAnchor.transform.position = targetPuppetPos;
+                pair.PuppetAnchor.transform.rotation = pair.StickAnchor.transform.rotation;
             }
         }
     }
