@@ -368,7 +368,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3745847}
-  m_LocalRotation: {x: 0, y: 0.99979836, z: -0, w: -0.020080296}
+  m_LocalRotation: {x: 0, y: 0.33332583, z: -0, w: 1}
   m_LocalPosition: {x: -2.2378664, y: 6.370866, z: -50.55031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1461,12 +1461,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 831473602792165842, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 831473602792165842, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
       propertyPath: m_SceneBindings.Array.data[3].key
       value: 
       objectReference: {fileID: -949738183809030114, guid: 8737e54e219fcb24bbc67c1425496690, type: 2}
+    - target: {fileID: 831473602792165842, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
+      propertyPath: m_SceneBindings.Array.data[4].key
+      value: 
+      objectReference: {fileID: -8241504871200545269, guid: 8737e54e219fcb24bbc67c1425496690, type: 2}
     - target: {fileID: 831473602792165842, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
@@ -1475,6 +1479,10 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[3].value
       value: 
       objectReference: {fileID: 785386743}
+    - target: {fileID: 831473602792165842, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
+      propertyPath: m_SceneBindings.Array.data[4].value
+      value: 
+      objectReference: {fileID: 1402128}
     - target: {fileID: 831473602792165842, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.size
       value: 3
@@ -1557,23 +1565,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 831473604359268869, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.060228825
+      value: 0.0043964386
       objectReference: {fileID: 0}
     - target: {fileID: 831473604359268869, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5908656
+      value: 1.5941901
       objectReference: {fileID: 0}
     - target: {fileID: 831473604359268869, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.4987907
+      value: -1.5032883
       objectReference: {fileID: 0}
     - target: {fileID: 831473604359268869, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.020080296
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 831473604359268869, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99979836
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6549194281092188744, guid: 3400e0ebb305f479bb3cdd1e1cf1a85a, type: 3}
       propertyPath: m_WarningMessage
@@ -8655,8 +8663,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -176}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -97, y: -176}
+  m_SizeDelta: {x: 462.5903, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &785386743
 MonoBehaviour:
@@ -8678,7 +8686,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: So, you're the new guy?
+  m_text: "So you\u2019re here to help out with the 9:30 show, right?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8741,7 +8749,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -269.13324, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
