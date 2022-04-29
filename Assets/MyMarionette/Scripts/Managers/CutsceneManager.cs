@@ -32,6 +32,7 @@ public class CutsceneManager : MonoBehaviour
         openingSceneDirector.Play();
         Debug.Log("director is " + openingSceneDirector);
         openingSceneDirector.played += Play_Director;
+        openingSceneDirector.stopped += Stop_Director;
     }
 
     #endregion
@@ -47,6 +48,11 @@ public class CutsceneManager : MonoBehaviour
 
     private void Play_Director(PlayableDirector obj) {
         Debug.Log("Playing director");
+    }
+
+    private void Stop_Director(PlayableDirector obj) {
+        Debug.Log("Sending next state");
+        OnCutsceneCompleted.Invoke();
     }
 
     private void OnEnable() {
@@ -70,15 +76,15 @@ public class CutsceneManager : MonoBehaviour
 
     private void Update() {
         // Placeholder
-        if (isDisplaying) {
-            displayTimer -= Time.deltaTime;
-            placeholderTimeText.text = displayTimer.ToString("F1") + "\nseconds";
-            if (displayTimer <= 0) {
-                placeholderUI.gameObject.SetActive(false);
-                isDisplaying = false;
-                OnCutsceneCompleted.Invoke();
-            }
-        }
+        // if (isDisplaying) {
+        //     displayTimer -= Time.deltaTime;
+        //     placeholderTimeText.text = displayTimer.ToString("F1") + "\nseconds";
+        //     if (displayTimer <= 0) {
+        //         placeholderUI.gameObject.SetActive(false);
+        //         isDisplaying = false;
+        //         OnCutsceneCompleted.Invoke();
+        //     }
+        // }
     }
 
     #endregion // Unity Callbacks
