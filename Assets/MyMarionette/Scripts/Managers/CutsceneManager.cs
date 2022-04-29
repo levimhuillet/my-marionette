@@ -23,9 +23,9 @@ public class CutsceneManager : MonoBehaviour
 
     private void StartPlaceholder(TheaterManager.State state) {
         displayTimer = displayTime;
-        placeholderHeaderText.text = "You are in the " + state + " Cutscene.\nThis cutscene will end in:";
-        placeholderTimeText.text = displayTimer.ToString("F1") + "\nseconds";
-        placeholderUI.SetActive(true);
+        // placeholderHeaderText.text = "You are in the " + state + " Cutscene.\nThis cutscene will end in:";
+        // placeholderTimeText.text = displayTimer.ToString("F1") + "\nseconds";
+        // placeholderUI.SetActive(true);
         isDisplaying = true;
 
         Debug.Log("Is director enabled? " + openingSceneDirector.isActiveAndEnabled);
