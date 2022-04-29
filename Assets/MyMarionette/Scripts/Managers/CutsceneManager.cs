@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private GameObject placeholderUI;
     [SerializeField] private Text placeholderHeaderText;
     [SerializeField] private Text placeholderTimeText;
+
+    [SerializeField] private PlayableDirector openingSceneDirector;
     private float displayTime = 5f;
     private float displayTimer;
     private bool isDisplaying;
@@ -24,6 +27,8 @@ public class CutsceneManager : MonoBehaviour
         placeholderTimeText.text = displayTimer.ToString("F1") + "\nseconds";
         placeholderUI.SetActive(true);
         isDisplaying = true;
+
+        Debug.Log("director is " + openingSceneDirector);
     }
 
     #endregion
@@ -54,6 +59,8 @@ public class CutsceneManager : MonoBehaviour
 
     private void Start() {
         TheaterManager.Instance.OnStateAdvanced.AddListener(HandleTheaterStateAdvanced);
+
+        openingSceneDirector = GetComponent<PlayableDirector>();
     }
 
     private void Update() {
