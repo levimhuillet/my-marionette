@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -61,10 +62,17 @@ public class CutsceneManager : MonoBehaviour
         Debug.Log("Sending next state");
         CutsceneCam.SetActive(false);
         XROrigin.SetActive(true);
+        
+   
+        GameObject cutsceneObj = GameObject.Find("OpeningCutscene");
+
+        cutsceneObj.SetActive(false);
+    
+
         OnCutsceneCompleted.Invoke();
 
-        openingSceneDirector.played -= Play_Director;
-        openingSceneDirector.stopped -= Stop_Director;
+        openingSceneDirector.played += Play_Director;
+        openingSceneDirector.stopped += Stop_Director;
     }
 
     private void OnEnable() {
