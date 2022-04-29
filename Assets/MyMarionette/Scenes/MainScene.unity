@@ -13917,6 +13917,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4447682144521527702, guid: 8ace7e7f9bc56944e8d2960c8e0d7fdc, type: 3}
+      propertyPath: XROrigin
+      value: 
+      objectReference: {fileID: 1983592377}
+    - target: {fileID: 4447682144521527702, guid: 8ace7e7f9bc56944e8d2960c8e0d7fdc, type: 3}
+      propertyPath: CutsceneCam
+      value: 
+      objectReference: {fileID: 3745847}
+    - target: {fileID: 4447682144521527702, guid: 8ace7e7f9bc56944e8d2960c8e0d7fdc, type: 3}
       propertyPath: placeholderUI
       value: 
       objectReference: {fileID: 330875102}
@@ -17188,7 +17196,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847004613}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -18722,7 +18730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1983592378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18735,7 +18743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1ebae789238ca4e8728bc6a55f4551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPuppet1: {fileID: 5052405827120209831, guid: 4691f7a37c017494e9ad7de056bbb41e, type: 3}
+  startPuppet1: {fileID: 5768449259072076084, guid: 3ddc950c955f3784091084dfb5287f53, type: 3}
   startPuppet2: {fileID: 355094156944535060, guid: dbcb6b7b37b9fe8409daaf59e8f6a7df, type: 3}
   leftController: {fileID: 690069830}
   rightController: {fileID: 1292780970}

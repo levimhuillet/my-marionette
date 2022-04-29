@@ -16,6 +16,9 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private Text placeholderHeaderText;
     [SerializeField] private Text placeholderTimeText;
 
+    [SerializeField] private GameObject XROrigin;
+    [SerializeField] private GameObject CutsceneCam;
+
     [SerializeField] private PlayableDirector openingSceneDirector;
     private float displayTime = 30f;
     private float displayTimer;
@@ -26,6 +29,8 @@ public class CutsceneManager : MonoBehaviour
         // placeholderHeaderText.text = "You are in the " + state + " Cutscene.\nThis cutscene will end in:";
         // placeholderTimeText.text = displayTimer.ToString("F1") + "\nseconds";
         // placeholderUI.SetActive(true);
+
+        CutsceneCam.SetActive(true);
         isDisplaying = true;
 
         Debug.Log("Is director enabled? " + openingSceneDirector.isActiveAndEnabled);
@@ -33,6 +38,8 @@ public class CutsceneManager : MonoBehaviour
         Debug.Log("director is " + openingSceneDirector);
         openingSceneDirector.played += Play_Director;
         openingSceneDirector.stopped += Stop_Director;
+
+        XROrigin.SetActive(false);
     }
 
     #endregion
@@ -52,7 +59,12 @@ public class CutsceneManager : MonoBehaviour
 
     private void Stop_Director(PlayableDirector obj) {
         Debug.Log("Sending next state");
+        CutsceneCam.SetActive(false);
+        XROrigin.SetActive(true);
         OnCutsceneCompleted.Invoke();
+
+        openingSceneDirector.played -= Play_Director;
+        openingSceneDirector.stopped -= Stop_Director;
     }
 
     private void OnEnable() {
