@@ -28,6 +28,7 @@ public class CutsceneManager : MonoBehaviour
         placeholderUI.SetActive(true);
         isDisplaying = true;
 
+        openingSceneDirector.Play();
         Debug.Log("director is " + openingSceneDirector);
     }
 
@@ -59,8 +60,6 @@ public class CutsceneManager : MonoBehaviour
 
     private void Start() {
         TheaterManager.Instance.OnStateAdvanced.AddListener(HandleTheaterStateAdvanced);
-
-        openingSceneDirector = GetComponent<PlayableDirector>();
     }
 
     private void Update() {
