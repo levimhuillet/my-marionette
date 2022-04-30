@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -49,11 +50,11 @@ public class UIPuppetPicker : MenuBase
 
             // create a new title for the choice category
             GameObject newTitle = Instantiate(choiceTitlePrefab, m_buttonHolder.transform);
-            newTitle.GetComponent<Text>().text = choice.ChoiceTitle;
+            newTitle.GetComponent<TMP_Text>().text = choice.ChoiceTitle;
 
             // recaulculate row spacing
             float vertSpacing = rowIndex * -m_rowSpacing;
-            newTitle.transform.position += new Vector3(0, vertSpacing, 0);
+            newTitle.transform.localPosition += new Vector3(0, vertSpacing, 0);
 
             // generate a new choice button for each puppet you can choose from
             foreach (Puppet puppet in availablePuppets) {
@@ -70,7 +71,7 @@ public class UIPuppetPicker : MenuBase
 
                 // set spacing
                 float horizSpacing = colIndex * m_colSpacing;
-                newButton.gameObject.transform.position += new Vector3(horizSpacing, vertSpacing, -.01f);
+                newButton.gameObject.transform.localPosition += new Vector3(horizSpacing, vertSpacing, -.01f);
 
                 // move to next column
                 colIndex++;

@@ -17,8 +17,8 @@ MonoBehaviour:
   narrationDataIDs:
   - a1s2c15
   - a1s2c16
-  triggersGameplay: 0
-  gameplayID: 
+  triggersGameplay: 1
+  gameplayID: exit
   branches:
   - PuppetKey: {fileID: 0}
     SequenceValueID: a1s3.1

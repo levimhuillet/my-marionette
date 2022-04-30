@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18077356, g: 0.2262977, b: 0.30717808, a: 1}
+  m_IndirectSpecularColor: {r: 0.18077321, g: 0.22629716, b: 0.3071772, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11075,7 +11075,7 @@ PrefabInstance:
     - target: {fileID: 1048955284362286904, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
       propertyPath: subtitleText
       value: 
-      objectReference: {fileID: 1980233912}
+      objectReference: {fileID: 0}
     - target: {fileID: 1048955284569339252, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
       propertyPath: m_Name
       value: TheaterManager
@@ -11143,7 +11143,7 @@ PrefabInstance:
     - target: {fileID: 1048955286083239907, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
       propertyPath: choiceUI
       value: 
-      objectReference: {fileID: 611248902}
+      objectReference: {fileID: 0}
     - target: {fileID: 1048955286083239907, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
       propertyPath: PuppetChest
       value: 
@@ -11155,7 +11155,7 @@ PrefabInstance:
     - target: {fileID: 1048955286083239907, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
       propertyPath: puppetPicker
       value: 
-      objectReference: {fileID: 611248904}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
 --- !u!1 &449436349
@@ -13690,22 +13690,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608347485}
   m_Mesh: {fileID: -4680335512128694538, guid: c78b5b0df8176574d9c9ecf73495d7d2, type: 3}
---- !u!1 &611248902 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8559743774955282664, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
-  m_PrefabInstance: {fileID: 8559743774492511214}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &611248904 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8559743774955282662, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
-  m_PrefabInstance: {fileID: 8559743774492511214}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 611248902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a35ef8c160877b4db4a23b5e748e9c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &612224675
 GameObject:
   m_ObjectHideFlags: 0
@@ -15033,6 +15017,10 @@ MonoBehaviour:
   startPuppet2: {fileID: 355094156944535060, guid: dbcb6b7b37b9fe8409daaf59e8f6a7df, type: 3}
   leftController: {fileID: 801306017}
   rightController: {fileID: 1717506888}
+  interactorLines: []
+  stage: {fileID: 0}
+  puppetDistance: 0
+  stringPrefab: {fileID: 0}
 --- !u!114 &692474108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19580,17 +19568,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900686003}
   m_Mesh: {fileID: -9215747772516270045, guid: c78b5b0df8176574d9c9ecf73495d7d2, type: 3}
---- !u!114 &904368084 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8559743775232705594, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
-  m_PrefabInstance: {fileID: 8559743774492511214}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &906345493
 GameObject:
   m_ObjectHideFlags: 0
@@ -20141,11 +20118,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915282474}
   m_Mesh: {fileID: 5607567120872455784, guid: c78b5b0df8176574d9c9ecf73495d7d2, type: 3}
---- !u!1 &917857008 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8559743775185414430, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
-  m_PrefabInstance: {fileID: 8559743774492511214}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &918323189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34671,17 +34643,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515014015}
   m_Mesh: {fileID: 2475152983969296224, guid: c78b5b0df8176574d9c9ecf73495d7d2, type: 3}
---- !u!114 &1516355553 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8559743775929103375, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
-  m_PrefabInstance: {fileID: 8559743774492511214}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1527318997
 GameObject:
   m_ObjectHideFlags: 0
@@ -46513,7 +46474,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1953953105}
-  - component: {fileID: 1953953106}
   m_Layer: 0
   m_Name: Curtains
   m_TagString: Untagged
@@ -46537,21 +46497,6 @@ Transform:
   m_Father: {fileID: 1882724474}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1953953106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953953104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12a7be24f3d5ade479a77f5ce5d9bd31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curtainLeft: {fileID: 516770322}
-  curtainRight: {fileID: 948576888}
-  openSpeed: 2
 --- !u!1 &1956723099
 GameObject:
   m_ObjectHideFlags: 0
@@ -47318,17 +47263,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1979568636}
   m_Mesh: {fileID: -5473153373524790341, guid: c78b5b0df8176574d9c9ecf73495d7d2, type: 3}
---- !u!114 &1980233912 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8559743776270791510, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
-  m_PrefabInstance: {fileID: 8559743774492511214}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1983082813
 GameObject:
   m_ObjectHideFlags: 0
@@ -51128,15 +51062,15 @@ PrefabInstance:
     - target: {fileID: 4447682144521527702, guid: 8ace7e7f9bc56944e8d2960c8e0d7fdc, type: 3}
       propertyPath: placeholderUI
       value: 
-      objectReference: {fileID: 917857008}
+      objectReference: {fileID: 0}
     - target: {fileID: 4447682144521527702, guid: 8ace7e7f9bc56944e8d2960c8e0d7fdc, type: 3}
       propertyPath: placeholderTimeText
       value: 
-      objectReference: {fileID: 904368084}
+      objectReference: {fileID: 0}
     - target: {fileID: 4447682144521527702, guid: 8ace7e7f9bc56944e8d2960c8e0d7fdc, type: 3}
       propertyPath: placeholderHeaderText
       value: 
-      objectReference: {fileID: 1516355553}
+      objectReference: {fileID: 0}
     - target: {fileID: 7208277418046704363, guid: 8ace7e7f9bc56944e8d2960c8e0d7fdc, type: 3}
       propertyPath: m_Name
       value: CutsceneManager

@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PuppetPickerButton : Button
 {
-    [SerializeField] private Text puppetName;
+    [SerializeField] private TMP_Text puppetName;
     //private Puppet puppet;
 
     #region Unity Callbacks

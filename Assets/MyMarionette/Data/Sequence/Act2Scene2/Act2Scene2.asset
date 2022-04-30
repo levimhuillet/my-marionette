@@ -12,18 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
   m_Name: Act2Scene2
   m_EditorClassIdentifier: 
-  startActions: []
+  startActions:
+  - EffectType: 4
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: Protagonist (Sam)
   id: a2s2.1
   narrationDataIDs:
   - a2s2c01
   - a2s2c02
   triggersGameplay: 0
-  puppetSwap: 0
+  gameplayID: 
   branches: []
   endActions:
   - EffectType: 2
     Activating: 0
     LightColorIndex: 0
+    SwapRole: 
   - EffectType: 3
     Activating: 0
     LightColorIndex: 0
+    SwapRole: 

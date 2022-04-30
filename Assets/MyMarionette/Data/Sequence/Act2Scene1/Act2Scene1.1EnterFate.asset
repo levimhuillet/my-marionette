@@ -17,10 +17,6 @@ MonoBehaviour:
     Activating: 0
     LightColorIndex: 1
     SwapRole: 
-  - EffectType: 4
-    Activating: 0
-    LightColorIndex: 0
-    SwapRole: Protagonist (Sam)
   id: a2s1.1
   narrationDataIDs:
   - a2s1c01
