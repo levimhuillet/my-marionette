@@ -42,12 +42,18 @@ public class ChestManager : MonoBehaviour
     [SerializeField] private AnimationClip Close;
 
     private void OpenChest() {
+        if (PuppetChest == null) {
+            PuppetChest = GameObject.Find("Puppet Chest");
+        }
         Animation[] anims;
         anims = PuppetChest.GetComponents<Animation>();
         PuppetChest.GetComponent<Animation>().clip = Open;
         anims[0].Play(); // first animation is OpenChest
     }
     private void CloseChest() {
+        if (PuppetChest == null) {
+            PuppetChest = GameObject.Find("Puppet Chest");
+        }
         Animation[] anims;
         anims = PuppetChest.GetComponents<Animation>();
         PuppetChest.GetComponent<Animation>().clip = Close;

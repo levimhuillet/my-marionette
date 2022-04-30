@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class PuppetManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PuppetManager : MonoBehaviour
 
     [SerializeField] private Puppet startPuppet1, startPuppet2; // TEMPORARY SOLUTION
     [SerializeField] private Transform leftController, rightController; // transforms (positions) of the controller hands
+    [SerializeField] XRInteractorLineVisual[] interactorLines;
     [SerializeField] private Transform stage;
     [SerializeField] private float puppetDistance; // distance between puppet and sticks
     [SerializeField] private GameObject stringPrefab;
@@ -52,6 +54,9 @@ public class PuppetManager : MonoBehaviour
         rightStickStrings = new List<LineRenderer>();
 
         SetCurrPuppet(startPuppet1); // TEMPORARY SOLUTION
+
+        TheaterManager.Instance.OnStateAdvanced.AddListener(HandleTheaterStateAdvanced);
+        ChestManager.Instance.OnChoiceCompleted.AddListener(HandleChestChoiceCompleted);
     }
 
     private void Update() {
@@ -195,4 +200,33 @@ public class PuppetManager : MonoBehaviour
         // remove reference
         currPuppet = null;
     }
+
+    #region Event handlers
+
+    private void HandleTheaterStateAdvanced(TheaterManager.State state) {
+        switch (state) {
+            case TheaterManager.State.AdLib:
+                if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Puppet Manager] Enabling lines"); }
+                SetLinesEnabled(true);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void HandleChestChoiceCompleted() {
+        SetLinesEnabled(false);
+    }
+
+    #endregion // Event Handlers
+
+    #region Helper Functions
+
+    private void SetLinesEnabled(bool isEnabled) {
+        foreach (XRInteractorLineVisual line in interactorLines) {
+            line.enabled = isEnabled;
+        }
+    }
+
+    #endregion // Helper Functions
 }

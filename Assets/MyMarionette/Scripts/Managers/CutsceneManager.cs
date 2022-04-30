@@ -67,7 +67,7 @@ public class CutsceneManager : MonoBehaviour
         GameObject cutsceneObj = GameObject.Find("OpeningCutscene");
 
         cutsceneObj.SetActive(false);
-    
+
 
         OnCutsceneCompleted.Invoke();
 
