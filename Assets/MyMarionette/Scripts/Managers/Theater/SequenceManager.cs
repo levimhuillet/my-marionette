@@ -118,16 +118,6 @@ public class SequenceManager : MonoBehaviour
         OnStartActionsCompleted.Invoke();
     }
 
-    private void ActionsAfterSwap() {
-        // handle gameplay
-        if (currSequenceData.TriggersGameplay) {
-            GameplayManager.Instance.BeginGameplay();
-            return;
-        }
-
-        ActionsAfterGameplay();
-    }
-
     private void ActionsAfterGameplay() {
         StartCoroutine(EndActionsRoutine());
     }
@@ -163,6 +153,9 @@ public class SequenceManager : MonoBehaviour
                     break;
                 case EffectsManager.Effect.LightColor:
                     EffectsManager.Instance.SetLightColor(action.LightColorIndex);
+                    break;
+                case EffectsManager.Effect.PuppetSwap:
+                    yield return ChestManager.Instance.BeginPuppetSwap(action.SwapRole);
                     break;
                 default:
                     yield return null;
@@ -207,8 +200,7 @@ public class SequenceManager : MonoBehaviour
         currNarrationIndex = 0;
 
         // When all clips are run through, evaluate next sequence
-        ChestManager.PuppetChoice currChoice = ChestManager.Instance.GetPuppetChoice(currSequenceData.ID);
-        string nextSequenceID = EvaluateNextSequence(currChoice.SelectedPuppet);
+        string nextSequenceID = EvaluateNextSequence(PuppetManager.Instance.GetCurrPuppet());
 
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Next sequence is " + nextSequenceID); }
 
@@ -235,12 +227,6 @@ public class SequenceManager : MonoBehaviour
         else {
             if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] No more clips. Evaluating next sequence."); }
 
-            // handle puppet swap
-            if (currSequenceData.PuppetSwap) {
-                ChestManager.Instance.BeginPuppetSwap();
-                return;
-            }
-
             // handle gameplay
             if (currSequenceData.TriggersGameplay) {
                 GameplayManager.Instance.BeginGameplay();
@@ -253,8 +239,6 @@ public class SequenceManager : MonoBehaviour
 
     private void HandleSwapCompleted() {
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Sequence Manager] Received ChestManager end of swap."); }
-
-        ActionsAfterSwap();
     }
 
     private void HandleGameplayCompleted() {

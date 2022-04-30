@@ -47,13 +47,22 @@ public class PuppetManager : MonoBehaviour
     private Puppet currPuppet;
     private PuppetParts currParts; // tracks the puppet components in the scene for later deletion
 
+    private void OnEnable() {
+        if (Instance == null) {
+            Instance = this;
+        }
+        else if (this != Instance) {
+            Destroy(this.gameObject);
+        }
+    }
+
     private void Start() {
         anchorPairs = new List<AnchorPair>();
 
         leftStickStrings = new List<LineRenderer>();
         rightStickStrings = new List<LineRenderer>();
 
-        SetCurrPuppet(startPuppet1); // TEMPORARY SOLUTION
+        //SetCurrPuppet(startPuppet1); // TEMPORARY SOLUTION
 
         TheaterManager.Instance.OnStateAdvanced.AddListener(HandleTheaterStateAdvanced);
         ChestManager.Instance.OnChoiceCompleted.AddListener(HandleChestChoiceCompleted);
@@ -91,6 +100,12 @@ public class PuppetManager : MonoBehaviour
                 );
                 overallAnchorIndex++;
             }
+        }
+    }
+
+    private void OnDisable() {
+        if (currPuppet != null) {
+            ClearPuppet();
         }
     }
 
@@ -156,6 +171,10 @@ public class PuppetManager : MonoBehaviour
 
             overallAnchorIndex++;
         }
+    }
+
+    public Puppet GetCurrPuppet() {
+        return currPuppet;
     }
 
     /* DEPRECATED in favor of LineRender strings

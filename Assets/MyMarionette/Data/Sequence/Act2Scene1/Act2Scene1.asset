@@ -16,6 +16,11 @@ MonoBehaviour:
   - EffectType: 3
     Activating: 0
     LightColorIndex: 1
+    SwapRole: 
+  - EffectType: 4
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: Protagonist (Sam)
   id: a2s1.1
   narrationDataIDs:
   - a2s1c01
@@ -28,7 +33,7 @@ MonoBehaviour:
   - a2s1c08
   - a2s1c09
   triggersGameplay: 0
-  puppetSwap: 0
+  puppetSwap: Protagonist (Sam)
   branches:
   - PuppetKey: {fileID: 0}
     SequenceValueID: a2s2.1
@@ -36,6 +41,8 @@ MonoBehaviour:
   - EffectType: 2
     Activating: 0
     LightColorIndex: 0
+    SwapRole: 
   - EffectType: 3
     Activating: 0
     LightColorIndex: 0
+    SwapRole: 

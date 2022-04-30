@@ -12,7 +12,6 @@ public class ChestManager : MonoBehaviour
     [Serializable]
     public struct PuppetChoice
     {
-        public string SequenceID;
         public string ChoiceTitle; // Protagonist, Antagonist, etc.
         public Puppet[] AvailablePuppets;
         [HideInInspector]
@@ -65,11 +64,14 @@ public class ChestManager : MonoBehaviour
         puppetPicker.Open();
     }
 
-    public void BeginPuppetSwap() {
+    public IEnumerator BeginPuppetSwap(string swapRole) {
         // halts play until player opens chest, clicks on new puppet
         if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Chest Manager] Swapping puppets..."); }
 
-        StartCoroutine(PlaceholderRoutine());
+        ChestManager.PuppetChoice currChoice = ChestManager.Instance.GetPuppetChoice(swapRole);
+        PuppetManager.Instance.SetCurrPuppet(currChoice.SelectedPuppet);
+
+        yield return StartCoroutine(PlaceholderRoutine());
     }
 
     private IEnumerator PlaceholderRoutine() {
@@ -79,6 +81,8 @@ public class ChestManager : MonoBehaviour
             timer -= Time.deltaTime;
             yield return null;
         }
+
+        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Chest Manager] Puppet swap completed..."); }
 
         OnSwapCompleted.Invoke();
     }
@@ -163,18 +167,19 @@ public class ChestManager : MonoBehaviour
 
     #region Data Retrieval
 
-    public PuppetChoice GetPuppetChoice(string sequenceID) {
+    public PuppetChoice GetPuppetChoice(string swapRole) {
         // initialize the map if it does not exist
         if (choiceMap == null) {
             choiceMap = new Dictionary<string, PuppetChoice>();
             foreach (PuppetChoice choice in allChoices) {
-                choiceMap.Add(choice.SequenceID, choice);
+                choiceMap.Add(choice.ChoiceTitle, choice);
             }
         }
-        if (choiceMap.ContainsKey(sequenceID)) {
-            return choiceMap[sequenceID];
+        if (choiceMap.ContainsKey(swapRole)) {
+            return choiceMap[swapRole];
         }
         else {
+            Debug.Log("no key for " + swapRole);
             return new PuppetChoice();
         }
     }

@@ -22,7 +22,8 @@ public class EffectsManager : MonoBehaviour
         None,
         Curtains,
         Lights,
-        LightColor
+        LightColor,
+        PuppetSwap
     }
 
     [Serializable] 
@@ -31,6 +32,7 @@ public class EffectsManager : MonoBehaviour
         public Effect EffectType; // category of effect (curtain, light, etc.)
         public bool Activating; // whether light turns on/off; whether curtain opens/closes
         public int LightColorIndex; // if light action is change color, this specifies color
+        public string SwapRole; // the role of the puppet being swapped
     }
 
     private void OnEnable() {

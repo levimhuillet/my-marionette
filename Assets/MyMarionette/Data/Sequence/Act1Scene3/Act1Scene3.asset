@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
   m_Name: Act1Scene3
   m_EditorClassIdentifier: 
-  startActions: []
+  startActions:
+  - EffectType: 4
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: Troupe Member (Richard)
   id: a1s3.1
   narrationDataIDs:
   - a1s3c01
@@ -27,12 +31,14 @@ MonoBehaviour:
   - a1s3c10
   - a1s3c11
   triggersGameplay: 0
-  puppetSwap: 0
+  puppetSwap: Troupe Member (Richard)
   branches: []
   endActions:
   - EffectType: 2
     Activating: 0
     LightColorIndex: 0
+    SwapRole: 
   - EffectType: 3
     Activating: 0
     LightColorIndex: 0
+    SwapRole: 

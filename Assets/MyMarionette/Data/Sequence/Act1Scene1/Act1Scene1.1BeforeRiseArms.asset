@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
   m_Name: Act1Scene1.1BeforeRiseArms
   m_EditorClassIdentifier: 
-  startActions: []
+  startActions:
+  - EffectType: 4
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: Protagonist (Sam)
   id: a1s1.1
   narrationDataIDs:
   - a1s1c01
@@ -20,7 +24,6 @@ MonoBehaviour:
   - a1s1c03
   - a1s1c04
   triggersGameplay: 1
-  puppetSwap: 0
   branches:
   - PuppetKey: {fileID: 0}
     SequenceValueID: a1s1.2
