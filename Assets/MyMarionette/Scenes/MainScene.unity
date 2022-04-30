@@ -2393,7 +2393,19 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1223894411738324305, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
+      propertyPath: m_text
+      value: Prompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223894411738324305, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2923473003450262885, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359566319216583011, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -2633,6 +2645,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8559743775185414430, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
   m_PrefabInstance: {fileID: 330875096}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &330875103 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1223894411738324305, guid: 249b6be77d4230342826ab9c477d0d9e, type: 3}
+  m_PrefabInstance: {fileID: 330875096}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &355052089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17577,6 +17600,10 @@ PrefabInstance:
       propertyPath: sequenceFile
       value: 
       objectReference: {fileID: 4900000, guid: 6603bad439803c44795f842f544b27b5, type: 3}
+    - target: {fileID: 3010876364293792298, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
+      propertyPath: promptText
+      value: 
+      objectReference: {fileID: 330875103}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
 --- !u!1 &1907279282 stripped

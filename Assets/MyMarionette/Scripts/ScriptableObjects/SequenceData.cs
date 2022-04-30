@@ -20,6 +20,9 @@ public class SequenceData : ScriptableObject
     public bool TriggersGameplay {
         get { return triggersGameplay; }
     }
+    public string GameplayID {
+        get { return gameplayID; }
+    }
     public List<Branch> Branches {
         get { return branches; }
     }
@@ -31,6 +34,7 @@ public class SequenceData : ScriptableObject
     [SerializeField] private string id;
     [SerializeField] private string[] narrationDataIDs;
     [SerializeField] private bool triggersGameplay;
+    [SerializeField] private string gameplayID;
     [SerializeField] private List<Branch> branches;
     [SerializeField] private List<EffectAction> endActions;
 }

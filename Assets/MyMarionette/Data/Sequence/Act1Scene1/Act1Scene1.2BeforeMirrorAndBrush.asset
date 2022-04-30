@@ -17,7 +17,7 @@ MonoBehaviour:
   narrationDataIDs:
   - a1s1c05
   triggersGameplay: 1
-  puppetSwap: 0
+  gameplayID: walk-and-brush
   branches:
   - PuppetKey: {fileID: 0}
     SequenceValueID: a1s1.3

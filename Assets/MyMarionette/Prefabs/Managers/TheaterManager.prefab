@@ -406,15 +406,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allChoices:
-  - SequenceID: a1s1.1
-    ChoiceTitle: Protagonist (Sam)
+  - ChoiceTitle: Protagonist (Sam)
     AvailablePuppets:
     - {fileID: 5768449259072076084, guid: 3ddc950c955f3784091084dfb5287f53, type: 3}
     - {fileID: 4819424339303229202, guid: 15931d684442e8c4b8c7345d0fa6acc9, type: 3}
     - {fileID: 2414660648104635452, guid: 34f986d0c4d28984db1927ad5ee75702, type: 3}
     SelectedPuppet: {fileID: 0}
-  - SequenceID: a1s2.1
-    ChoiceTitle: Troupe Member (Richard)
+  - ChoiceTitle: Troupe Member (Richard)
     AvailablePuppets:
     - {fileID: 3275442828918048115, guid: 4b202841882dce348be5b4bc99165cdc, type: 3}
     - {fileID: 3418515410826257094, guid: 20996a2ae535c6847ae5e70e6dc7ea19, type: 3}
@@ -523,3 +521,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3386c4323f069834c9a35a3739590168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allGameplayEvents:
+  - ID: raise-hands
+    Prompt: Raise Hands Above Head
+  - ID: walk-and-brush
+    Prompt: Walk to Mirror and Brush Teeth
+  - ID: exit-a1s1
+    Prompt: Carry Puppet Off Stage
+  promptText: {fileID: 0}

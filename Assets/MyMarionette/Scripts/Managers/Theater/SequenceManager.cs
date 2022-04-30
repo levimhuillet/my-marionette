@@ -229,7 +229,7 @@ public class SequenceManager : MonoBehaviour
 
             // handle gameplay
             if (currSequenceData.TriggersGameplay) {
-                GameplayManager.Instance.BeginGameplay();
+                GameplayManager.Instance.BeginGameplay(currSequenceData.GameplayID);
                 return;
             }
 

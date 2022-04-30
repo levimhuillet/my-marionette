@@ -24,6 +24,7 @@ MonoBehaviour:
   - a1s1c03
   - a1s1c04
   triggersGameplay: 1
+  gameplayID: raise-hands
   branches:
   - PuppetKey: {fileID: 0}
     SequenceValueID: a1s1.2

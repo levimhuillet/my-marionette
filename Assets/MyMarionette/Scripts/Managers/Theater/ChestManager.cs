@@ -71,18 +71,7 @@ public class ChestManager : MonoBehaviour
         ChestManager.PuppetChoice currChoice = ChestManager.Instance.GetPuppetChoice(swapRole);
         PuppetManager.Instance.SetCurrPuppet(currChoice.SelectedPuppet);
 
-        yield return StartCoroutine(PlaceholderRoutine());
-    }
-
-    private IEnumerator PlaceholderRoutine() {
-        float timer = 5f;
-
-        while (timer > 0) {
-            timer -= Time.deltaTime;
-            yield return null;
-        }
-
-        if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Chest Manager] Puppet swap completed..."); }
+        yield return null;
 
         OnSwapCompleted.Invoke();
     }
