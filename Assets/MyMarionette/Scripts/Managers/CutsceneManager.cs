@@ -26,6 +26,12 @@ public class CutsceneManager : MonoBehaviour
     private bool isDisplaying;
 
     private void StartPlaceholder(TheaterManager.State state) {
+        if (state != TheaterManager.State.PrePlay) {
+            // TODO: incorporate additional cutscenes
+            OnCutsceneCompleted.Invoke();
+            return;
+        }
+
         displayTimer = displayTime;
         // placeholderHeaderText.text = "You are in the " + state + " Cutscene.\nThis cutscene will end in:";
         // placeholderTimeText.text = displayTimer.ToString("F1") + "\nseconds";
