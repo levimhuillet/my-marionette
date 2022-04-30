@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16735,6 +16735,7 @@ GameObject:
   - component: {fileID: 1847004616}
   - component: {fileID: 1847004615}
   - component: {fileID: 1847004619}
+  - component: {fileID: 1847004617}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -16863,6 +16864,14 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   m_HasMigratedActions: 1
+--- !u!81 &1847004617
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847004613}
+  m_Enabled: 1
 --- !u!20 &1847004618
 Camera:
   m_ObjectHideFlags: 0
@@ -17564,6 +17573,10 @@ PrefabInstance:
       propertyPath: allPuppets.Array.data[4]
       value: 
       objectReference: {fileID: 6098611189124543771, guid: 06bf720ce0b6bf6408aac0837f0da51e, type: 3}
+    - target: {fileID: 1749760831126888933, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
+      propertyPath: sequenceFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 6603bad439803c44795f842f544b27b5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
 --- !u!1 &1907279282 stripped
