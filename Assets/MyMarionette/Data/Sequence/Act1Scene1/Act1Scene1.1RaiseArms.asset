@@ -10,25 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
-  m_Name: Act1Scene1.3BeforeExit
+  m_Name: Act1Scene1.1RaiseArms
   m_EditorClassIdentifier: 
-  startActions: []
-  id: a1s1.3
+  startActions:
+  - EffectType: 4
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: Protagonist (Sam)
+  id: a1s1.1
   narrationDataIDs:
-  - a1s1c06
-  - a1s1c07
-  - a1s1c08
-  - a1s1c09
-  - a1s1c10
-  triggersGameplay: 0
-  puppetSwap: 0
+  - a1s1c01
+  - a1s1c02
+  - a1s1c03
+  - a1s1c04
+  triggersGameplay: 1
+  gameplayID: raise-hands
   branches:
   - PuppetKey: {fileID: 0}
-    SequenceValueID: a1s2.1
-  endActions:
-  - EffectType: 2
-    Activating: 0
-    LightColorIndex: 0
-  - EffectType: 3
-    Activating: 0
-    LightColorIndex: 0
+    SequenceValueID: a1s1.2
+  endActions: []

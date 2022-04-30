@@ -10,33 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
-  m_Name: Act2Scene1
+  m_Name: Act1Scene3.3ExitAndEnd
   m_EditorClassIdentifier: 
-  startActions:
-  - EffectType: 3
-    Activating: 0
-    LightColorIndex: 1
-    SwapRole: 
-  - EffectType: 4
-    Activating: 0
-    LightColorIndex: 0
-    SwapRole: Protagonist (Sam)
-  id: a2s1.1
+  startActions: []
+  id: a1s3.3
   narrationDataIDs:
-  - a2s1c01
-  - a2s1c02
-  - a2s1c03
-  - a2s1c04
-  - a2s1c05
-  - a2s1c06
-  - a2s1c07
-  - a2s1c08
-  - a2s1c09
-  triggersGameplay: 0
-  puppetSwap: Protagonist (Sam)
-  branches:
-  - PuppetKey: {fileID: 0}
-    SequenceValueID: a2s2.1
+  - a1s3c09
+  - a1s3c10
+  - a1s3c11
+  triggersGameplay: 1
+  gameplayID: exit
+  branches: []
   endActions:
   - EffectType: 2
     Activating: 0

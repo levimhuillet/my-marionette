@@ -70,12 +70,28 @@ public class GameplayManager : MonoBehaviour
         // Handle each gameplay event separately since they are each so different
         switch (gameplayID) {
             case "raise-hands":
-                StartCoroutine(RaiseHandsCheck());
+                //StartCoroutine(RaiseHandsCheck());
+                StartCoroutine(PlaceholderCheck());
                 break;
             case "walk-and-brush":
                 StartCoroutine(PlaceholderCheck());
                 break;
-            case "exit-a1s1":
+            case "exit":
+                StartCoroutine(PlaceholderCheck());
+                break;
+            case "try-door":
+                StartCoroutine(PlaceholderCheck());
+                break;
+            case "jump":
+                StartCoroutine(PlaceholderCheck());
+                break;
+            case "enter-quarters":
+                StartCoroutine(PlaceholderCheck());
+                break;
+            case "high-five":
+                StartCoroutine(PlaceholderCheck());
+                break;
+            case "enter-fate":
                 StartCoroutine(PlaceholderCheck());
                 break;
             default:
@@ -86,6 +102,7 @@ public class GameplayManager : MonoBehaviour
     }
 
     private IEnumerator RaiseHandsCheck() {
+        // TODO: check if both hands are above head by at least X distance
         while (false) {
             yield return null;
         }
@@ -94,7 +111,7 @@ public class GameplayManager : MonoBehaviour
     }
 
     private IEnumerator PlaceholderCheck() {
-        float timer = 5f;
+        float timer = 6f;
 
         while (timer > 0) {
             timer -= Time.deltaTime;

@@ -177,38 +177,17 @@ public class PuppetManager : MonoBehaviour
         return currPuppet;
     }
 
-    /* DEPRECATED in favor of LineRender strings
-    private void AttachString(GameObject stickAnchor, GameObject puppetAnchor) {
-        // create and position string
-        GameObject newStringObj = Instantiate(stringPrefab);
-        newStringObj.transform.SetParent(stickAnchor.transform, true);
-        newStringObj.transform.position = stickAnchor.transform.position - new Vector3(0, .1f, 0);
-
-        // attach the top segment to the stick
-        PuppetString newString = newStringObj.GetComponent<PuppetString>();
-        newString.TopJoint.connectedBody = stickAnchor.GetComponent<Rigidbody>();
-
-        // attach the bottom segment to the puppet
-        StartCoroutine(AttachBottom(newString, puppetAnchor));
-
-        //puppetParts.Add(newStringObj);
-    }
-
-    private IEnumerator AttachBottom(PuppetString newString, GameObject puppetAnchor) {
-        // wait 1 frame to update
-        yield return null;
-
-        newString.BottomSegment.transform.position = puppetAnchor.transform.position;
-        FixedJoint newJoint = newString.BottomSegment.AddComponent<FixedJoint>();
-        newJoint.connectedBody = puppetAnchor.GetComponent<Rigidbody>();
-    }
-    */
-
     private void ClearPuppet() {
         // destroy puppet gameObjects (hands, body, strings, etc.)
-        Destroy(currParts.LeftStick.gameObject);
-        Destroy(currParts.RightStick.gameObject);
-        Destroy(currParts.Body.gameObject);
+        if (currParts.LeftStick != null) {
+            Destroy(currParts.LeftStick.gameObject);
+        }
+        if (currParts.RightStick != null) {
+            Destroy(currParts.RightStick.gameObject);
+        }
+        if (currParts.Body != null) {
+            Destroy(currParts.Body.gameObject);
+        }
 
         currParts = new PuppetParts(null, null, null);
         anchorPairs.Clear();

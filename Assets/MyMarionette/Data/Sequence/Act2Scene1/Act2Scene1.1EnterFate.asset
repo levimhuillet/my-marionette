@@ -10,15 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
-  m_Name: Act1Scene1.2BeforeMirrorAndBrush
+  m_Name: Act2Scene1.1EnterFate
   m_EditorClassIdentifier: 
-  startActions: []
-  id: a1s1.2
+  startActions:
+  - EffectType: 3
+    Activating: 0
+    LightColorIndex: 1
+    SwapRole: 
+  - EffectType: 4
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: Protagonist (Sam)
+  id: a2s1.1
   narrationDataIDs:
-  - a1s1c05
+  - a2s1c01
+  - a2s1c02
+  - a2s1c03
+  - a2s1c04
+  - a2s1c05
+  - a2s1c06
+  - a2s1c07
+  - a2s1c08
   triggersGameplay: 1
-  gameplayID: walk-and-brush
+  gameplayID: enter-fate
   branches:
   - PuppetKey: {fileID: 0}
-    SequenceValueID: a1s1.3
+    SequenceValueID: a2s1.2
   endActions: []

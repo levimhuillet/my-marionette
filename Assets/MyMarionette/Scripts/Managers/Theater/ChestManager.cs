@@ -118,7 +118,7 @@ public class ChestManager : MonoBehaviour
 
     public void SetAvailablePuppets(Puppet[] puppets) {
         availablePuppets = new List<Puppet>();
-        foreach(Puppet puppet in puppets) {
+        foreach (Puppet puppet in puppets) {
             availablePuppets.Add(puppet);
         }
     }
@@ -148,8 +148,19 @@ public class ChestManager : MonoBehaviour
     }
 
     public void SetPuppetChoice(PuppetChoice choice, Puppet chosenPuppet) {
-        int choiceIndex = Array.IndexOf(allChoices, choice);
-        allChoices[choiceIndex].SelectedPuppet = chosenPuppet;
+        int foundIndex = -1;
+        for (int i = 0; i < allChoices.Length; i++) {
+            if (allChoices[i].ChoiceTitle == choice.ChoiceTitle) {
+                foundIndex = i;
+            }
+        }
+
+        if (foundIndex == -1) {
+            Debug.Log("ERROR: choice not found: " + choice.ChoiceTitle);
+            return;
+        }
+
+        allChoices[foundIndex].SelectedPuppet = chosenPuppet;
     }
 
     #endregion

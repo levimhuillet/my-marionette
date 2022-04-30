@@ -471,8 +471,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9cfb747daec9d394cb4c31f4c2e0cc51, type: 2}
   - {fileID: 11400000, guid: b47542dc5e57be94ab04657fd5e53d3b, type: 2}
   - {fileID: 11400000, guid: 977edf01018478a44afe36b297e9d1fb, type: 2}
+  - {fileID: 11400000, guid: d0b6262f534eaf34c8e972bcafd7b524, type: 2}
+  - {fileID: 11400000, guid: 000521fb40ed9c645ac066dfc260294c, type: 2}
+  - {fileID: 11400000, guid: bdea39977346a7a489ef8587d2cc11c6, type: 2}
   - {fileID: 11400000, guid: 51cbf35c31d565242beb1200137efe17, type: 2}
+  - {fileID: 11400000, guid: 573eead8e8d7c174bb445d444bf21045, type: 2}
+  - {fileID: 11400000, guid: 15fd436d21bbaf941afdac7059209131, type: 2}
   - {fileID: 11400000, guid: 2c76b42af6967144bbf6eabd8e0412a5, type: 2}
+  - {fileID: 11400000, guid: c9ee52ec5eb18364b841937b86d8a046, type: 2}
   - {fileID: 11400000, guid: cf3271543dee0ef44aab65833b8f0f39, type: 2}
   - {fileID: 11400000, guid: 0c268339df322534b89ef96ce30a7dc0, type: 2}
   OnAllSequencesCompleted:
@@ -525,7 +531,17 @@ MonoBehaviour:
   - ID: raise-hands
     Prompt: Raise Hands Above Head
   - ID: walk-and-brush
-    Prompt: Walk to Mirror and Brush Teeth
-  - ID: exit-a1s1
+    Prompt: Walk to Mirror, then Brush Teeth
+  - ID: exit
     Prompt: Carry Puppet Off Stage
+  - ID: try-door
+    Prompt: Touch Hands To The Door
+  - ID: jump
+    Prompt: Lift Puppet High, then Lower Puppet
+  - ID: enter-quarters
+    Prompt: Carry Puppet Through Door
+  - ID: high-five
+    Prompt: High Five The Manager
+  - ID: enter-fate
+    Prompt: Carry Puppet Into Ring
   promptText: {fileID: 0}
