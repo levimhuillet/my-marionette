@@ -18,6 +18,7 @@ MonoBehaviour:
   - a2s1c09
   triggersGameplay: 0
   gameplayID: 
+  props: []
   branches:
   - PuppetKey: {fileID: 0}
     SequenceValueID: a2s2.1
@@ -27,6 +28,10 @@ MonoBehaviour:
     LightColorIndex: 0
     SwapRole: 
   - EffectType: 3
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: 
+  - EffectType: 5
     Activating: 0
     LightColorIndex: 0
     SwapRole: 

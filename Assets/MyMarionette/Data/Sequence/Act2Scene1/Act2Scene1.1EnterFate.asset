@@ -29,6 +29,8 @@ MonoBehaviour:
   - a2s1c08
   triggersGameplay: 1
   gameplayID: enter-fate
+  props:
+  - {fileID: 8606002358436545383, guid: e930c40f94accaf429e88a3c8f810c7a, type: 3}
   branches:
   - PuppetKey: {fileID: 0}
     SequenceValueID: a2s1.2

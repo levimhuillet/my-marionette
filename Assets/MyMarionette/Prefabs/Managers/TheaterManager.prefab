@@ -543,5 +543,5 @@ MonoBehaviour:
   - ID: high-five
     Prompt: High Five The Manager
   - ID: enter-fate
-    Prompt: Carry Puppet Into Ring
+    Prompt: Carry Puppet To The Table
   promptText: {fileID: 0}

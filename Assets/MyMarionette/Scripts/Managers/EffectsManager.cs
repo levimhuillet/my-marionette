@@ -17,13 +17,16 @@ public class EffectsManager : MonoBehaviour
     private static float CURTAIN_DIST = 20f; // how far the curtain travels to open and close
     private float curtainStart;
 
+    private List<GameObject> activeProps;
+
     public enum Effect
     {
         None,
         Curtains,
         Lights,
         LightColor,
-        PuppetSwap
+        PuppetSwap,
+        ClearProps
     }
 
     [Serializable] 
@@ -52,6 +55,8 @@ public class EffectsManager : MonoBehaviour
         foreach (Light light in pointLights) {
             light.intensity = 0;
         }
+
+        activeProps = new List<GameObject>();
     }
 
     #region Member Functions
@@ -78,6 +83,22 @@ public class EffectsManager : MonoBehaviour
 
     public IEnumerator TurnOffAmbiance(float time) {
         yield return StartCoroutine(TurnOffAmbianceRoutine(time));
+    }
+
+    public void GenerateProps(List<GameObject> props) {
+        foreach(GameObject prop in props) {
+            GameObject newProp = Instantiate(prop);
+            activeProps.Add(newProp);
+        }
+    }
+
+    public IEnumerator ClearProps() {
+        foreach(GameObject prop in activeProps) {
+            Destroy(prop);
+        }
+        activeProps.Clear();
+
+        yield return null;
     }
 
     public IEnumerator Wait(float time) {

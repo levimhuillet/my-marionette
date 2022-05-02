@@ -87,6 +87,11 @@ public class SequenceManager : MonoBehaviour
         // set the narration index to initial val
         currNarrationIndex = 0;
 
+        // generate props
+        if (currSequenceData.Props != null) {
+            EffectsManager.Instance.GenerateProps(currSequenceData.Props);
+        }
+
         BeginSequence();
     }
 
@@ -156,6 +161,9 @@ public class SequenceManager : MonoBehaviour
                     break;
                 case EffectsManager.Effect.PuppetSwap:
                     yield return ChestManager.Instance.BeginPuppetSwap(action.SwapRole);
+                    break;
+                case EffectsManager.Effect.ClearProps:
+                    yield return EffectsManager.Instance.ClearProps();
                     break;
                 default:
                     yield return null;
@@ -233,7 +241,7 @@ public class SequenceManager : MonoBehaviour
                 return;
             }
 
-            StartCoroutine(EndActionsRoutine());
+            ActionsAfterGameplay();
         }
     }
 
