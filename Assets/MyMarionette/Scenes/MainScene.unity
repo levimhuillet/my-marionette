@@ -7141,7 +7141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &662650596
 Transform:
   m_ObjectHideFlags: 0
@@ -17419,7 +17419,7 @@ PrefabInstance:
     - target: {fileID: 1749760831126888933, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
       propertyPath: sequenceFile
       value: 
-      objectReference: {fileID: 4900000, guid: 6603bad439803c44795f842f544b27b5, type: 3}
+      objectReference: {fileID: 4900000, guid: fc20300993e7a5141bbfd6d6050f20d4, type: 3}
     - target: {fileID: 3010876364293792298, guid: 66b0e2456bebc8d4fa45b0f0043156da, type: 3}
       propertyPath: promptText
       value: 

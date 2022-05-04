@@ -20,6 +20,7 @@ MonoBehaviour:
   - a1s3c11
   triggersGameplay: 1
   gameplayID: exit
+  props: []
   branches: []
   endActions:
   - EffectType: 2

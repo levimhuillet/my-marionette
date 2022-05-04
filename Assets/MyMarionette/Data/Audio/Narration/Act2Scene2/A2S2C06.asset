@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df2ba54fb135beb4e938ea7d4b3664cf, type: 3}
-  m_Name: A2S2C01
+  m_Name: A2S2C06
   m_EditorClassIdentifier: 
-  m_id: a2s2c01
-  m_clip: {fileID: 8300000, guid: 26b39c31a1b32d04cb9317f1ca44ed91, type: 3}
+  m_id: a2s2c06
+  m_clip: {fileID: 8300000, guid: a4d0b697a71dc1c449cf1d90a9e64d49, type: 3}
   m_volume: 1
   m_pan: 0
   subtitle: 
-  requiresAction: 0
