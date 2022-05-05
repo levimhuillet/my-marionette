@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class SequenceManager : MonoBehaviour
 {
@@ -118,12 +119,17 @@ public class SequenceManager : MonoBehaviour
         yield return HandleEffects(currSequenceData.StartActions);
 
         // Turn on lights
-        yield return EffectsManager.Instance.TurnOnLights(2);
+        //yield return EffectsManager.Instance.TurnOnLights(2);
 
         OnStartActionsCompleted.Invoke();
     }
 
     private void ActionsAfterGameplay() {
+        if (currSequenceData.TriggersCutscene) {
+            CutsceneManager.Instance.StartCutscene(currSequenceData.CutsceneID);
+            // cutscene continues on its own, no need to wait
+        }
+
         StartCoroutine(EndActionsRoutine());
     }
 
@@ -132,7 +138,7 @@ public class SequenceManager : MonoBehaviour
         yield return HandleEffects(currSequenceData.EndActions);
 
         // wait
-        yield return EffectsManager.Instance.Wait(2);
+        //yield return EffectsManager.Instance.Wait(2);
 
         OnEndActionsCompleted.Invoke();
     }
@@ -164,6 +170,23 @@ public class SequenceManager : MonoBehaviour
                     break;
                 case EffectsManager.Effect.ClearProps:
                     yield return EffectsManager.Instance.ClearProps();
+                    break;
+                case EffectsManager.Effect.Wait:
+                    yield return EffectsManager.Instance.Wait(2f);
+                    break;
+                case EffectsManager.Effect.SkipTransition:
+                    // Load credits early
+                    SceneManager.LoadScene("Credits");
+                    yield return null;
+                    break;
+                case EffectsManager.Effect.Ambiance:
+                    if (action.Activating) {
+                        StartCoroutine(EffectsManager.Instance.TurnOnAmbiance(10f));
+                    }
+                    else {
+                        StartCoroutine(EffectsManager.Instance.TurnOffAmbiance(6f));
+                    }
+                    yield return null;
                     break;
                 default:
                     yield return null;

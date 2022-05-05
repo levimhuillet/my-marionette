@@ -10,42 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
-  m_Name: Act2Scene2.1End
+  m_Name: Act2Scene2.3End
   m_EditorClassIdentifier: 
   startActions:
-  - EffectType: 4
-    Activating: 0
-    LightColorIndex: 0
-    SwapRole: Protagonist (Sam)
-  id: a2s2.1
-  narrationDataIDs:
-  - a2s2c01
-  - a2s2c02
-  - a2s2c03
-  - a2s2c04
-  - a2s2c05
-  - a2s2c06
-  - a2s2c07
-  - a2s2c08
-  - a2s2c09
-  - a2s2c10
-  - a2s2c11
-  - a2s2c12
-  - a2s2c13
-  - a2s2c14
-  - a2s2c15
-  - a2s2c16
-  - a2s2c17
-  triggersGameplay: 0
-  gameplayID: 
-  props: []
-  branches: []
-  endActions:
   - EffectType: 2
     Activating: 0
     LightColorIndex: 0
     SwapRole: 
-  - EffectType: 3
+  - EffectType: 8
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: 
+  id: a2s2.3
+  narrationDataIDs:
+  - a2s2c16
+  - a2s2c17
+  triggersGameplay: 0
+  gameplayID: 
+  triggersCutscene: 0
+  cutsceneID: 
+  props: []
+  branches: []
+  endActions:
+  - EffectType: 6
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: 
+  - EffectType: 7
     Activating: 0
     LightColorIndex: 0
     SwapRole: 

@@ -26,7 +26,10 @@ public class EffectsManager : MonoBehaviour
         Lights,
         LightColor,
         PuppetSwap,
-        ClearProps
+        ClearProps,
+        Wait,
+        SkipTransition,
+        Ambiance
     }
 
     [Serializable] 

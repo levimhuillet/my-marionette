@@ -495,7 +495,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2c76b42af6967144bbf6eabd8e0412a5, type: 2}
   - {fileID: 11400000, guid: c9ee52ec5eb18364b841937b86d8a046, type: 2}
   - {fileID: 11400000, guid: cf3271543dee0ef44aab65833b8f0f39, type: 2}
-  - {fileID: 11400000, guid: 0c268339df322534b89ef96ce30a7dc0, type: 2}
+  - {fileID: 11400000, guid: 0affe328fe4d3d844a7e7310828bdbb4, type: 2}
+  - {fileID: 11400000, guid: 60ed9f5b18a158c49b24749d30f0ea78, type: 2}
+  - {fileID: 11400000, guid: dd294401254bf7d42adc74ed86f83e80, type: 2}
   OnAllSequencesCompleted:
     m_PersistentCalls:
       m_Calls: []

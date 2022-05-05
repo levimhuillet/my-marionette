@@ -12,13 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
   m_Name: Act1Scene2.1TryDoor
   m_EditorClassIdentifier: 
-  startActions: []
+  startActions:
+  - EffectType: 6
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: 
+  - EffectType: 2
+    Activating: 1
+    LightColorIndex: 0
+    SwapRole: 
   id: a1s2.1
   narrationDataIDs:
   - a1s2c01
   - a1s2c02
   triggersGameplay: 1
   gameplayID: try-door
+  triggersCutscene: 0
+  cutsceneID: 
+  props: []
   branches:
   - PuppetKey: {fileID: 0}
     SequenceValueID: a1s2.2

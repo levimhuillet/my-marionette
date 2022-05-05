@@ -23,6 +23,12 @@ public class SequenceData : ScriptableObject
     public string GameplayID {
         get { return gameplayID; }
     }
+    public bool TriggersCutscene {
+        get { return triggersCutscene; }
+    }
+    public string CutsceneID {
+        get { return cutsceneID; }
+    }
     public List<GameObject> Props {
         get { return props; }
     }
@@ -38,6 +44,8 @@ public class SequenceData : ScriptableObject
     [SerializeField] private string[] narrationDataIDs;
     [SerializeField] private bool triggersGameplay;
     [SerializeField] private string gameplayID;
+    [SerializeField] private bool triggersCutscene;
+    [SerializeField] private string cutsceneID;
     [SerializeField] private List<GameObject> props;
     [SerializeField] private List<Branch> branches;
     [SerializeField] private List<EffectAction> endActions;

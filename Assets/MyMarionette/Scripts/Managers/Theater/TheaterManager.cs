@@ -21,8 +21,8 @@ public class TheaterManager : MonoBehaviour
         AdLib,
         Act1,
         Intermission,
-        Act2,
-        PostPlay
+        Act2
+        //PostPlay
      }
 
     #region Member Variables
@@ -113,8 +113,8 @@ public class TheaterManager : MonoBehaviour
             State.AdLib,
             State.Act1,
             State.Intermission,
-            State.Act2,
-            State.PostPlay
+            State.Act2
+            //State.PostPlay
         };
 
         currStateIndex = -1;
@@ -152,9 +152,9 @@ public class TheaterManager : MonoBehaviour
             case State.Act2:
                 if (DEBUGGING) { Debug.Log("[Theater Manager] The play is in Act 2."); }
                 break;
-            case State.PostPlay:
-                if (DEBUGGING) { Debug.Log("[Theater Manager] The play has finished."); }
-                break;
+            //case State.PostPlay:
+                //if (DEBUGGING) { Debug.Log("[Theater Manager] The play has finished."); }
+                //break;
             default:
                 break;
         }

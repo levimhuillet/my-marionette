@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: A2S2C13
   m_EditorClassIdentifier: 
   m_id: a2s2c13
-  m_clip: {fileID: 8300000, guid: bbdc578821dd97147af53a2f899a8db3, type: 3}
+  m_clip: {fileID: 8300000, guid: c903eb3cd15f6e849a63044a83c34991, type: 3}
   m_volume: 1
   m_pan: 0
-  subtitle: 
+  subtitle: '[Richard] "What a splendid job you did! Truly, I had tears in my eyes.
+    You will make an excellent addition to my collection."'

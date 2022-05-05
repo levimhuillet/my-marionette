@@ -13,9 +13,17 @@ MonoBehaviour:
   m_Name: Act2Scene1.1EnterFate
   m_EditorClassIdentifier: 
   startActions:
+  - EffectType: 6
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: 
   - EffectType: 3
     Activating: 0
     LightColorIndex: 1
+    SwapRole: 
+  - EffectType: 2
+    Activating: 1
+    LightColorIndex: 0
     SwapRole: 
   id: a2s1.1
   narrationDataIDs:
@@ -29,6 +37,8 @@ MonoBehaviour:
   - a2s1c08
   triggersGameplay: 1
   gameplayID: enter-fate
+  triggersCutscene: 0
+  cutsceneID: 
   props:
   - {fileID: 8606002358436545383, guid: e930c40f94accaf429e88a3c8f810c7a, type: 3}
   branches:

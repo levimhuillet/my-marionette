@@ -17,6 +17,10 @@ MonoBehaviour:
     Activating: 0
     LightColorIndex: 0
     SwapRole: Protagonist (Sam)
+  - EffectType: 2
+    Activating: 1
+    LightColorIndex: 0
+    SwapRole: 
   id: a1s1.1
   narrationDataIDs:
   - a1s1c01
@@ -25,6 +29,8 @@ MonoBehaviour:
   - a1s1c04
   triggersGameplay: 1
   gameplayID: raise-hands
+  triggersCutscene: 0
+  cutsceneID: 
   props: []
   branches:
   - PuppetKey: {fileID: 0}
