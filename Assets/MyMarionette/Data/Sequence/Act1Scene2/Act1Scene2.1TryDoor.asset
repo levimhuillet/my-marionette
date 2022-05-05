@@ -29,7 +29,8 @@ MonoBehaviour:
   gameplayID: try-door
   triggersCutscene: 0
   cutsceneID: 
-  props: []
+  props:
+  - {fileID: 9089191068078886605, guid: 8357ddd269ddd3043b64d96def262ce5, type: 3}
   branches:
   - PuppetKey: {fileID: 0}
     SequenceValueID: a1s2.2

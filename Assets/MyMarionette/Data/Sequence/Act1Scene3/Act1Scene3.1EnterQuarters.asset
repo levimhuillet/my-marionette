@@ -35,7 +35,8 @@ MonoBehaviour:
   gameplayID: enter-quarters
   triggersCutscene: 0
   cutsceneID: 
-  props: []
+  props:
+  - {fileID: 9035594978029354812, guid: 6f120636f228aa54291dafb2da90a04f, type: 3}
   branches:
   - PuppetKey: {fileID: 0}
     SequenceValueID: a1s3.2

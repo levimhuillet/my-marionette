@@ -6,6 +6,10 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
+
+    [SerializeField] private bool debugSpeed; // speed up for debugging
+    private static float DEBUG_SPEED = 3;
+
     public struct AudioLoopPair
     {
         public AudioLoopPair(AudioData data, bool loop) {
@@ -81,12 +85,18 @@ public class AudioManager : MonoBehaviour
         LoadAudio(audioSrc, newData);
         audioSrc.loop = loop;
         audioSrc.Play();
+
+        if (debugSpeed) { audioSrc.pitch = DEBUG_SPEED; }
+        else { audioSrc.pitch = 1; }
     }
 
     public void PlayAudio(AudioClip clip, bool loop = false) {
         audioSrc.clip = clip;
         audioSrc.loop = loop;
         audioSrc.Play();
+
+        if (debugSpeed) { audioSrc.pitch = DEBUG_SPEED; }
+        else { audioSrc.pitch = 1; }
     }
 
     public void PlayAudioDirect(AudioData newData, bool isNarration, bool loop = false) {
@@ -94,6 +104,9 @@ public class AudioManager : MonoBehaviour
         LoadAudio(audioSrc, newData);
         audioSrc.loop = loop;
         audioSrc.Play();
+
+        if (debugSpeed) { audioSrc.pitch = DEBUG_SPEED; }
+        else { audioSrc.pitch = 1; }
 
         // TODO: track if is narration
     }

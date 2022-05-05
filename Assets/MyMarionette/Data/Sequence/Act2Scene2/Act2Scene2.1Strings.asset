@@ -38,7 +38,8 @@ MonoBehaviour:
   gameplayID: 
   triggersCutscene: 1
   cutsceneID: closing
-  props: []
+  props:
+  - {fileID: 8614783161744177169, guid: 7a9774c1f86356a468100631e00014e6, type: 3}
   branches:
   - PuppetKey: {fileID: 0}
     SequenceValueID: a2s2.2

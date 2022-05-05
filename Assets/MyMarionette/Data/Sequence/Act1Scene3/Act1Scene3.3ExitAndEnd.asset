@@ -20,6 +20,8 @@ MonoBehaviour:
   - a1s3c11
   triggersGameplay: 1
   gameplayID: exit
+  triggersCutscene: 0
+  cutsceneID: 
   props: []
   branches: []
   endActions:
@@ -28,6 +30,10 @@ MonoBehaviour:
     LightColorIndex: 0
     SwapRole: 
   - EffectType: 3
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: 
+  - EffectType: 5
     Activating: 0
     LightColorIndex: 0
     SwapRole: 

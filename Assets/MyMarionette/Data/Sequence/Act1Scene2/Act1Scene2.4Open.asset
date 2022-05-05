@@ -10,24 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e93a04f4ad7811c4593ed937470d9373, type: 3}
-  m_Name: Act1Scene2.4End
+  m_Name: Act1Scene2.4Open
   m_EditorClassIdentifier: 
   startActions: []
   id: a1s2.4
   narrationDataIDs:
   - a1s2c15
-  - a1s2c16
-  triggersGameplay: 1
-  gameplayID: exit
+  triggersGameplay: 0
+  gameplayID: 
+  triggersCutscene: 1
+  cutsceneID: theater-open
+  props: []
   branches:
   - PuppetKey: {fileID: 0}
-    SequenceValueID: a1s3.1
-  endActions:
-  - EffectType: 2
-    Activating: 0
-    LightColorIndex: 0
-    SwapRole: 
-  - EffectType: 3
-    Activating: 0
-    LightColorIndex: 0
-    SwapRole: 
+    SequenceValueID: a1s2.5
+  endActions: []

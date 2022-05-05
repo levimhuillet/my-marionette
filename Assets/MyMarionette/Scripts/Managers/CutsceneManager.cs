@@ -16,6 +16,9 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private PlayableDirector openingSceneDirector;
     [SerializeField] private PlayableDirector closingSceneDirector;
 
+    // Stage cutscenes
+    [SerializeField] private PlayableDirector theaterOpenDirector;
+
     private void StartOpeningCutscene() {
         CutsceneCam.SetActive(true);
 
@@ -37,15 +40,23 @@ public class CutsceneManager : MonoBehaviour
     private void StartClosingCutscene() {
         closingSceneDirector.Play();
 
-        //ChestManager.Instance.OpenChest();
+        closingSceneDirector.stopped += HandleDirectorStoppedClosing;
+    }
 
-        openingSceneDirector.stopped += HandleDirectorStoppedClosing;
+    private void StartTheaterOpen() {
+        theaterOpenDirector = GameObject.Find("TheaterDoorGroup(Clone)").GetComponent<PlayableDirector>();
+        theaterOpenDirector.Play();
+
+        theaterOpenDirector.stopped += HandleDirectorStoppedTheaterOpen;
     }
 
     public void StartCutscene(string id) {
         switch(id) {
             case "closing":
                 StartClosingCutscene();
+                break;
+            case "theater-open":
+                StartTheaterOpen();
                 break;
             default:
                 break;
@@ -86,6 +97,10 @@ public class CutsceneManager : MonoBehaviour
         ChestManager.Instance.CloseChest();
 
         OnCutsceneCompleted.Invoke();
+    }
+
+    private void HandleDirectorStoppedTheaterOpen(PlayableDirector obj) {
+        // nothing needed
     }
 
     private void OnEnable() {
