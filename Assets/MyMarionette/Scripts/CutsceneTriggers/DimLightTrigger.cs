@@ -7,7 +7,8 @@ public class DimLightTrigger : MonoBehaviour
     [SerializeField] Light chestLight;
 
     private void OnEnable() {
-        chestLight.gameObject.SetActive(false);
+        //chestLight.gameObject.SetActive(false);
+        chestLight.intensity = 5f;
         //StartCoroutine(TurnOffLights(3f));
     }
 
