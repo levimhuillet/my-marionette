@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startActions: []
   num: 1
-  firstSequenceID: a2s1.1
+  firstSequenceID: a1s1.1
   endActions: []
