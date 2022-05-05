@@ -177,7 +177,7 @@ public class PuppetManager : MonoBehaviour
         return currPuppet;
     }
 
-    private void ClearPuppet() {
+    public void ClearPuppet() {
         // destroy puppet gameObjects (hands, body, strings, etc.)
         if (currParts.LeftStick != null) {
             Destroy(currParts.LeftStick.gameObject);

@@ -13,13 +13,13 @@ public class CreditsManager : MonoBehaviour
     private float scrollSpeed;
 
     private void Start() {
-        scrollSpeed = -finalPanel.transform.position.y / (MUSIC_LENGTH_SECS - timeMod);
+        scrollSpeed = (-finalPanel.transform.position.y - 100) / (MUSIC_LENGTH_SECS - timeMod);
     }
 
     // Update is called once per frame
     void Update()
     {
-        while(finalPanel.transform.position.y < 0) {
+        while(finalPanel.transform.position.y < 100) {
             mainColumn.transform.Translate(Vector3.up * scrollSpeed * Time.deltaTime);
             return;
         }

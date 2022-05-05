@@ -17,6 +17,14 @@ MonoBehaviour:
     Activating: 0
     LightColorIndex: 0
     SwapRole: Troupe Member (Richard)
+  - EffectType: 6
+    Activating: 0
+    LightColorIndex: 0
+    SwapRole: 
+  - EffectType: 2
+    Activating: 1
+    LightColorIndex: 0
+    SwapRole: 
   id: a1s3.1
   narrationDataIDs:
   - a1s3c01
@@ -25,6 +33,9 @@ MonoBehaviour:
   - a1s3c04
   triggersGameplay: 1
   gameplayID: enter-quarters
+  triggersCutscene: 0
+  cutsceneID: 
+  props: []
   branches:
   - PuppetKey: {fileID: 0}
     SequenceValueID: a1s3.2

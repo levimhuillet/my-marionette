@@ -10,35 +10,14 @@ public class CutsceneManager : MonoBehaviour
 {
     public static CutsceneManager Instance;
 
-    #region Placeholder UI
-
-    // Placeholder
-    [SerializeField] private GameObject placeholderUI;
-    [SerializeField] private Text placeholderHeaderText;
-    [SerializeField] private Text placeholderTimeText;
-
     [SerializeField] private GameObject XROrigin;
     [SerializeField] private GameObject CutsceneCam;
 
     [SerializeField] private PlayableDirector openingSceneDirector;
-    private float displayTime = 30f;
-    private float displayTimer;
-    private bool isDisplaying;
+    [SerializeField] private PlayableDirector closingSceneDirector;
 
-    private void StartPlaceholder(TheaterManager.State state) {
-        if (state != TheaterManager.State.PrePlay) {
-            // TODO: incorporate additional cutscenes
-            OnCutsceneCompleted.Invoke();
-            return;
-        }
-
-        displayTimer = displayTime;
-        // placeholderHeaderText.text = "You are in the " + state + " Cutscene.\nThis cutscene will end in:";
-        // placeholderTimeText.text = displayTimer.ToString("F1") + "\nseconds";
-        // placeholderUI.SetActive(true);
-
+    private void StartOpeningCutscene() {
         CutsceneCam.SetActive(true);
-        isDisplaying = true;
 
         Debug.Log("Is director enabled? " + openingSceneDirector.isActiveAndEnabled);
         openingSceneDirector.Play();
@@ -49,7 +28,29 @@ public class CutsceneManager : MonoBehaviour
         XROrigin.SetActive(false);
     }
 
-    #endregion
+    private void StartIntermissionCutscene() {
+        // TODO: incorporate additional cutscenes
+        OnCutsceneCompleted.Invoke();
+        return;
+    }
+
+    private void StartClosingCutscene() {
+        closingSceneDirector.Play();
+
+        //ChestManager.Instance.OpenChest();
+
+        openingSceneDirector.stopped += HandleDirectorStoppedClosing;
+    }
+
+    public void StartCutscene(string id) {
+        switch(id) {
+            case "closing":
+                StartClosingCutscene();
+                break;
+            default:
+                break;
+        }
+    }
 
     #region Events
 
@@ -68,8 +69,8 @@ public class CutsceneManager : MonoBehaviour
         Debug.Log("Sending next state");
         CutsceneCam.SetActive(false);
         XROrigin.SetActive(true);
-        
-   
+
+
         GameObject cutsceneObj = GameObject.Find("OpeningCutscene");
 
         cutsceneObj.SetActive(false);
@@ -77,8 +78,14 @@ public class CutsceneManager : MonoBehaviour
 
         OnCutsceneCompleted.Invoke();
 
-        openingSceneDirector.played += Play_Director;
-        openingSceneDirector.stopped += Stop_Director;
+        openingSceneDirector.played -= Play_Director;
+        openingSceneDirector.stopped -= Stop_Director;
+    }
+
+    private void HandleDirectorStoppedClosing(PlayableDirector obj) {
+        ChestManager.Instance.CloseChest();
+
+        OnCutsceneCompleted.Invoke();
     }
 
     private void OnEnable() {
@@ -91,26 +98,10 @@ public class CutsceneManager : MonoBehaviour
         }
 
         OnCutsceneCompleted = new UnityEvent();
-
-        // Placeholder
-        isDisplaying = false;
     }
 
     private void Start() {
         TheaterManager.Instance.OnStateAdvanced.AddListener(HandleTheaterStateAdvanced);
-    }
-
-    private void Update() {
-        // Placeholder
-        // if (isDisplaying) {
-        //     displayTimer -= Time.deltaTime;
-        //     placeholderTimeText.text = displayTimer.ToString("F1") + "\nseconds";
-        //     if (displayTimer <= 0) {
-        //         placeholderUI.gameObject.SetActive(false);
-        //         isDisplaying = false;
-        //         OnCutsceneCompleted.Invoke();
-        //     }
-        // }
     }
 
     #endregion // Unity Callbacks
@@ -121,21 +112,22 @@ public class CutsceneManager : MonoBehaviour
         switch (state) {
             case TheaterManager.State.PrePlay:
                 if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Cutscene Manager] Beginning the " + state + " Cutscene"); }
-                StartPlaceholder(state);
+                StartOpeningCutscene();
+                //StartClosingCutscene();
                 break;
             case TheaterManager.State.Intermission:
                 if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Cutscene Manager] Beginning the " + state + " Cutscene"); }
-                StartPlaceholder(state);
+                StartIntermissionCutscene();
                 break;
-            case TheaterManager.State.PostPlay:
-                if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Cutscene Manager] Beginning the " + state + " Cutscene"); }
-                StartPlaceholder(state);
-                break;
+            //case TheaterManager.State.PostPlay:
+                //if (TheaterManager.Instance.DEBUGGING) { Debug.Log("[Cutscene Manager] Beginning the " + state + " Cutscene"); }
+                //StartClosingCutscene();
+                //break;
             default:
                 break;
         }
     }
-    
+
     #endregion // Event Handlers
 
 }
