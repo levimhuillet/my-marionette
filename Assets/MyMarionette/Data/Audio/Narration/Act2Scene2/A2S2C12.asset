@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: A2S2C12
   m_EditorClassIdentifier: 
   m_id: a2s2c12
-  m_clip: {fileID: 8300000, guid: 86decb873c4668340818ceb92997fec8, type: 3}
+  m_clip: {fileID: 8300000, guid: 7cb10919497de2a439e682e68dc6f13d, type: 3}
   m_volume: 1
   m_pan: 0
-  subtitle: 
+  subtitle: '[Richard] "You. Were. FANTASTIC!"'

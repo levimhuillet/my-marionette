@@ -769,7 +769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainColumn: {fileID: 695670790}
   finalPanel: {fileID: 934472125}
-  timeMod: 13
+  timeMod: 16.5
 --- !u!1 &1074913368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,7 +1811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8695301100128912342, guid: b5c9ca5bfabde654f8589e3efd135473, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 9
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 8695301100128912342, guid: b5c9ca5bfabde654f8589e3efd135473, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
