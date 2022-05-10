@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ChestCloseTrigger : MonoBehaviour
 {
-
-
     private void OnEnable() {
         ChestManager.Instance.CloseChest();
     }

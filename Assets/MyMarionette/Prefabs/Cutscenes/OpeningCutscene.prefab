@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5805827859532559556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6081744570202345094}
+  - component: {fileID: 9070974840604998822}
+  m_Layer: 0
+  m_Name: PositionXRTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6081744570202345094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5805827859532559556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7339272818450933364}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9070974840604998822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5805827859532559556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4712e6322bdb347b5d77f678401d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xrOrigin: {fileID: 0}
+  newPosTransform: {fileID: 0}
 --- !u!1 &7339272817290995185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1263,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'boss:RightForeArm'\n\tTransform 'boss:RightLeg'\n\tTransform
+    'boss:LeftHandMiddle1'\n\tTransform 'boss:LeftUpLeg'\n\tTransform 'boss:LeftHandMiddle2'\n\tTransform
+    'boss:Spine2'\n\tTransform 'boss:RightHandMiddle1'\n\tTransform 'boss:LeftHandThumb1'\n\tTransform
+    'boss:Neck'\n\tTransform 'boss:LeftHandPinky3'\n\tand more ..."
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -2246,6 +2296,7 @@ Transform:
   - {fileID: 7339272818062892770}
   - {fileID: 7339272818768323482}
   - {fileID: 7339272818413300360}
+  - {fileID: 6081744570202345094}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2274,6 +2325,12 @@ PlayableDirector:
     value: {fileID: 7339272819130303342}
   - key: {fileID: -8241504871200545269, guid: 8737e54e219fcb24bbc67c1425496690, type: 2}
     value: {fileID: 7339272818413300361}
+  - key: {fileID: -6376004251900141894, guid: 8737e54e219fcb24bbc67c1425496690, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3268022272572810267, guid: 8737e54e219fcb24bbc67c1425496690, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3262831978688411408, guid: 8737e54e219fcb24bbc67c1425496690, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 1ed413e3003454d67b2c7ee3a13c0a64: {fileID: 7339272818639185822}

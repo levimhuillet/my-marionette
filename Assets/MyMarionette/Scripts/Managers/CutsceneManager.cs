@@ -16,8 +16,10 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField] private PlayableDirector openingSceneDirector;
     [SerializeField] private PlayableDirector closingSceneDirector;
 
+    [SerializeField] private Transform gameplayPosTransform;
+
     // Stage cutscenes
-    [SerializeField] private PlayableDirector theaterOpenDirector;
+    private PlayableDirector theaterOpenDirector;
 
     private void StartOpeningCutscene() {
         CutsceneCam.SetActive(true);
@@ -32,7 +34,6 @@ public class CutsceneManager : MonoBehaviour
     }
 
     private void StartIntermissionCutscene() {
-        // TODO: incorporate additional cutscenes
         OnCutsceneCompleted.Invoke();
         return;
     }
@@ -79,8 +80,9 @@ public class CutsceneManager : MonoBehaviour
     private void Stop_Director(PlayableDirector obj) {
         Debug.Log("Sending next state");
         CutsceneCam.SetActive(false);
-        XROrigin.SetActive(true);
-
+        XROrigin.transform.position = gameplayPosTransform.position;
+        XROrigin.transform.localScale = new Vector3(3, 2, 3);
+        //XROrigin.SetActive(true);
 
         GameObject cutsceneObj = GameObject.Find("OpeningCutscene");
 
